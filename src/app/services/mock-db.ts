@@ -1,0 +1,5802 @@
+import { Teams } from '../models/teams';
+
+export const initialDB: Teams[] = [
+    {
+      "id": 1,
+      "name": "Manchester City",
+      "shortName": "MCI",
+      "logo": "",
+      "squad": [
+        {
+          "id": 101,
+          "name": "Ederson Moraes",
+          "position": "GK",
+          "rating": 89,
+          "shirtNumber": 31,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 102,
+          "name": "Kyle Walker",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 103,
+          "name": "Rúben Dias",
+          "position": "DF",
+          "rating": 88,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 104,
+          "name": "Nathan Aké",
+          "position": "DF",
+          "rating": 84,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 105,
+          "name": "Rodri Hernández",
+          "position": "MF",
+          "rating": 90,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 106,
+          "name": "Kevin De Bruyne",
+          "position": "MF",
+          "rating": 91,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 107,
+          "name": "Bernardo Silva",
+          "position": "MF",
+          "rating": 88,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 108,
+          "name": "Phil Foden",
+          "position": "FW",
+          "rating": 89,
+          "shirtNumber": 47,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 109,
+          "name": "Jack Grealish",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 110,
+          "name": "Erling Haaland",
+          "position": "FW",
+          "rating": 92,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 111,
+          "name": "Julián Álvarez",
+          "position": "FW",
+          "rating": 85,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 112,
+          "name": "John Stones",
+          "position": "DF",
+          "rating": 86,
+          "shirtNumber": 5,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 113,
+          "name": "Matheus Nunes",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 27,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 114,
+          "name": "Rico Lewis",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 82,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 115,
+          "name": "Jeremy Doku",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 11,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Liverpool",
+      "shortName": "LIV",
+      "logo": "",
+      "squad": [
+        {
+          "id": 201,
+          "name": "Alisson Becker",
+          "position": "GK",
+          "rating": 89,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 202,
+          "name": "Trent Alexander-Arnold",
+          "position": "DF",
+          "rating": 87,
+          "shirtNumber": 66,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 203,
+          "name": "Virgil van Dijk",
+          "position": "DF",
+          "rating": 89,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 204,
+          "name": "Ibrahima Konaté",
+          "position": "DF",
+          "rating": 84,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 205,
+          "name": "Andrew Robertson",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 26,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 206,
+          "name": "Dominik Szoboszlai",
+          "position": "MF",
+          "rating": 85,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 207,
+          "name": "Alexis Mac Allister",
+          "position": "MF",
+          "rating": 84,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 208,
+          "name": "Curtis Jones",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 209,
+          "name": "Mohamed Salah",
+          "position": "FW",
+          "rating": 90,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 210,
+          "name": "Diogo Jota",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 211,
+          "name": "Darwin Núñez",
+          "position": "FW",
+          "rating": 83,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 212,
+          "name": "Luis Díaz",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 7,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 213,
+          "name": "Joe Gomez",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 2,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 214,
+          "name": "Harvey Elliott",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 215,
+          "name": "Wataru Endo",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 3,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 216,
+          "name": "Caoimhín Kelleher",
+          "position": "GK",
+          "rating": 76,
+          "shirtNumber": 62,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Manchester United",
+      "shortName": "MUN",
+      "logo": "",
+      "squad": [
+        {
+          "id": 301,
+          "name": "André Onana",
+          "position": "GK",
+          "rating": 84,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 302,
+          "name": "Aaron Wan-Bissaka",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 303,
+          "name": "Raphaël Varane",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 304,
+          "name": "Lisandro Martínez",
+          "position": "DF",
+          "rating": 84,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 305,
+          "name": "Luke Shaw",
+          "position": "DF",
+          "rating": 83,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 306,
+          "name": "Casemiro",
+          "position": "MF",
+          "rating": 86,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 307,
+          "name": "Bruno Fernandes",
+          "position": "MF",
+          "rating": 88,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 308,
+          "name": "Christian Eriksen",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 309,
+          "name": "Marcus Rashford",
+          "position": "FW",
+          "rating": 86,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 310,
+          "name": "Antony",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 21,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 311,
+          "name": "Rasmus Højlund",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 312,
+          "name": "Harry Maguire",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 5,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 313,
+          "name": "Scott McTominay",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 39,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 314,
+          "name": "Alejandro Garnacho",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 17,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 315,
+          "name": "Jonny Evans",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 35,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 316,
+          "name": "Altay Bayındır",
+          "position": "GK",
+          "rating": 75,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Arsenal",
+      "shortName": "ARS",
+      "logo": "",
+      "squad": [
+        {
+          "id": 401,
+          "name": "David Raya",
+          "position": "GK",
+          "rating": 83,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 402,
+          "name": "Ben White",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 403,
+          "name": "William Saliba",
+          "position": "DF",
+          "rating": 86,
+          "shirtNumber": 12,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 404,
+          "name": "Gabriel Magalhães",
+          "position": "DF",
+          "rating": 84,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 405,
+          "name": "Oleksandr Zinchenko",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 35,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 406,
+          "name": "Declan Rice",
+          "position": "MF",
+          "rating": 87,
+          "shirtNumber": 41,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 407,
+          "name": "Martin Ødegaard",
+          "position": "MF",
+          "rating": 88,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 408,
+          "name": "Kai Havertz",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 409,
+          "name": "Bukayo Saka",
+          "position": "FW",
+          "rating": 89,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 410,
+          "name": "Gabriel Jesus",
+          "position": "FW",
+          "rating": 85,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 411,
+          "name": "Gabriel Martinelli",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 412,
+          "name": "Takehiro Tomiyasu",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 18,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 413,
+          "name": "Jorginho",
+          "position": "MF",
+          "rating": 81,
+          "shirtNumber": 20,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 414,
+          "name": "Emile Smith Rowe",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 10,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 415,
+          "name": "Leandro Trossard",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 416,
+          "name": "Aaron Ramsdale",
+          "position": "GK",
+          "rating": 82,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Chelsea",
+      "shortName": "CHE",
+      "logo": "",
+      "squad": [
+        {
+          "id": 501,
+          "name": "Robert Sánchez",
+          "position": "GK",
+          "rating": 81,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 502,
+          "name": "Reece James",
+          "position": "DF",
+          "rating": 84,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 503,
+          "name": "Thiago Silva",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 504,
+          "name": "Levi Colwill",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 26,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 505,
+          "name": "Ben Chilwell",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 21,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 506,
+          "name": "Enzo Fernández",
+          "position": "MF",
+          "rating": 83,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 507,
+          "name": "Moisés Caicedo",
+          "position": "MF",
+          "rating": 84,
+          "shirtNumber": 25,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 508,
+          "name": "Conor Gallagher",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 509,
+          "name": "Mykhaylo Mudryk",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 510,
+          "name": "Raheem Sterling",
+          "position": "FW",
+          "rating": 83,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 511,
+          "name": "Nicolas Jackson",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 15,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 512,
+          "name": "Axel Disasi",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 2,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 513,
+          "name": "Carney Chukwuemeka",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 17,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 514,
+          "name": "Armando Broja",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 515,
+          "name": "Djordje Petrović",
+          "position": "GK",
+          "rating": 79,
+          "shirtNumber": 28,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 516,
+          "name": "Noni Madueke",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 11,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Tottenham Hotspur",
+      "shortName": "TOT",
+      "logo": "",
+      "squad": [
+        {
+          "id": 601,
+          "name": "Guglielmo Vicario",
+          "position": "GK",
+          "rating": 83,
+          "shirtNumber": 13,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 602,
+          "name": "Cristian Romero",
+          "position": "DF",
+          "rating": 86,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 603,
+          "name": "Micky van de Ven",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 37,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 604,
+          "name": "Pedro Porro",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 605,
+          "name": "Destiny Udogie",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 38,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 606,
+          "name": "Yves Bissouma",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 607,
+          "name": "Pape Matar Sarr",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 608,
+          "name": "James Maddison",
+          "position": "MF",
+          "rating": 85,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 609,
+          "name": "Heung-min Son",
+          "position": "FW",
+          "rating": 89,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 610,
+          "name": "Dejan Kulusevski",
+          "position": "FW",
+          "rating": 83,
+          "shirtNumber": 21,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 611,
+          "name": "Richarlison",
+          "position": "FW",
+          "rating": 83,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 612,
+          "name": "Emerson Royal",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 12,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 613,
+          "name": "Giovani Lo Celso",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 18,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 614,
+          "name": "Bryan Gil",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 11,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 615,
+          "name": "Oliver Skipp",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 4,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 616,
+          "name": "Fraser Forster",
+          "position": "GK",
+          "rating": 77,
+          "shirtNumber": 20,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Newcastle United",
+      "shortName": "NEW",
+      "logo": "",
+      "squad": [
+        {
+          "id": 701,
+          "name": "Nick Pope",
+          "position": "GK",
+          "rating": 83,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 702,
+          "name": "Kieran Trippier",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 703,
+          "name": "Fabian Schär",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 704,
+          "name": "Sven Botman",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 705,
+          "name": "Dan Burn",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 33,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 706,
+          "name": "Bruno Guimarães",
+          "position": "MF",
+          "rating": 86,
+          "shirtNumber": 39,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 707,
+          "name": "Joelinton",
+          "position": "MF",
+          "rating": 83,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 708,
+          "name": "Sandro Tonali",
+          "position": "MF",
+          "rating": 86,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 709,
+          "name": "Miguel Almirón",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 710,
+          "name": "Anthony Gordon",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 711,
+          "name": "Alexander Isak",
+          "position": "FW",
+          "rating": 85,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 712,
+          "name": "Callum Wilson",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 9,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 713,
+          "name": "Harvey Barnes",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 714,
+          "name": "Lewis Miley",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 67,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 715,
+          "name": "Tino Livramento",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 21,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 716,
+          "name": "Martin Dúbravka",
+          "position": "GK",
+          "rating": 78,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Aston Villa",
+      "shortName": "AVL",
+      "logo": "",
+      "squad": [
+        {
+          "id": 801,
+          "name": "Emiliano Martínez",
+          "position": "GK",
+          "rating": 85,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 802,
+          "name": "Matty Cash",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 803,
+          "name": "Pau Torres",
+          "position": "DF",
+          "rating": 83,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 804,
+          "name": "Ezri Konsa",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 805,
+          "name": "Lucas Digne",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 12,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 806,
+          "name": "Douglas Luiz",
+          "position": "MF",
+          "rating": 84,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 807,
+          "name": "Boubacar Kamara",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 44,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 808,
+          "name": "John McGinn",
+          "position": "MF",
+          "rating": 83,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 809,
+          "name": "Moussa Diaby",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 810,
+          "name": "Leon Bailey",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 31,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 811,
+          "name": "Ollie Watkins",
+          "position": "FW",
+          "rating": 85,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 812,
+          "name": "Youri Tielemans",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 8,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 813,
+          "name": "Jacob Ramsey",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 41,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 814,
+          "name": "Diego Carlos",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 3,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 815,
+          "name": "Clément Lenglet",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 816,
+          "name": "Robin Olsen",
+          "position": "GK",
+          "rating": 74,
+          "shirtNumber": 25,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Brighton & Hove Albion",
+      "shortName": "BHA",
+      "logo": "",
+      "squad": [
+        {
+          "id": 901,
+          "name": "Jason Steele",
+          "position": "GK",
+          "rating": 77,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 902,
+          "name": "Joel Veltman",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 34,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 903,
+          "name": "Lewis Dunk",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 904,
+          "name": "Jan Paul van Hecke",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 905,
+          "name": "Pervis Estupiñán",
+          "position": "DF",
+          "rating": 82,
+          "shirtNumber": 30,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 906,
+          "name": "Pascal Groß",
+          "position": "MF",
+          "rating": 84,
+          "shirtNumber": 13,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 907,
+          "name": "Billy Gilmour",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 908,
+          "name": "João Pedro",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 909,
+          "name": "Solly March",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 910,
+          "name": "Kaoru Mitoma",
+          "position": "FW",
+          "rating": 84,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 911,
+          "name": "Danny Welbeck",
+          "position": "FW",
+          "rating": 79,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 912,
+          "name": "Bart Verbruggen",
+          "position": "GK",
+          "rating": 78,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 913,
+          "name": "Adam Lallana",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 914,
+          "name": "Evan Ferguson",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 28,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 915,
+          "name": "Adam Webster",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 4,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 916,
+          "name": "Facundo Buonanotte",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 40,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "West Ham United",
+      "shortName": "WHU",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1001,
+          "name": "Alphonse Areola",
+          "position": "GK",
+          "rating": 81,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Vladimír Coufal",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Kurt Zouma",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Nayef Aguerd",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 27,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Emerson Palmieri",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 33,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1006,
+          "name": "James Ward-Prowse",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Tomáš Souček",
+          "position": "MF",
+          "rating": 81,
+          "shirtNumber": 28,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1008,
+          "name": "Lucas Paquetá",
+          "position": "MF",
+          "rating": 84,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1009,
+          "name": "Jarrod Bowen",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1010,
+          "name": "Saïd Benrahma",
+          "position": "FW",
+          "rating": 79,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1011,
+          "name": "Michail Antonio",
+          "position": "FW",
+          "rating": 79,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1012,
+          "name": "Pablo Fornals",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 8,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1013,
+          "name": "Edson Álvarez",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1014,
+          "name": "Ben Johnson",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 2,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1015,
+          "name": "Konstantinos Mavropanos",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1016,
+          "name": "Łukasz Fabiański",
+          "position": "GK",
+          "rating": 80,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Crystal Palace",
+      "shortName": "CRY",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1101,
+          "name": "Sam Johnstone",
+          "position": "GK",
+          "rating": 80,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1102,
+          "name": "Joel Ward",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1103,
+          "name": "Marc Guéhi",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1104,
+          "name": "Joachim Andersen",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1105,
+          "name": "Tyrick Mitchell",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1106,
+          "name": "Cheick Doucouré",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 28,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1107,
+          "name": "Jeffrey Schlupp",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 15,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1108,
+          "name": "Eberechi Eze",
+          "position": "MF",
+          "rating": 83,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1109,
+          "name": "Jordan Ayew",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1110,
+          "name": "Michael Olise",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1111,
+          "name": "Odsonne Édouard",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1112,
+          "name": "Remi Matthews",
+          "position": "GK",
+          "rating": 70,
+          "shirtNumber": 31,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1113,
+          "name": "Chris Richards",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 26,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1114,
+          "name": "Will Hughes",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1115,
+          "name": "Matheus França",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 11,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1116,
+          "name": "Jean-Philippe Mateta",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Fulham",
+      "shortName": "FUL",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1201,
+          "name": "Bernd Leno",
+          "position": "GK",
+          "rating": 82,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1202,
+          "name": "Kenny Tete",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1203,
+          "name": "Tosin Adarabioyo",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1204,
+          "name": "Tim Ream",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 13,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1205,
+          "name": "Antonee Robinson",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 33,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1206,
+          "name": "João Palhinha",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 26,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1207,
+          "name": "Tom Cairney",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1208,
+          "name": "Andreas Pereira",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1209,
+          "name": "Harry Wilson",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1210,
+          "name": "Willian",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1211,
+          "name": "Raúl Jiménez",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1212,
+          "name": "Rodrigo Muniz",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1213,
+          "name": "Bobby De Cordova-Reid",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1214,
+          "name": "Harrison Reed",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 6,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1215,
+          "name": "Isaac Hayden",
+          "position": "MF",
+          "rating": 73,
+          "shirtNumber": 21,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1216,
+          "name": "Marek Rodák",
+          "position": "GK",
+          "rating": 74,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Crystal Palace",
+      "shortName": "CRY",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1101,
+          "name": "Sam Johnstone",
+          "position": "GK",
+          "rating": 80,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1102,
+          "name": "Joel Ward",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1103,
+          "name": "Marc Guéhi",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1104,
+          "name": "Joachim Andersen",
+          "position": "DF",
+          "rating": 81,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1105,
+          "name": "Tyrick Mitchell",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1106,
+          "name": "Cheick Doucouré",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 28,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1107,
+          "name": "Jeffrey Schlupp",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 15,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1108,
+          "name": "Eberechi Eze",
+          "position": "MF",
+          "rating": 83,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1109,
+          "name": "Jordan Ayew",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1110,
+          "name": "Michael Olise",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1111,
+          "name": "Odsonne Édouard",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1112,
+          "name": "Remi Matthews",
+          "position": "GK",
+          "rating": 70,
+          "shirtNumber": 31,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1113,
+          "name": "Chris Richards",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 26,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1114,
+          "name": "Will Hughes",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1115,
+          "name": "Matheus França",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 11,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1116,
+          "name": "Jean-Philippe Mateta",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Fulham",
+      "shortName": "FUL",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1201,
+          "name": "Bernd Leno",
+          "position": "GK",
+          "rating": 82,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1202,
+          "name": "Kenny Tete",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1203,
+          "name": "Tosin Adarabioyo",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1204,
+          "name": "Tim Ream",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 13,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1205,
+          "name": "Antonee Robinson",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 33,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1206,
+          "name": "João Palhinha",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 26,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1207,
+          "name": "Tom Cairney",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1208,
+          "name": "Andreas Pereira",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1209,
+          "name": "Harry Wilson",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1210,
+          "name": "Willian",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1211,
+          "name": "Raúl Jiménez",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1212,
+          "name": "Rodrigo Muniz",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1213,
+          "name": "Bobby De Cordova-Reid",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1214,
+          "name": "Harrison Reed",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 6,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1215,
+          "name": "Isaac Hayden",
+          "position": "MF",
+          "rating": 73,
+          "shirtNumber": 21,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1216,
+          "name": "Marek Rodák",
+          "position": "GK",
+          "rating": 74,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Brentford",
+      "shortName": "BRE",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1301,
+          "name": "Mark Flekken",
+          "position": "GK",
+          "rating": 78,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1302,
+          "name": "Aaron Hickey",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1303,
+          "name": "Kristoffer Ajer",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 20,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1304,
+          "name": "Ethan Pinnock",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1305,
+          "name": "Rico Henry",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1306,
+          "name": "Christian Nørgaard",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1307,
+          "name": "Mathias Jensen",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1308,
+          "name": "Vitaly Janelt",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 27,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1309,
+          "name": "Mikkel Damsgaard",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1310,
+          "name": "Bryan Mbeumo",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1311,
+          "name": "Yoane Wissa",
+          "position": "FW",
+          "rating": 79,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1312,
+          "name": "Keane Lewis-Potter",
+          "position": "FW",
+          "rating": 74,
+          "shirtNumber": 23,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1313,
+          "name": "Frank Onyeka",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1314,
+          "name": "Ben Mee",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 16,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1315,
+          "name": "Saman Ghoddos",
+          "position": "MF",
+          "rating": 74,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1316,
+          "name": "Thomas Strakosha",
+          "position": "GK",
+          "rating": 78,
+          "shirtNumber": 22,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "AFC Bournemouth",
+      "shortName": "BOU",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1401,
+          "name": "Neto",
+          "position": "GK",
+          "rating": 80,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1402,
+          "name": "Max Aarons",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 37,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1403,
+          "name": "Illia Zabarnyi",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 27,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1404,
+          "name": "Marcos Senesi",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1405,
+          "name": "Milos Kerkez",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1406,
+          "name": "Lewis Cook",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1407,
+          "name": "Ryan Christie",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1408,
+          "name": "Philip Billing",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1409,
+          "name": "Justin Kluivert",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1410,
+          "name": "Dango Ouattara",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1411,
+          "name": "Dominic Solanke",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1412,
+          "name": "Iraola Travers",
+          "position": "GK",
+          "rating": 73,
+          "shirtNumber": 42,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1413,
+          "name": "Hamed Traoré",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 22,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1414,
+          "name": "Adam Smith",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1415,
+          "name": "Jaidon Anthony",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 32,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1416,
+          "name": "Kieffer Moore",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 21,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Wolverhampton Wanderers",
+      "shortName": "WOL",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1501,
+          "name": "José Sá",
+          "position": "GK",
+          "rating": 81,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1502,
+          "name": "Nélson Semedo",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 22,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1503,
+          "name": "Max Kilman",
+          "position": "DF",
+          "rating": 79,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1504,
+          "name": "Craig Dawson",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 15,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1505,
+          "name": "Rayan Aït-Nouri",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1506,
+          "name": "Mario Lemina",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1507,
+          "name": "João Gomes",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1508,
+          "name": "Pablo Sarabia",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 21,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1509,
+          "name": "Matheus Cunha",
+          "position": "FW",
+          "rating": 81,
+          "shirtNumber": 12,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1510,
+          "name": "Pedro Neto",
+          "position": "FW",
+          "rating": 82,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1511,
+          "name": "Hwang Hee-chan",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 1512,
+          "name": "Boubacar Traoré",
+          "position": "MF",
+          "rating": 74,
+          "shirtNumber": 6,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1513,
+          "name": "Toti Gomes",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 24,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1514,
+          "name": "Sasa Kalajdzic",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 18,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1515,
+          "name": "Hugo Bueno",
+          "position": "DF",
+          "rating": 74,
+          "shirtNumber": 17,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1516,
+          "name": "Daniel Bentley",
+          "position": "GK",
+          "rating": 73,
+          "shirtNumber": 25,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Nottingham Forest",
+      "shortName": "NFO",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1601,
+          "name": "Matt Turner",
+          "position": "GK",
+          "rating": 78,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1602,
+          "name": "Serge Aurier",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1603,
+          "name": "Willy Boly",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 30,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1604,
+          "name": "Murillo",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 40,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1605,
+          "name": "Ola Aina",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 43,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1606,
+          "name": "Ibrahim Sangaré",
+          "position": "MF",
+          "rating": 81,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1607,
+          "name": "Danilo",
+          "position": "MF",
+          "rating": 79,
+          "shirtNumber": 28,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1608,
+          "name": "Morgan Gibbs-White",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1609,
+          "name": "Callum Hudson-Odoi",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1610,
+          "name": "Anthony Elanga",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 21,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1611,
+          "name": "Taiwo Awoniyi",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 1612,
+          "name": "Harry Toffolo",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 15,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1613,
+          "name": "Cheikhou Kouyaté",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 19,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1614,
+          "name": "Divock Origi",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 27,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1615,
+          "name": "Andrew Omobamidele",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 18,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1616,
+          "name": "Wayne Hennessey",
+          "position": "GK",
+          "rating": 73,
+          "shirtNumber": 13,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Everton",
+      "shortName": "EVE",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1701,
+          "name": "Jordan Pickford",
+          "position": "GK",
+          "rating": 83,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1702,
+          "name": "Seamus Coleman",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1703,
+          "name": "James Tarkowski",
+          "position": "DF",
+          "rating": 80,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1704,
+          "name": "Jarrad Branthwaite",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 32,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1705,
+          "name": "Vitaliy Mykolenko",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1706,
+          "name": "Amadou Onana",
+          "position": "MF",
+          "rating": 82,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1707,
+          "name": "Idrissa Gueye",
+          "position": "MF",
+          "rating": 81,
+          "shirtNumber": 27,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1708,
+          "name": "Abdoulaye Doucouré",
+          "position": "MF",
+          "rating": 80,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1709,
+          "name": "Jack Harrison",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1710,
+          "name": "Dwight McNeil",
+          "position": "FW",
+          "rating": 79,
+          "shirtNumber": 7,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1711,
+          "name": "Dominic Calvert-Lewin",
+          "position": "FW",
+          "rating": 80,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 1712,
+          "name": "Beto",
+          "position": "FW",
+          "rating": 78,
+          "shirtNumber": 14,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1713,
+          "name": "Nathan Patterson",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 2,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1714,
+          "name": "Michael Keane",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 5,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1715,
+          "name": "Arnaut Danjuma",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 10,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1716,
+          "name": "João Virgínia",
+          "position": "GK",
+          "rating": 72,
+          "shirtNumber": 31,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Burnley",
+      "shortName": "BUR",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1801,
+          "name": "James Trafford",
+          "position": "GK",
+          "rating": 77,
+          "shirtNumber": 1,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1802,
+          "name": "Connor Roberts",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1803,
+          "name": "Dara O'Shea",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1804,
+          "name": "Jordan Beyer",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1805,
+          "name": "Charlie Taylor",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1806,
+          "name": "Josh Cullen",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1807,
+          "name": "Sander Berge",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1808,
+          "name": "Josh Brownhill",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 8,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1809,
+          "name": "Luca Koleosho",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 30,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1810,
+          "name": "Zeki Amdouni",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 25,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1811,
+          "name": "Lyle Foster",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 17,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 1812,
+          "name": "Manuel Benson",
+          "position": "FW",
+          "rating": 74,
+          "shirtNumber": 20,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1813,
+          "name": "Hjalmar Ekdal",
+          "position": "DF",
+          "rating": 74,
+          "shirtNumber": 18,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1814,
+          "name": "Jack Cork",
+          "position": "MF",
+          "rating": 74,
+          "shirtNumber": 4,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1815,
+          "name": "Jacob Bruun Larsen",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 34,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1816,
+          "name": "Arijanet Muric",
+          "position": "GK",
+          "rating": 73,
+          "shirtNumber": 49,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Sheffield United",
+      "shortName": "SHU",
+      "logo": "",
+      "squad": [
+        {
+          "id": 1901,
+          "name": "Wes Foderingham",
+          "position": "GK",
+          "rating": 76,
+          "shirtNumber": 18,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1902,
+          "name": "George Baldock",
+          "position": "DF",
+          "rating": 76,
+          "shirtNumber": 2,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1903,
+          "name": "Anel Ahmedhodžić",
+          "position": "DF",
+          "rating": 78,
+          "shirtNumber": 15,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1904,
+          "name": "John Egan",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 12,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1905,
+          "name": "Jack Robinson",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 19,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1906,
+          "name": "Gustavo Hamer",
+          "position": "MF",
+          "rating": 78,
+          "shirtNumber": 34,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1907,
+          "name": "Oliver Norwood",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 16,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1908,
+          "name": "Ben Osborn",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 23,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1909,
+          "name": "James McAtee",
+          "position": "MF",
+          "rating": 76,
+          "shirtNumber": 28,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1910,
+          "name": "Cameron Archer",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 45,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1911,
+          "name": "Oli McBurnie",
+          "position": "FW",
+          "rating": 77,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 1912,
+          "name": "Adam Davies",
+          "position": "GK",
+          "rating": 70,
+          "shirtNumber": 1,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1913,
+          "name": "Auston Trusty",
+          "position": "DF",
+          "rating": 74,
+          "shirtNumber": 5,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1914,
+          "name": "Yasser Larouci",
+          "position": "DF",
+          "rating": 73,
+          "shirtNumber": 27,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1915,
+          "name": "Rhian Brewster",
+          "position": "FW",
+          "rating": 74,
+          "shirtNumber": 7,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 1916,
+          "name": "Chris Basham",
+          "position": "DF",
+          "rating": 73,
+          "shirtNumber": 6,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Luton Town",
+      "shortName": "LUT",
+      "logo": "",
+      "squad": [
+        {
+          "id": 2001,
+          "name": "Thomas Kaminski",
+          "position": "GK",
+          "rating": 77,
+          "shirtNumber": 24,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2002,
+          "name": "Tom Lockyer",
+          "position": "DF",
+          "rating": 77,
+          "shirtNumber": 4,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2003,
+          "name": "Mads Andersen",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 5,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2004,
+          "name": "Amari'i Bell",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 29,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2005,
+          "name": "Issa Kaboré",
+          "position": "DF",
+          "rating": 75,
+          "shirtNumber": 12,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2006,
+          "name": "Marvelous Nakamba",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 13,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2007,
+          "name": "Tahith Chong",
+          "position": "MF",
+          "rating": 75,
+          "shirtNumber": 14,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2008,
+          "name": "Ross Barkley",
+          "position": "MF",
+          "rating": 77,
+          "shirtNumber": 6,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2009,
+          "name": "Jacob Brown",
+          "position": "FW",
+          "rating": 74,
+          "shirtNumber": 9,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2010,
+          "name": "Carlton Morris",
+          "position": "FW",
+          "rating": 76,
+          "shirtNumber": 10,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2011,
+          "name": "Elijah Adebayo",
+          "position": "FW",
+          "rating": 75,
+          "shirtNumber": 11,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+
+        {
+          "id": 2012,
+          "name": "Alfie Doughty",
+          "position": "DF",
+          "rating": 74,
+          "shirtNumber": 7,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2013,
+          "name": "Pelly Ruddock Mpanzu",
+          "position": "MF",
+          "rating": 73,
+          "shirtNumber": 17,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2014,
+          "name": "Chiedozie Ogbene",
+          "position": "FW",
+          "rating": 74,
+          "shirtNumber": 7,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2015,
+          "name": "Reece Burke",
+          "position": "DF",
+          "rating": 73,
+          "shirtNumber": 16,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 2016,
+          "name": "Tim Krul",
+          "position": "GK",
+          "rating": 75,
+          "shirtNumber": 23,
+          "isStarter": false,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        }
+      ]
+    }
+];

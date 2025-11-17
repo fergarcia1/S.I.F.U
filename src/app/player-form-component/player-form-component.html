@@ -1,0 +1,31 @@
+<h2>{{ isEditMode ? '✏️ Modificar Jugador' : '➕ Fichar Nuevo Jugador' }}</h2>
+
+<form (ngSubmit)="savePlayer()" style="display: flex; flex-direction: column; max-width: 400px; gap: 10px;">
+    
+    <label>Nombre Completo:</label>
+    <input type="text" [(ngModel)]="player.name" name="name" required>
+
+    <label>Posición:</label>
+    <select [(ngModel)]="player.position" name="position" required>
+        <option value="GK">Guardameta (GK)</option>
+        <option value="DF">Defensa (DF)</option>
+        <option value="MF">Centrocampista (MF)</option>
+        <option value="FW">Delantero (FW)</option>
+    </select>
+    
+    <label>Valoración / Rating (0-100):</label>
+    <input type="number" [(ngModel)]="player.rating" name="rating" min="1" max="100" required>
+    
+    <label>Número de Camiseta:</label>
+    <input type="number" [(ngModel)]="player.shirtNumber" name="shirtNumber" min="1" max="99" required>
+
+    <label>
+        <input type="checkbox" [(ngModel)]="player.isStarter" name="isStarter">
+        ¿Es Titular?
+    </label>
+    
+    <div style="margin-top: 10px;">
+        <button type="submit">{{ isEditMode ? 'Guardar Cambios' : 'Fichar Jugador' }}</button>
+        <button type="button" [routerLink]="['/teams', teamId, 'players']">Cancelar</button>
+    </div>
+</form>

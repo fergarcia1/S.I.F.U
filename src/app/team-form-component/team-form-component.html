@@ -1,0 +1,22 @@
+<h2>{{ isEditMode ? '✏️ Modificar Equipo' : '➕ Nuevo Equipo' }}</h2>
+
+<form (ngSubmit)="saveTeam()" style="display: flex; flex-direction: column; max-width: 400px; gap: 10px;">
+    
+    <label>Nombre del Equipo:</label>
+    <input type="text" [(ngModel)]="team.name" name="name" required style="padding: 8px;">
+
+    <label>Nombre Corto (ej: MCI):</label>
+    <input type="text" [(ngModel)]="team.shortName" name="shortName" maxlength="3" required style="padding: 8px;">
+    
+    <label>URL del Logo:</label>
+    <input type="text" [(ngModel)]="team.logo" name="logo" style="padding: 8px;">
+    
+    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+        <button type="submit" style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+            {{ isEditMode ? 'Guardar Cambios' : 'Crear Equipo' }}
+        </button>
+        <button type="button" [routerLink]="['/teams']" style="padding: 10px; background-color: #f44336; color: white; border: none; cursor: pointer;">
+            Cancelar
+        </button>
+    </div>
+</form>

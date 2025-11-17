@@ -1,0 +1,19 @@
+<div *ngIf="team">
+    <h2>⚽ Plantilla de {{ team.name }}</h2>
+
+    <button [routerLink]="['/teams', teamId, 'players', 'create']">
+        ➕ Añadir Nuevo Jugador
+    </button>
+
+    <p *ngIf="team.squad.length === 0">Este equipo aún no tiene jugadores.</p>
+
+    <div *ngFor="let player of team.squad" style="border: 1px solid #ddd; padding: 10px; margin-bottom: 8px;">
+        <h4>#{{ player.shirtNumber }} - {{ player.name }} ({{ player.position }})</h4>
+        <p>Rating: **{{ player.rating }}** | Titular: {{ player.isStarter ? '✅ Sí' : '❌ No' }}</p>
+        
+        <button (click)="goToEditPlayer(player.id)">✏️ Modificar</button>
+        <button (click)="deletePlayer(player.id)">❌ Eliminar</button>
+    </div>
+</div>
+
+<button [routerLink]="['/teams']" style="margin-top: 20px;">⬅️ Volver a la Lista de Equipos</button>
