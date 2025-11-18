@@ -8,6 +8,8 @@ import { InicioComponent } from './menu-jugar/inicio-component/inicio-component'
 import { MenuComponent } from './menu-principal/menu-principal.component';
 import { FixtureComponent } from './menu-jugar/fixture-component/fixture-component';
 import { PlantillaComponent } from './menu-jugar/plantilla-component/plantilla-component';
+import { FormAgregarJugdaor } from './admin/form-agregar-jugdaor/form-agregar-jugdaor';
+import { MenuAdmin } from './admin/menu-admin/menu-admin';
 import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
 
 
@@ -49,6 +51,8 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     component: PlantillaComponent
   },
+  {path: 'menuAdmin',component: MenuAdmin},
+  {path: 'formAgregarJugador',component: FormAgregarJugdaor},
   {
     path: 'tabla/:id',
     canActivate: [AuthGuard],

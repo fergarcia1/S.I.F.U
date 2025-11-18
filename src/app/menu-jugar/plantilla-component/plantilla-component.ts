@@ -63,7 +63,7 @@ export class PlantillaComponent {
     const orden = ['GK', 'DF', 'MF', 'FW'];
 
     return [...jugadores].sort(
-      (a, b) => orden.indexOf(a.position) - orden.indexOf(b.position)
+      (a, b) => orden.indexOf(a.position!) - orden.indexOf(b.position!)
     );
   }
 
