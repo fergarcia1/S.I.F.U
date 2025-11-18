@@ -2,15 +2,20 @@
   <div class="nav-brand">
     <span>S.I.F.U.</span>
   </div>
-  <button class="nav-btn back-btn" (click)="goBack()"> &larr; Volver </button>
+  
   <div class="nav-links">
     <a [routerLink]="['/inicio', teamId]">Inicio</a>
     <a [routerLink]="['/plantilla', teamId]" class="active">Plantilla</a>
     <a [routerLink]="['/fixture', teamId]">Fixture</a>
-    <a [routerLink]="['/tabla']">Tabla</a>
+    <a [routerLink]="['/tabla', teamId]">Tabla</a>
   </div>
   <div class="nav-spacer"></div>
 </nav>
+<div class="toolbar">
+    <button class="btn-volver" (click)="goBack()">
+      <span class="arrow">&larr;</span> Volver
+    </button>
+  </div>
 
 <div class="container">
   @if (isLoading()) {

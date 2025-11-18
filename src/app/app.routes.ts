@@ -50,7 +50,7 @@ export const routes: Routes = [
     component: PlantillaComponent
   },
   {
-    path: 'tabla',
+    path: 'tabla/:id',
     canActivate: [AuthGuard],
     component: TablaComponent
   },

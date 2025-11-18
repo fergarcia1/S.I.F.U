@@ -9,7 +9,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-fixture',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './fixture-component.html',
   styleUrl: './fixture-component.css',
 })

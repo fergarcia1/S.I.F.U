@@ -2,17 +2,22 @@ import { Component, computed, inject } from '@angular/core';
 import { GameStateService } from '../../menu-jugar/game-state-service';
 import { CommonModule } from '@angular/common';
 import { Teams } from '../../models/teams';
+import { Location } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './tabla-component.html',
   styleUrls: ['./tabla-component.css']
 })
 export class TablaComponent {
 
   private readonly gameState = inject(GameStateService);
+  private readonly location = inject(Location);
+  private readonly route = inject(ActivatedRoute);
+  protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
 
   // Acceso a la tabla desde el estado global
   readonly standings = computed(() => this.gameState.standings());
@@ -52,5 +57,9 @@ export class TablaComponent {
 
   getTeamLogo(id: number): string {
     return this.teams().find(t => t.id === id)?.logo ?? '';
+  }
+
+     goBack() {
+    this.location.back();
   }
 }

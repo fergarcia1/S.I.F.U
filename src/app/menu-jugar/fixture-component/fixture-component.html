@@ -2,55 +2,70 @@
   <div class="nav-brand">
     <span>S.I.F.U.</span>
   </div>
-  <button class="nav-btn back-btn" (click)="goBack()"> &larr; Volver </button>
+  
   <div class="nav-links">
-    <a [routerLink]="['/inicio', teamId]">Inicio</a>
-    <a [routerLink]="['/plantilla', teamId]" class="active">Plantilla</a>
-    <a [routerLink]="['/fixture', teamId]">Fixture</a>
-    <a [routerLink]="['/tabla']">Tabla</a>
+    <a [routerLink]="['/inicio', teamId]" >Inicio</a>
+    
+    <a [routerLink]="['/plantilla', teamId]" >Plantilla</a>
+    
+    <a [routerLink]="['/fixture', teamId]" class="active">Fixture</a>
+    
+    <a [routerLink]="['/tabla', teamId]" >Tabla</a>
   </div>
+  
   <div class="nav-spacer"></div>
 </nav>
-
+<div class="toolbar">
+    <button class="btn-volver" (click)="goBack()">
+      <span class="arrow">&larr;</span> Volver
+    </button>
+  </div>
 
 <div class="fixture-container">
   
-  @for (fecha of fixtureByMatchday(); track fecha.matchday) {
+  <header class="page-header">
+    <h2>Calendario de Partidos</h2>
+  </header>
 
-    <div class="matchday-card">
-      <h3>Fecha {{ fecha.matchday }}</h3>
+  <div class="matchdays-grid">
+    @for (fecha of fixtureByMatchday(); track fecha.matchday) {
 
-    
-      <div class="matches">
-        @for (match of fecha.games; track match.id) {
+      <div class="matchday-card">
+        <div class="matchday-header">
+          <h3>Jornada {{ fecha.matchday }}</h3>
+        </div>
+      
+        <div class="matches-list">
+          @for (match of fecha.games; track match.id) {
 
-          <div class="match-box" [class.played]="match.played">
-            
-            <div class="team">
-              <span>{{ getTeamName(match.homeTeamId) }}</span>
+            <div class="match-row" [class.played]="match.played">
+              
+              <div class="team home">
+                <span class="team-name">{{ getTeamName(match.homeTeamId) }}</span>
+                </div>
+
+              <div class="score-box">
+                @if (match.played) {
+                  <span class="score-number">{{ match.homeGoals }}</span>
+                  <span class="divider">-</span>
+                  <span class="score-number">{{ match.awayGoals }}</span>
+                } @else {
+                  <span class="vs-badge">VS</span>
+                }
+              </div>
+
+              <div class="team away">
+                <span class="team-name">{{ getTeamName(match.awayTeamId) }}</span>
+              </div>
+
             </div>
 
-            <div class="score">
-              @if (match.played) {
-                <strong>{{ match.homeGoals }} - {{ match.awayGoals }}</strong>
-              } @else {
-                <span>vs</span>
-              }
-            </div>
-
-            <div class="team">
-              <span>{{ getTeamName(match.awayTeamId) }}</span>
-            </div>
-
-          </div>
-
-        } @empty {
-          <p>No hay partidos.</p>
-        }
+          } @empty {
+            <p class="no-matches">No hay partidos programados.</p>
+          }
+        </div>
       </div>
-    </div>
-  }
+    }
+  </div>
 
 </div>
-
-
