@@ -1,0 +1,17 @@
+.tabla-liga {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tabla-liga th,
+.tabla-liga td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}

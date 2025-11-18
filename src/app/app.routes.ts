@@ -8,6 +8,7 @@ import { InicioComponent } from './menu-jugar/inicio-component/inicio-component'
 import { MenuComponent } from './menu-principal/menu-principal.component';
 import { FixtureComponent } from './menu-jugar/fixture-component/fixture-component';
 import { PlantillaComponent } from './menu-jugar/plantilla-component/plantilla-component';
+import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
 
 
 export const routes: Routes = [
@@ -47,6 +48,11 @@ export const routes: Routes = [
     path: 'plantilla/:id',
     canActivate: [AuthGuard],
     component: PlantillaComponent
+  },
+  {
+    path: 'tabla',
+    canActivate: [AuthGuard],
+    component: TablaComponent
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
