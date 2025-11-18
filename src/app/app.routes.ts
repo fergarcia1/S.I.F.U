@@ -39,7 +39,7 @@ export const routes: Routes = [
 
   },
   {
-    path: 'fixture',
+    path: 'fixture/:id', 
     canActivate: [AuthGuard],
     component: FixtureComponent
   },
