@@ -1,0 +1,27 @@
+
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <input 
+    type="text" 
+    placeholder="Usuario" 
+    [(ngModel)]="username" 
+    name="username"
+    required
+  >
+  
+
+  <input 
+    type="password" 
+    placeholder="Contraseña" 
+    [(ngModel)]="password" 
+    name="password"
+    required
+  >
+
+  <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
+  <button type="button"  (click)="goToRegister()">No tienes una cuenta? Registrate</button>
+
+
+  @if (error) {
+    <p class="error">Usuario o contraseña incorrectos</p>
+  }
+</form>

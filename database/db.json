@@ -1,5 +1,31 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "1234",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "pepe",
+      "password": "1234",
+      "role": "player"
+    },
+    {
+      "id": 1763411642156,
+      "username": "test",
+      "password": "1234",
+      "role": "player"
+    },
+    {
+      "id": 1763412279366,
+      "username": "aDN",
+      "password": "1234a$",
+      "role": "player"
+    }
+  ],
+  "saves": [],
   "teams": [
     {
       "id": 1,
@@ -4391,7 +4417,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 1512,
           "name": "Boubacar Traoré",
@@ -4656,7 +4681,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 1612,
           "name": "Harry Toffolo",
@@ -4921,7 +4945,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 1712,
           "name": "Beto",
@@ -5186,7 +5209,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 1812,
           "name": "Manuel Benson",
@@ -5451,7 +5473,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 1912,
           "name": "Adam Davies",
@@ -5716,7 +5737,6 @@
             "redCards": 0
           }
         },
-
         {
           "id": 2012,
           "name": "Alfie Doughty",
@@ -5799,6 +5819,6 @@
         }
       ]
     }
-  ],
-  "saves": []
+  ]
+  
 }

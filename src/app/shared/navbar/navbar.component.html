@@ -1,0 +1,13 @@
+<nav class="navbar">
+
+  @if (showBack) {
+    <button (click)="goBack()">Volver</button>
+  }
+
+  <div class="spacer"></div>
+
+  @if (showLogout) {
+    <button (click)="logout()">Cerrar sesión</button>
+  }
+
+</nav>
