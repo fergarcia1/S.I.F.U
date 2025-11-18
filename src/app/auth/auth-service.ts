@@ -51,10 +51,10 @@ export class AuthService {
       }
 
       const newUser: Users = {
-        id: Date.now(),       // ✔ genera ID único
+        id: Date.now(), // genera ID unico
         username,
         password,
-        role: 'player'        // ✔ default
+        role: 'player'  
       };
 
       return this.http.post<Users>(this.apiUrl, newUser);
