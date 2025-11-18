@@ -13,8 +13,8 @@
       @for (player of titulares(); track player.id) {
         <fieldset class="player-card titular">
           <strong>{{ player.name }}</strong> 
-          <p>Posición: {{ player.position }}</p>
-          <p>Valoración: {{ player.rating }}</p>
+          <p>{{ player.position }} / {{ player.rating }}</p>
+          
 
           <button (click)="jugadorSeleccionado = player">
             Seleccionar para cambio
@@ -36,8 +36,7 @@
       @for (player of suplentes(); track player.id) {
         <fieldset class="player-card suplente">
           <strong>{{ player.name }}</strong> 
-          <p>Posición: {{ player.position }}</p>
-          <p>Valoración: {{ player.rating }}</p>
+          <p>{{ player.position }} / {{ player.rating }}</p>
 
           <button 
             [disabled]="!jugadorSeleccionado"

@@ -32,8 +32,13 @@ export class PlantillaComponent {
   public readonly squad = computed(() => this.teamSource()?.squad ?? []);
   public readonly isLoading = computed(() => this.teamSource() === undefined);
 
-  titulares = computed(() => this.squad().filter(p => p.isStarter));
-  suplentes = computed(() => this.squad().filter(p => !p.isStarter));
+  titulares = computed(() =>
+    this.ordenarPorPosicion(this.squad().filter(p => p.isStarter))
+  );
+
+  suplentes = computed(() =>
+    this.ordenarPorPosicion(this.squad().filter(p => !p.isStarter))
+  );
 
   jugadorSeleccionado: Player | null = null;
 
@@ -53,5 +58,14 @@ export class PlantillaComponent {
 
     this.jugadorSeleccionado = null;
   }
+
+  private ordenarPorPosicion(jugadores: Player[]) {
+    const orden = ['GK', 'DF', 'MF', 'FW'];
+
+    return [...jugadores].sort(
+      (a, b) => orden.indexOf(a.position) - orden.indexOf(b.position)
+    );
+  }
+
 }
 
