@@ -40,7 +40,7 @@
       "logo": "",
       "squad": [
         {
-          "id": 101,
+          "id": 100,
           "name": "Ederson Moraes",
           "position": "GK",
           "rating": 89,
@@ -56,7 +56,7 @@
           }
         },
         {
-          "id": 102,
+          "id": 101,
           "name": "Kyle Walker",
           "position": "DF",
           "rating": 85,
@@ -72,11 +72,27 @@
           }
         },
         {
-          "id": 103,
+          "id": 102,
           "name": "Rúben Dias",
           "position": "DF",
           "rating": 88,
           "shirtNumber": 3,
+          "isStarter": true,
+          "stats": {
+            "goals": 0,
+            "assists": 0,
+            "matches": 0,
+            "starts": 0,
+            "yellowCards": 0,
+            "redCards": 0
+          }
+        },
+        {
+          "id": 103,
+          "name": "Josko Gvardiol",
+          "position": "DF",
+          "rating": 85,
+          "shirtNumber": 24,
           "isStarter": true,
           "stats": {
             "goals": 0,
@@ -205,7 +221,7 @@
           "position": "FW",
           "rating": 85,
           "shirtNumber": 19,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
