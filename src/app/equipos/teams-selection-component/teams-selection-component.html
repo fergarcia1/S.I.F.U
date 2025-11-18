@@ -1,0 +1,19 @@
+<h1>EQUIPOS DISPONIBLES</h1>
+
+@let equipos = this.teams();
+
+@if (isLoading()) {
+    <p>Cargando equipos...</p>
+}@else {
+    @for (equipo of equipos; track equipo.id) {
+        <fieldset class= 'teams-card'>
+            <ul>
+                <li>
+                    <pre><strong>Nombre: </strong> {{equipo.name}} <strong>Areviatura: </strong> {{equipo.shortName}} <button (click)="navigateToPlantel(equipo.id)">Ver Plantel</button></pre>
+                </li>
+
+            </ul>
+        </fieldset>
+    }
+}
+
