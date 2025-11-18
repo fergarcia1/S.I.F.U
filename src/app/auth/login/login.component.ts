@@ -17,23 +17,27 @@ export class LoginComponent {
   password = '';
   error = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) { }
 
   onSubmit() {
     if (!this.username || !this.password) { // solo continuo con el login si tengo ambos campos
       this.error = true;
-      return; 
+      return;
     }
-    
+
     this.auth.login(this.username, this.password).subscribe(res => {
       if (res) {
-        this.router.navigate(['/menu']); 
+        if (this.username === "admin") {
+          this.router.navigate(['/menuAdmin']);
+        } else {
+          this.router.navigate(['/menu']);
+        }
       } else {
         this.error = true;
       }
     });
   }
   goToRegister() {
-  this.router.navigate(['/register']);
-}
+    this.router.navigate(['/register']);
+  }
 }

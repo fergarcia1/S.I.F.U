@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Teams } from '../models/teams';
 import { Player } from '../models/player';
 import { TeamsSelectionComponent } from './teams-selection-component/teams-selection-component'; 
@@ -29,6 +29,25 @@ export class TeamsService {
         return throwError(() => new Error('No se pudo encontrar el equipo.'));
       })
     )
+  }
+
+addPlayerToTeam(teamId: number, newPlayer: Player): Observable<Teams> {
+    const teamUrl = `${this.url}/${teamId}`;
+
+    // Usamos switchMap para encadenar operaciones dependientes
+    return this.http.get<Teams>(teamUrl).pipe(
+      switchMap((team) => {
+        // Agregamos el jugador al array localmente
+        team.squad.push(newPlayer);
+        
+        // Enviamos el equipo modificado al servidor
+        return this.http.put<Teams>(teamUrl, team);
+      }),
+      catchError(error => {
+        console.error('Error al agregar jugador:', error);
+        return throwError(() => new Error('No se pudo guardar el jugador.'));
+      })
+    );
   }
 }
 
