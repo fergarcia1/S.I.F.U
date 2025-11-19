@@ -1,0 +1,97 @@
+.game-navbar {
+  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+}
+
+.nav-brand span {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #cddc39;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(205, 220, 57, 0.1);
+  color: #cddc39;
+}
+
+.nav-links a.active {
+  background-color: #cddc39;
+  color: #15291f;
+  font-weight: bold;
+}
+
+.toolbar {
+  margin: 2rem; /* Espacio para separar del título */
+  display: flex;
+  align-items: center;
+}
+
+/* --- BOTÓN VOLVER ESTILIZADO --- */
+.btn-volver {
+  /* 1. Reseteo y Estructura */
+  background-color: transparent; 
+  border: 2px solid rgba(205, 220, 57, 0.3); /* Borde sutil color lima */
+  border-radius: 50px; /* Bordes totalmente redondos (píldora) */
+  padding: 8px 20px;
+  
+  /* 2. Tipografía y Color */
+  color: #cddc39; /* Tu color principal */
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  /* 3. Alineación del icono */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  
+  /* 4. Transiciones suaves */
+  transition: all 0.3s ease;
+}
+
+.arrow {
+  font-size: 1.2rem; /* Flecha un poco más grande */
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.tabla-liga {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tabla-liga th,
+.tabla-liga td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}

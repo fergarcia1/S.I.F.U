@@ -1,0 +1,24 @@
+<h2>Estadísticas de mi equipo</h2>
+
+<table>
+  <tr>
+    <th>Jugador</th>
+    <th>PJ</th>
+    <th>Goles</th>
+    <th>Asistencias</th>
+    <th>Amarillas</th>
+    <th>Rojas</th>
+  </tr>
+
+  @for (p of team()?.squad ?? []; track p.id) {
+    <tr>
+      <td>{{ p.name }}</td>
+      <td>{{ p.stats.starts }}</td>
+      <td>{{ p.stats.goals }}</td>
+      <td>{{ p.stats.assists }}</td>
+      <td>{{ p.stats.yellowCards }}</td>
+      <td>{{ p.stats.redCards }}</td>
+    </tr>
+  }
+</table>
+<button (click)="goBack(teamId)">Volver</button>

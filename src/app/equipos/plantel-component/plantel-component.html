@@ -1,0 +1,30 @@
+@if (isLoading()) {
+  <p>Cargando plantel...</p>
+} @else if (team(); as currentTeam) {
+
+  <h2>Plantel de: {{ currentTeam.name }} ({{ currentTeam.shortName }})</h2>
+
+  @for (player of squad(); track player.id) {
+    <fieldset class="player-card">
+      
+        <strong>Nombre: {{ player.name }}</strong> 
+        <p>   
+            Posicion: {{ player.position }} 
+        </p>
+        <p>
+            Valoracion gral: {{ player.rating }}
+        </p>
+        <p>
+            Titular: {{player.isStarter}}
+        </p>
+      
+    </fieldset>
+  } @empty {
+    <p>Este equipo no tiene jugadores en su plantel.</p>
+  }
+
+} @else {
+  <p>No se pudo cargar el equipo.</p>
+}
+
+

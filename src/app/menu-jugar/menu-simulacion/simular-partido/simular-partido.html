@@ -1,0 +1,26 @@
+<h2>{{ homeTeam.name }} vs {{ awayTeam.name }}</h2>
+
+<h3>Minuto: {{ currentMinute() }}</h3>
+
+<h3>Marcador: {{ score().home }} - {{ score().away }}</h3>
+
+<hr />
+
+<p>
+  @for (e of events(); track e.minute + '-' + e.playerId) {
+
+    <strong>{{ e.minute }}'</strong> {{ e.type }} - 
+    {{ getPlayerName(getTeamById(e.teamId), e.playerId) }}
+
+    @if (e.assistId) {
+      (Asist: {{ getPlayerName(getTeamById(e.teamId), e.assistId) }})
+    }
+
+    <br />
+
+  }
+</p>
+
+
+
+

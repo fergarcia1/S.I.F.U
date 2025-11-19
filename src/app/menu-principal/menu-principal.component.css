@@ -1,0 +1,122 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+header a {
+  cursor: pointer; 
+  color: rgba(255, 255, 255, 0.7); 
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+header a:hover {
+  color: #80b3e2; 
+  text-decoration: underline;
+}
+
+.menu-container {
+  max-width: 900px;
+  margin: 0 auto; 
+  padding: 2rem;
+  color: #f0f7f4; 
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/*Animacion de entrada*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Títulos */
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2 rem;
+}
+
+.welcome-subtitle {
+  font-size: 1.25rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7); /* Blanco semitransparente */
+  margin-bottom: 2.5rem;
+}
+
+/* Contenedor de las tarjetas */
+.menu-options {
+  display: grid;
+  grid-template-columns: 1fr; /* <-- ASÍ */
+  gap: 1.5rem; 
+}
+
+/* Estilo de cada tarjeta */
+.menu-card {
+  display: block;
+  background: #f0f7f4; /* Fondo verde muy claro (del login) */
+  color: #1e392a; /* Texto verde oscuro (del fondo) */
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid #cddc39; /* Borde lima */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px); /* Efecto "lift" */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: #38a169; /* Verde más oscuro al pasar */
+}
+
+.menu-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.menu-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555; /* Texto secundario más oscuro */
+}
+
+/* Estilo para la tarjeta deshabilitada */
+.menu-card-disabled {
+  background-color: #e0e0e0; /* Fondo gris */
+  border-color: #ccc;
+  color: #999;
+  pointer-events: none; /* Evita que se pueda hacer clic */
+  opacity: 0.7;
+}
+
+.menu-card-disabled p {
+  color: #999;
+  font-style: italic;
+}
+
+/* ---- Responsividad para Móviles ---- */
+@media (max-width: 768px) {
+  .menu-options {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+}

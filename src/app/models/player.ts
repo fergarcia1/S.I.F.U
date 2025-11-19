@@ -1,9 +1,9 @@
 import { PlayerStats } from "./player-stats";
 
 export interface Player {
-  id: number;
+  id?: number;
   name: string;
-  position: 'GK' | 'DF' | 'MF' | 'FW';
+  position?: 'GK' | 'DF' | 'MF' | 'FW';
   rating: number;
   shirtNumber: number;
   isStarter: boolean;

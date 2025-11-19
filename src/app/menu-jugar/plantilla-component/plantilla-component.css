@@ -1,0 +1,318 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  animation: fadeIn 0.5s ease-out;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #cddc39;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- NAVBAR & TOOLBAR --- */
+.game-navbar {
+  background-color: #15291f; 
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  border-bottom: 2px solid #cddc39; 
+  position: sticky; /* Mantiene la barra arriba al hacer scroll */
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand span {
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #cddc39;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(205, 220, 57, 0.1);
+  color: #cddc39;
+}
+
+.nav-links a.active {
+  background-color: #cddc39;
+  color: #15291f;
+  font-weight: 800;
+}
+
+.nav-spacer { flex-grow: 1; }
+
+/* --- TOOLBAR --- */
+.toolbar {
+  margin: 2rem; 
+  display: flex;
+  align-items: center;
+}
+
+/* --- BOTÓN VOLVER ESTILIZADO --- */
+.btn-volver {
+  /* 1. Reseteo y Estructura */
+  background-color: transparent; 
+  border: 2px solid rgba(205, 220, 57, 0.3); /* Borde sutil color lima */
+  border-radius: 50px; /* Bordes totalmente redondos (píldora) */
+  padding: 8px 20px;
+  
+  /* 2. Tipografía y Color */
+  color: #cddc39; /* Tu color principal */
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  /* 3. Alineación del icono */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  
+  /* 4. Transiciones suaves */
+  transition: all 0.3s ease;
+}
+
+.arrow {
+  font-size: 1.2rem; /* Flecha un poco más grande */
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+/* --- EFECTOS HOVER (Al pasar el mouse) --- */
+.btn-volver:hover {
+  background-color: rgba(205, 220, 57, 0.1); /* Fondo suave */
+  border-color: #cddc39; /* Borde más brillante */
+  box-shadow: 0 0 15px rgba(205, 220, 57, 0.2); /* Resplandor */
+  color: #fff; /* Texto blanco */
+}
+
+.btn-volver:hover .arrow {
+  transform: translateX(-5px); /* La flecha se mueve a la izquierda */
+}
+
+/* Efecto Click */
+.btn-volver:active {
+  transform: scale(0.95);
+}
+
+/* --- GRID DEL PLANTEL --- */
+.plantel-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% - 50% */
+  gap: 3rem; /* Más espacio entre columnas */
+}
+
+.columna h3 {
+  background-color: #1e392a;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  border-bottom: 3px solid #cddc39;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- CARTA DE JUGADOR --- */
+.player-card {
+  background: linear-gradient(145deg, #254132, #1a2e24);
+  border: 1px solid #3a5f4a;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr auto; /* Info ocupa todo, botón automático */
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.player-card:hover {
+  transform: translateY(-2px);
+  border-color: #cddc39;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ESTADO: Titular Seleccionado */
+.player-card.selected {
+  background: #cddc39; /* Fondo amarillo/verde */
+  border-color: white;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(205, 220, 57, 0.4);
+}
+
+/* ESTADO: Suplentes en Modo Cambio (Animación) */
+.player-card.swap-mode {
+  border: 2px dashed #cddc39;
+  background: rgba(205, 220, 57, 0.05);
+  cursor: pointer;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(205, 220, 57, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(205, 220, 57, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(205, 220, 57, 0); }
+}
+
+/* --- INFO DEL JUGADOR --- */
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rating-badge {
+  background-color: #102018;
+  color: #cddc39;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  border: 2px solid #3a5f4a;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Invertir colores del badge si la carta está seleccionada */
+.player-card.selected .rating-badge {
+  background-color: #15291f;
+  color: white;
+  border-color: #15291f;
+}
+
+/* Texto invertido si está seleccionado */
+.player-card.selected .details h4,
+.player-card.selected .details span {
+  color: #15291f; 
+}
+
+.details h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: white;
+}
+
+.details span {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* --- BOTONES DENTRO DE LA CARTA --- */
+.btn-action {
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+}
+
+/* Botón de Selección (Icono cuadrado) */
+.btn-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 36px; /* Cuadrado */
+  font-size: 1.2rem;
+  color: white;
+}
+
+.btn-select:hover:not(:disabled) {
+  background-color: #cddc39;
+  color: #15291f;
+  border-color: #cddc39;
+}
+
+.btn-select:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Botón Cancelar */
+.btn-cancel {
+  background-color: #e53e3e;
+  color: white;
+  padding: 0 15px;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-cancel:hover {
+  background-color: #c53030;
+}
+
+/* Botón Intercambiar (Suplente) */
+.btn-swap {
+  background-color: #cddc39;
+  color: #15291f;
+  padding: 0 15px;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-swap:hover:not(:disabled) {
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.btn-swap:disabled {
+  background-color: transparent;
+  color: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plantel-container {
+    grid-template-columns: 1fr;
+  }
+  .game-navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

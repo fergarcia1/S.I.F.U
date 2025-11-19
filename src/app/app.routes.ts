@@ -11,29 +11,34 @@ import { PlantillaComponent } from './menu-jugar/plantilla-component/plantilla-c
 import { FormAgregarJugdaor } from './admin/form-agregar-jugdaor/form-agregar-jugdaor';
 import { MenuAdmin } from './admin/menu-admin/menu-admin';
 import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
+import { MenuSimulacion } from './menu-jugar/menu-simulacion/menu-simulacion';
+import { SimularPartido } from './menu-jugar/menu-simulacion/simular-partido/simular-partido';
+import { SimularPartidoRapido } from './menu-jugar/menu-simulacion/simular-partido-rapido/simular-partido-rapido';
+import { EstadisticasEquipo } from './menu-jugar/estadisticas-equipo/estadisticas-equipo';
+import { EstadisticasTorneo } from './menu-jugar/estadisticas-torneo/estadisticas-torneo';
 import { Dt } from './dt/dt';
 
 export const routes: Routes = [
   {
     path: 'listaTeams',
     canActivate: [AuthGuard],
-    component: TeamsSelectionComponent,
+    component: TeamsSelectionComponent
   },
   {
     path: 'listaTeams/:id',
     canActivate: [AuthGuard],
-    component: PlantelComponent,
+    component: PlantelComponent
   },
 
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   { path: 'register', component: RegisterComponent },
   {
     path: 'menu',
     canActivate: [AuthGuard],
-    component: MenuComponent,
+    component: MenuComponent
   },
   {
     path: 'dt',
@@ -43,25 +48,51 @@ export const routes: Routes = [
   {
     path: 'inicio/:id',
     canActivate: [AuthGuard],
-    component: InicioComponent,
+    component: InicioComponent
+
   },
   {
-    path: 'fixture/:id',
+    path: 'fixture/:id', 
     canActivate: [AuthGuard],
-    component: FixtureComponent,
+    component: FixtureComponent
   },
   {
     path: 'plantilla/:id',
     canActivate: [AuthGuard],
-    component: PlantillaComponent,
+    component: PlantillaComponent
   },
-  { path: 'menuAdmin', component: MenuAdmin },
-  { path: 'formAgregarJugador', component: FormAgregarJugdaor },
+  {path: 'menuAdmin',component: MenuAdmin},
+  {path: 'formAgregarJugador',component: FormAgregarJugdaor},
   {
     path: 'tabla/:id',
     canActivate: [AuthGuard],
-    component: TablaComponent,
+    component: TablaComponent
+  },
+  {
+    path: 'menuSimulacion/:id',
+    canActivate: [AuthGuard],
+    component: MenuSimulacion
+  },
+  {
+    path: 'simulacionPartido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartido
+  },
+  {
+    path: 'simulacionPartidoRapido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartidoRapido
+  },
+  {
+    path: 'estadisticasEquipo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasEquipo
+  },
+  {
+    path: 'estadisticasTorneo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasTorneo
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: 'login' }
 ];

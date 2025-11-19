@@ -1,0 +1,36 @@
+<h1>EQUIPOS DISPONIBLES</h1>
+
+<div class="search-container">
+    <input 
+        type="text" 
+        placeholder="Buscar equipo por nombre o abreviatura..." 
+        [ngModel]="searchTerm()"
+        (ngModelChange)="searchTerm.set($event)"
+        class="search-input"
+    >
+</div>
+
+@if (isLoading()) {
+    <div class="loading-msg">
+        <p>Cargando equipos...</p>
+    </div>
+} @else {
+    
+    <div class="teams-list">
+        @for (equipo of filteredTeams(); track equipo.id) {
+            <div class="team-card">
+                <div class="team-info">
+                    <span class="team-name">{{ equipo.name }}</span>
+                    <span class="team-short">/ {{ equipo.shortName }}</span>
+                </div>
+                
+                <div class="team-actions">
+                    <button class="btn-secondary" (click)="navigateToPlantel(equipo.id)">Ver Plantel</button>
+                    <button class="btn-primary" (click)="startNewGame(equipo.id)">Seleccionar</button>
+                </div>
+            </div>
+        } @empty {
+            <p class="no-results">No se encontraron equipos que coincidan con "{{ searchTerm() }}"</p>
+        }
+    </div>
+}

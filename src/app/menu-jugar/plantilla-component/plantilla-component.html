@@ -1,0 +1,97 @@
+<nav class="game-navbar">
+  <div class="nav-brand">
+    <span>S.I.F.U.</span>
+  </div>
+  
+  <div class="nav-links">
+    <a [routerLink]="['/inicio', teamId]">Inicio</a>
+    <a [routerLink]="['/plantilla', teamId]" class="active">Plantilla</a>
+    <a [routerLink]="['/fixture', teamId]">Fixture</a>
+    <a [routerLink]="['/tabla', teamId]">Tabla</a>
+  </div>
+  <div class="nav-spacer"></div>
+</nav>
+<div class="toolbar">
+    <button class="btn-volver" (click)="goBack()">
+      <span class="arrow">&larr;</span> Volver
+    </button>
+  </div>
+
+<div class="container">
+  @if (isLoading()) {
+    <div style="text-align: center; margin-top: 50px;">
+      <p>Cargando tácticas...</p>
+    </div>
+  } @else if (team(); as currentTeam) {
+
+    <h2>{{ currentTeam.name }} <small>({{ currentTeam.shortName }})</small></h2>
+
+    <div class="plantel-container">
+      
+      <div class="columna">
+        <h3>TITULARES (11)</h3>
+
+        @for (player of titulares(); track player.id) {
+          <div class="player-card" 
+               [class.selected]="jugadorSeleccionado?.id === player.id">
+            
+            <div class="card-info">
+              <div class="rating-badge">{{ player.rating }}</div>
+              <div class="details">
+                <h4>{{ player.name }}</h4>
+                <span>{{ player.position }}</span>
+              </div>
+            </div>
+
+            @if (jugadorSeleccionado?.id === player.id) {
+              <button class="btn-action btn-cancel" (click)="jugadorSeleccionado = null">
+                Cancelar
+              </button>
+            } @else {
+              <button class="btn-action btn-select" 
+                      [disabled]="jugadorSeleccionado !== null"
+                      [style.opacity]="jugadorSeleccionado ? '0.3' : '1'"
+                      (click)="jugadorSeleccionado = player">
+                🔄
+              </button>
+            }
+
+          </div>
+        }
+      </div>
+
+      <div class="columna">
+        <h3>BANQUILLO</h3>
+
+        @for (player of suplentes(); track player.id) {
+          <div class="player-card" [class.swap-mode]="jugadorSeleccionado">
+            
+            <div class="card-info">
+              <div class="rating-badge">{{ player.rating }}</div>
+              <div class="details">
+                <h4>{{ player.name }}</h4>
+                <span>{{ player.position }}</span>
+              </div>
+            </div>
+
+            <button class="btn-action btn-swap"
+              [disabled]="!jugadorSeleccionado"
+              (click)="cambiarJugador(jugadorSeleccionado!, player)">
+              
+              @if (jugadorSeleccionado) {
+                Entrar ⬆️
+              } @else {
+                Espera
+              }
+            </button>
+
+          </div>
+        }
+      </div>
+
+    </div>
+
+  } @else {
+    <p>No se pudo cargar el equipo.</p>
+  }
+</div>
