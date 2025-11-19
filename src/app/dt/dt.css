@@ -1,0 +1,176 @@
+.btn-back-page {
+  position: absolute; /* Flota sobre todo */
+  top: 30px;          /* Distancia desde arriba */
+  left: 40px;         /* Distancia desde la izquierda */
+  
+  background: transparent;
+  border: 2px solid #cddc39; /* Borde Verde Lima */
+  color: #cddc39;
+  padding: 8px 20px;
+  border-radius: 50px; /* Estilo píldora */
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10; /* Asegura que esté por encima de todo */
+}
+
+.btn-back-page .arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.btn-back-page:hover {
+  background-color: rgba(205, 220, 57, 0.1);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(205, 220, 57, 0.2);
+}
+
+.btn-back-page:hover .arrow {
+  transform: translateX(-5px);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+:host { 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e392a; 
+}
+
+.profile-container {
+  background: linear-gradient(145deg, #234232, #1a3326); /* Fondo oscuro elegante */
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #365e47;
+  width: 100%;
+  max-width: 500px; /* Ancho máximo para que no se estire */
+  color: #fff;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* --- ENCABEZADO --- */
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-transform: uppercase;
+  color: #cddc39; /* Verde Lima */
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.form-header p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+/* --- FORMULARIO --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #aab7b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs Estilizados */
+input, select {
+  background-color: #15291f; /* Fondo muy oscuro */
+  border: 2px solid #365e47;
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #cddc39; /* Borde verde lima al enfocar */
+  box-shadow: 0 0 10px rgba(205, 220, 57, 0.2);
+}
+
+/* Placeholder color */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mensajes de Error */
+.error-msg {
+  color: #ff6b6b; /* Rojo suave */
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- BOTÓN DE ACCIÓN --- */
+.actions {
+  margin-top: 1rem;
+}
+
+.btn-save {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #cddc39, #afb42b); /* Gradiente Lima */
+  border: none;
+  border-radius: 8px;
+  color: #15291f; /* Texto oscuro */
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(205, 220, 57, 0.3);
+}
+
+.btn-save:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(205, 220, 57, 0.4);
+  filter: brightness(1.1);
+}
+
+.btn-save:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Estado Deshabilitado / Cargando */
+.btn-save:disabled {
+  background: #555;
+  color: #888;
+  cursor: wait;
+  box-shadow: none;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

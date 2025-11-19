@@ -1,44 +1,78 @@
-<div class="dt-container">
+<button class="btn-back-page" (click)="goBack()">
+  <span class="arrow">&larr;</span> VOLVER
+</button>
+<div class="profile-container">
+  
+  <header class="form-header">
+    <h1>Perfil del Manager</h1>
+  </header>
 
-  <h1 class="dt-title">Perfil del Manager</h1>
+  <form [formGroup]="form" (ngSubmit)="save()">
 
-  <form [formGroup]="form" class="dt-form">
-
-    <div class="dt-field">
-      <label>Nombre</label>
-      <input type="text" formControlName="name" />
+    <!-- CAMPO NOMBRE -->
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input 
+        id="name" 
+        type="text" 
+        formControlName="name" 
+        placeholder="Ej: Pep Guardiola"
+        autocomplete="off"
+      >
+      @if (form.controls.name.invalid && form.controls.name.touched) {
+        <span class="error-msg">⚠ El nombre es requerido.</span>
+      }
     </div>
 
-    <div class="dt-field">
-      <label>Nacionalidad</label>
-      <input type="text" formControlName="nationality" />
+    <!-- CAMPO NACIONALIDAD -->
+    <div class="form-group">
+      <label for="nationality">Nacionalidad</label>
+      <input 
+        id="nationality" 
+        type="text" 
+        formControlName="nationality" 
+        placeholder="Ej: Argentina"
+      >
+      @if (form.controls.nationality.invalid && form.controls.nationality.touched) {
+        <span class="error-msg">⚠ La nacionalidad es requerida.</span>
+      }
     </div>
 
-    <div class="dt-field">
-      <label>Edad</label>
-      <input type="number" formControlName="age" />
+    <!-- CAMPO EDAD -->
+    <div class="form-group">
+      <label for="age">Edad</label>
+      <input 
+        id="age" 
+        type="number" 
+        formControlName="age"
+      >
+      @if (form.controls.age.hasError('min') && form.controls.age.touched) {
+        <span class="error-msg">⚠ Debes ser mayor de 18 años.</span>
+      }
     </div>
 
-    <div class="dt-field">
-      <label>Estilo de Juego</label>
-      <select formControlName="playStyle">
-        <option value="Balanced">Balanceado</option>
+    <!-- CAMPO ESTILO DE JUEGO -->
+    <div class="form-group">
+      <label for="playStyle">Estilo de Juego</label>
+      <select id="playStyle" formControlName="playStyle">
+        <option value="Balanced">Equilibrado</option>
         <option value="Attacking">Ofensivo</option>
         <option value="Defensive">Defensivo</option>
+        <option value="Counter">Contragolpe</option>
         <option value="Possession">Posesión</option>
-        <option value="Counter">Contraataque</option>
       </select>
     </div>
 
-    <button type="button" (click)="save()" class="dt-button">
-      @if (!isSaving()) {
-        Crear Manager
-      }
-      @if (isSaving()) {
-        Guardando...
-      }
-    </button>
+    <!-- BOTÓN GUARDAR -->
+    <div class="actions">
+      <button type="submit" class="btn-save" [disabled]="isSaving()">
+        @if (isSaving()) {
+          Creando Perfil... ⏳
+        } @else {
+          Crear Manager 
+        }
+      </button>
+    </div>
 
   </form>
-
 </div>

@@ -1,18 +1,74 @@
-<h2>Partidas Guardadas</h2>
+<button class="btn-back-page" (click)="goBack()">
+  <span class="arrow">&larr;</span> VOLVER
+</button>
 
-<ul>
-  @for (save of saves(); track save.id) {
-    <li class="save-card">
-      <div>
-        Equipo: {{ save.teamId }}
-        <br>
-        Fecha: {{ save.currentMatchday }}
-        <br>
-        Creado: {{ save.createdAt | date:'short' }}
+<div class="saves-container">
+
+  <!-- HEADER -->
+  <header class="saves-header">
+    <h1>Partidas Guardadas</h1>
+    <p>Selecciona una partida para continuar tu carrera</p>
+  </header>
+
+  <!-- BARRA DE BÚSQUEDA -->
+  <div class="search-bar-container">
+    <div class="search-input-wrapper">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="text" 
+        placeholder="Buscar por nombre de equipo..." 
+        [ngModel]="searchTerm()"
+        (ngModelChange)="searchTerm.set($event)"
+      >
+    </div>
+  </div>
+
+  <!-- LISTA DE PARTIDAS (GRID) -->
+  <div class="saves-grid">
+    
+    @for (save of filteredSaves(); track save.id) {
+      <div class="save-card">
+        
+        <!-- INFO DEL EQUIPO -->
+        <div class="save-info">
+          <div class="team-logo-container">
+            <!-- Asumimos que tienes el logo disponible o usas uno genérico -->
+             <img [src]="'/logos/' + save.teamId + '.png'" 
+                  (error)="handleMissingImage($event)" 
+                  alt="Logo" 
+                  class="team-logo">
+          </div>
+          
+          <div class="save-details">
+            <!-- Aquí tendrías que buscar el nombre del equipo real si solo tienes el ID en el save -->
+            <!-- Por simplicidad, asumo que puedes obtener el nombre o lo guardaste en el save -->
+            <h3>{{ getTeamName(save.teamId) }}</h3>
+          
+            <span class="save-id">ID: #{{ save.id }}</span>
+          </div>
+        </div>
+
+        <!-- ACCIONES -->
+        <div class="save-actions">
+          <button class="btn-load" (click)="load(save)">
+            ▶ Cargar
+          </button>
+          <button class="btn-delete" (click)="deleteSave(save.id)">
+            🗑️ Borrar
+          </button>
+        </div>
+
       </div>
+    } @empty {
+      <div class="empty-state">
+        <p>No se encontraron partidas guardadas.</p>
+        @if (searchTerm()) {
+            <small>Prueba con otro nombre de equipo.</small>
+        } @else {
+            <button class="btn-new-game" routerLink="/listaTeams">Nueva Partida</button>
+        }
+      </div>
+    }
 
-      <button (click)="load(save)">Cargar</button>
-      <button (click)="deleteSave(save.id)">Eliminar</button>
-    </li>
-  }
-</ul>
+  </div>
+</div>

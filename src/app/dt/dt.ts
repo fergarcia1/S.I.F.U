@@ -5,6 +5,7 @@ import { DtService } from './dt-service';
 import { DtProfile } from '../models/dt-profile';
 import { MenuComponent } from '../menu-principal/menu-principal.component';
 import { AuthService } from '../auth/auth-service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-dt',
@@ -18,6 +19,12 @@ export class Dt {
   private readonly router = inject(Router);
   private readonly dtService = inject(DtService);
   private readonly auth = inject(AuthService);
+
+  private readonly location = inject(Location);
+
+  goBack() {
+    this.location.back();
+  }
 
   isSaving = signal(false);
 
