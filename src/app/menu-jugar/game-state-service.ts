@@ -38,7 +38,7 @@ export class GameStateService {
   // -----------------------------------------------------
   // TABLA INICIAL
   // -----------------------------------------------------
-  private createInitialStandings(teams: Teams[]): LeagueStanding[] {
+  createInitialStandings(teams: Teams[]): LeagueStanding[] {
     return teams.map(t => ({
       teamId: t.id,
       played: 0,

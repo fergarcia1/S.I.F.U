@@ -1,0 +1,18 @@
+<h2>Partidas Guardadas</h2>
+
+<ul>
+  @for (save of saves(); track save.id) {
+    <li class="save-card">
+      <div>
+        Equipo: {{ save.teamId }}
+        <br>
+        Fecha: {{ save.currentMatchday }}
+        <br>
+        Creado: {{ save.createdAt | date:'short' }}
+      </div>
+
+      <button (click)="load(save)">Cargar</button>
+      <button (click)="deleteSave(save.id)">Eliminar</button>
+    </li>
+  }
+</ul>

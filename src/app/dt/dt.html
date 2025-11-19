@@ -1,0 +1,44 @@
+<div class="dt-container">
+
+  <h1 class="dt-title">Perfil del Manager</h1>
+
+  <form [formGroup]="form" class="dt-form">
+
+    <div class="dt-field">
+      <label>Nombre</label>
+      <input type="text" formControlName="name" />
+    </div>
+
+    <div class="dt-field">
+      <label>Nacionalidad</label>
+      <input type="text" formControlName="nationality" />
+    </div>
+
+    <div class="dt-field">
+      <label>Edad</label>
+      <input type="number" formControlName="age" />
+    </div>
+
+    <div class="dt-field">
+      <label>Estilo de Juego</label>
+      <select formControlName="playStyle">
+        <option value="Balanced">Balanceado</option>
+        <option value="Attacking">Ofensivo</option>
+        <option value="Defensive">Defensivo</option>
+        <option value="Possession">Posesión</option>
+        <option value="Counter">Contraataque</option>
+      </select>
+    </div>
+
+    <button type="button" (click)="save()" class="dt-button">
+      @if (!isSaving()) {
+        Crear Manager
+      }
+      @if (isSaving()) {
+        Guardando...
+      }
+    </button>
+
+  </form>
+
+</div>
