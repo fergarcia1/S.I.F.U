@@ -1,68 +1,118 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { GameStateService } from '../../game-state-service';
-import { simulateFullMatchRealTime } from '../../../utils/simulation';
+import { Teams } from '../../../models/teams';
 import { MatchEvent } from '../../../models/match-event';
+import { simulateFullMatch } from '../../../utils/simulation';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-simular-partido',
   templateUrl: './simular-partido.html',
 })
 export class SimularPartido {
-  private gameState = inject(GameStateService);
 
-  protected readonly fixture = computed(() => this.gameState.getState()?.fixture ?? []);
-  protected readonly teams = computed(() => this.gameState.getState()?.teams ?? []);
+  // 🔥 Estados reactivos
+  events = signal<MatchEvent[]>([]);
+  score = signal({ home: 0, away: 0 });
+  currentMinute = signal(0);
 
-  protected currentMatchIndex = signal(0);
-  protected homeGoals = signal(0);
-  protected awayGoals = signal(0);
-  protected events = signal<MatchEvent[]>([]);
-  protected minute = signal(0);
+  protected readonly route = inject(ActivatedRoute);
+  protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
 
-  protected readonly currentMatch = computed(() => this.fixture()[this.currentMatchIndex()] ?? null);
-  protected readonly homeTeam = computed(() => this.teams().find(t => t.id === this.currentMatch()?.homeTeamId));
-  protected readonly awayTeam = computed(() => this.teams().find(t => t.id === this.currentMatch()?.awayTeamId));
+  match: any;
+  homeTeam!: Teams;
+  awayTeam!: Teams;
 
-  protected readonly eventsText = computed(() =>
-    this.events().map(e => `${e.minute}' ${e.type} (Jugador ${e.playerId})`).join(', ')
-  );
+  private fullEvents: MatchEvent[] = []; // eventos completos para reproducir
+  private intervalId: any;
 
-  private simulationRunning = false;
+  constructor(private gameState: GameStateService) {
+    
+    const selectedTeamId = this.gameState.selectedTeamId()!;
+    
+    // 1. Próximo partido del jugador
+    this.match = this.getNextMatch(selectedTeamId);
 
-  protected simulateRealTime() {
-    if (!this.currentMatch() || !this.homeTeam() || !this.awayTeam() || this.simulationRunning) return;
+    if (!this.match) return;
 
-    this.simulationRunning = true;
-    this.events.set([]);
-    this.homeGoals.set(0);
-    this.awayGoals.set(0);
-    this.minute.set(0);
+    // 2. Simular la fecha completa
+    this.simulateMatchday(this.match.matchday);
 
-    simulateFullMatchRealTime(
-      this.currentMatch()!,
-      this.homeTeam()!,
-      this.awayTeam()!,
-      (evs, min, score) => {
-        this.minute.set(min);
-        this.homeGoals.set(score.home);
-        this.awayGoals.set(score.away);
-        this.events.set([...this.events(), ...evs]);
-      },
-      (result) => {
-        this.homeGoals.set(result.homeGoals);
-        this.awayGoals.set(result.awayGoals);
-        this.events.set(result.events);
-        this.simulationRunning = false;
-      }
-    );
+    // 3. Extraer los equipos
+    this.homeTeam = this.gameState.getTeamById(this.match.homeTeamId)!;
+    this.awayTeam = this.gameState.getTeamById(this.match.awayTeamId)!;
+
+    // 4. Obtener resultado simulado offline
+    const updatedMatch = this.gameState.fixture().find(m => m.id === this.match.id)!;
+
+    // 5. Guardar eventos completos
+    this.fullEvents = [...updatedMatch.events];
+
+    // 6. Iniciar animación del partido
+    this.startRealTimeSimulation();
   }
 
-  protected nextMatch() {
-    this.currentMatchIndex.set(this.currentMatchIndex() + 1);
-    this.homeGoals.set(0);
-    this.awayGoals.set(0);
-    this.events.set([]);
-    this.minute.set(0);
-    this.simulationRunning = false;
+  // 🎬 Simula minuto a minuto
+  private startRealTimeSimulation() {
+    let minute = 0;
+
+    this.intervalId = setInterval(() => {
+      minute++;
+      this.currentMinute.set(minute);
+
+      // Agregar eventos que ocurren en este minuto
+      const eventsNow = this.fullEvents.filter(e => e.minute === minute);
+
+      if (eventsNow.length > 0) {
+        this.events.set([...this.events(), ...eventsNow]);
+
+        // actualizar marcador
+        for (const ev of eventsNow) {
+          if (ev.type === 'goal') {
+            if (ev.teamId === this.homeTeam.id) {
+              this.score.update(s => ({ home: s.home + 1, away: s.away }));
+            } else {
+              this.score.update(s => ({ home: s.home, away: s.away + 1 }));
+            }
+          }
+        }
+      }
+
+      // Terminar en 90
+      if (minute >= 90) {
+        clearInterval(this.intervalId);
+      }
+
+    }, 300); // velocidad (300ms por minuto)
+  }
+
+  // 🔥 Simula toda la jornada
+  private simulateMatchday(matchday: number) {
+    const matches = this.gameState
+      .fixture()
+      .filter(m => m.matchday === matchday && !m.played);
+
+    for (const match of matches) {
+      const homeTeam = this.gameState.getTeamById(match.homeTeamId)!;
+      const awayTeam = this.gameState.getTeamById(match.awayTeamId)!;
+
+      const result = simulateFullMatch(match, homeTeam, awayTeam);
+
+      this.gameState.updateMatchResult(match.id, result);
+    }
+  }
+
+  getTeamById(teamId: number): Teams | undefined {
+    return this.gameState.getTeamById(teamId);
+  }
+
+  getPlayerName(team: Teams | undefined, playerId: number): string {
+    return team?.squad.find((p) => p.id === playerId)?.name ?? 'Desconocido';
+  }
+
+  private getNextMatch(teamId: number) {
+    return this.gameState
+      .fixture()
+      .find(m => !m.played && (m.homeTeamId === teamId || m.awayTeamId === teamId))!;
   }
 }

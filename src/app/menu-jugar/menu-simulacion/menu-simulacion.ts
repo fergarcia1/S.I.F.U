@@ -12,7 +12,7 @@ export class MenuSimulacion {
   private readonly router = inject(Router)
   private readonly route = inject(ActivatedRoute);
 
-  protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
+  protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
 
   navigateToSimulacionPartido(id : number) {
     this.router.navigateByUrl(`/simulacionPartido/${id}`);

@@ -8,16 +8,20 @@
 
         <a [routerLink]="['/plantilla', teamId]">Plantilla</a>
 
-    <a [routerLink]="['/fixture', teamId]">Fixture</a>
+        <a [routerLink]="['/fixture', teamId]">Fixture</a>
 
-    <a [routerLink]="['/tabla', teamId]">Tabla</a>
-  </div>
+        <a [routerLink]="['/tabla', teamId]">Tabla</a>
+
+        <a [routerLink]="['/estadisticasEquipo', teamId]">Estadísticas Equipo</a>
+
+        <a [routerLink]="['/estadisticasTorneo', teamId]">Estadísticas Torneo</a>
+    </div>
 
     <div class="nav-spacer"></div>
 
     <button class="nav-btn logout-btn" (click)="logout()">
-    Cerrar Sesión
-  </button>
+        Cerrar Sesión
+    </button>
 </nav>
 
 

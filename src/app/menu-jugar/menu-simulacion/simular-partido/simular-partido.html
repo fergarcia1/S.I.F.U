@@ -1,24 +1,26 @@
-<div>
-  <h2>Partido Actual (Minuto a Minuto)</h2>
-  <div>
-    <span>{{ homeTeam()?.name }}</span> vs <span>{{ awayTeam()?.name }}</span>
-  </div>
+<h2>{{ homeTeam.name }} vs {{ awayTeam.name }}</h2>
 
-  <div>
-    <span>Minuto: {{ minute() }}</span>
-  </div>
+<h3>Minuto: {{ currentMinute() }}</h3>
 
-  <div>
-    <span>Marcador: {{ homeGoals() }} - {{ awayGoals() }}</span>
-  </div>
+<h3>Marcador: {{ score().home }} - {{ score().away }}</h3>
 
-  <div>
-    <h3>Eventos:</h3>
-    <div>{{ eventsText() }}</div>
-  </div>
+<hr />
 
-  <button (click)="simulateRealTime()">Simular Partido</button>
-  <button (click)="nextMatch()">Siguiente Partido</button>
-</div>
+<p>
+  @for (e of events(); track e.minute + '-' + e.playerId) {
+
+    <strong>{{ e.minute }}'</strong> {{ e.type }} - 
+    {{ getPlayerName(getTeamById(e.teamId), e.playerId) }}
+
+    @if (e.assistId) {
+      (Asist: {{ getPlayerName(getTeamById(e.teamId), e.assistId) }})
+    }
+
+    <br />
+
+  }
+</p>
+
+
 
 

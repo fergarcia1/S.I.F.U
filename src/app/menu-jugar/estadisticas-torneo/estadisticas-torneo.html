@@ -1,0 +1,22 @@
+<h2>Estadísticas del Torneo</h2>
+
+<h3>Top 10 Goleadores</h3>
+@for (p of topGoals(); track p.id) {
+  <p>{{ p.name }} - {{ p.stats.goals }} goles</p>
+}
+
+<h3>Top 10 Asistencias</h3>
+@for (p of topAssists(); track p.id) {
+  <p>{{ p.name }} - {{ p.stats.assists }} asistencias</p>
+}
+
+<h3>Top 10 Amarillas</h3>
+@for (p of topYellows(); track p.id) {
+  <p>{{ p.name }} - {{ p.stats.yellowCards }} amarillas</p>
+}
+
+<h3>Top 10 Rojas</h3>
+@for (p of topReds(); track p.id) {
+  <p>{{ p.name }} - {{ p.stats.redCards }} rojas</p>
+}
+<button (click)="goBack(teamId)">Volver</button>

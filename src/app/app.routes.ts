@@ -14,6 +14,8 @@ import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
 import { MenuSimulacion } from './menu-jugar/menu-simulacion/menu-simulacion';
 import { SimularPartido } from './menu-jugar/menu-simulacion/simular-partido/simular-partido';
 import { SimularPartidoRapido } from './menu-jugar/menu-simulacion/simular-partido-rapido/simular-partido-rapido';
+import { EstadisticasEquipo } from './menu-jugar/estadisticas-equipo/estadisticas-equipo';
+import { EstadisticasTorneo } from './menu-jugar/estadisticas-torneo/estadisticas-torneo';
 
 
 export const routes: Routes = [
@@ -75,6 +77,16 @@ export const routes: Routes = [
     path: 'simulacionPartidoRapido/:id',
     canActivate: [AuthGuard],
     component: SimularPartidoRapido
+  },
+  {
+    path: 'estadisticasEquipo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasEquipo
+  },
+  {
+    path: 'estadisticasTorneo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasTorneo
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }

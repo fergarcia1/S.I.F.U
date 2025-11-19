@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
 import { Teams } from '../../models/teams';
 import { Player } from '../../models/player';
+import { GameStateService } from '../game-state-service';
 
 @Component({
   selector: 'app-plantilla-component',
@@ -14,7 +15,8 @@ import { Player } from '../../models/player';
 export class PlantillaComponent {
   private readonly service = inject(TeamsService);
   private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
+  private readonly route = inject(ActivatedRoute); 
+  private readonly gameState = inject(GameStateService);
 
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
 
@@ -40,21 +42,40 @@ export class PlantillaComponent {
 
   jugadorSeleccionado: Player | null = null;
 
-  cambiarJugador(titular: Player, suplente: Player) {
-    this.teamSource.update(team => {
-      if (!team) return team;
+cambiarJugador(titular: Player, suplente: Player) {
 
-      const newSquad = team.squad.map(p => {
-        if (p.id === titular.id) return { ...p, isStarter: false };
-        if (p.id === suplente.id) return { ...p, isStarter: true };
-        return p;
-      });
+  // 1️⃣ Actualizar el equipo local en el signal
+  this.teamSource.update(team => {
+    if (!team) return team;
 
-      return { ...team, squad: newSquad };
+    const newSquad = team.squad.map(p => {
+      if (p.id === titular.id) return { ...p, isStarter: false };
+      if (p.id === suplente.id) return { ...p, isStarter: true };
+      return p;
     });
 
-    this.jugadorSeleccionado = null;
-  }
+    return { ...team, squad: newSquad };
+  });
+
+  const updatedTeam = this.teamSource()!;
+
+  // 2️⃣ Guardar en el backend
+  this.service.updateTeam(updatedTeam).subscribe(() => {
+
+    // 3️⃣ Muy importante: actualizar GameState
+    this.gameState.updateTeam(updatedTeam);
+
+    console.log("Titulares actualizados en GameState");
+  });
+
+  this.jugadorSeleccionado = null;
+}
+
+
+
+
+
+
    goBack() {
     this.location.back();
   }

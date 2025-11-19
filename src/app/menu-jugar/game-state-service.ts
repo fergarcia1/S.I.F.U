@@ -2,6 +2,8 @@ import { Injectable, signal, computed } from '@angular/core';
 import { Teams } from '../models/teams';
 import { Match } from '../models/match';
 import { LeagueStanding } from '../models/league-standing';
+import { MatchEvent } from '../models/match-event';
+import { Player } from '../models/player';
 
 @Injectable({
   providedIn: 'root'
@@ -49,24 +51,64 @@ export class GameStateService {
     }));
   }
 
+  updatePlayerStats(players: Player[], events: MatchEvent[]) {
+    players.forEach(player => {
+      player.stats.matches++;
+      if (player.isStarter) player.stats.starts++;
+    });
+
+    events.forEach(ev => {
+      const player = players.find(p => p.id === ev.playerId);
+      if (!player) return;
+
+      switch (ev.type) {
+        case 'goal': player.stats.goals++; break;
+        case 'assist': player.stats.assists++; break;
+        case 'yellow': player.stats.yellowCards++; break;
+        case 'red': player.stats.redCards++; break;
+      }
+
+      if (ev.assistId) {
+        const assistPlayer = players.find(p => p.id === ev.assistId);
+        if (assistPlayer) assistPlayer.stats.assists++;
+      }
+    });
+  }
+
   // -----------------------------------------------------
   // RESULTADOS
   // -----------------------------------------------------
-  updateMatchResult(matchId: number, homeGoals: number, awayGoals: number) {
-    const updatedFixture = this.fixture().map(m => {
-      if (m.id !== matchId) return m;
+  updateMatchResult(
+  matchId: number, 
+  result: { homeGoals: number; awayGoals: number; events: MatchEvent[] }
+) {
+  const updatedFixture = this.fixture().map(m => {
+    if (m.id !== matchId) return m;
 
-      return {
-        ...m,
-        homeGoals,
-        awayGoals,
-        played: true
-      };
-    });
+    return {
+      ...m,
+      homeGoals: result.homeGoals,
+      awayGoals: result.awayGoals,
+      events: result.events,
+      played: true
+    };
+  });
 
-    this.fixture.set(updatedFixture);
-    this.recalculateStandings();
-  }
+  this.fixture.set(updatedFixture);
+  this.recalculateStandings();
+
+  // Actualizar estadísticas de los jugadores de ambos equipos
+  const match = this.fixture().find(m => m.id === matchId);
+  if (!match) return;
+
+  const homeTeam = this.getTeamById(match.homeTeamId);
+  const awayTeam = this.getTeamById(match.awayTeamId);
+
+  if (homeTeam) this.updatePlayerStats(homeTeam.squad, result.events);
+  if (awayTeam) this.updatePlayerStats(awayTeam.squad, result.events);
+}
+
+
 
   // -----------------------------------------------------
   // RECONSTRUIR TABLA DESDE CERO
@@ -131,4 +173,24 @@ export class GameStateService {
       standings: this.standings()
     };
   }
+
+  getTeamById(teamId: number): Teams | undefined {
+    return this.teams().find(t => t.id === teamId);
+  }
+
+  updateTeam(updatedTeam: Teams) {
+  const newTeams = this.teams().map(team => {
+    if (team.id !== updatedTeam.id) return team;
+
+    return {
+      ...team,
+      squad: updatedTeam.squad  // ⬅ solo reemplazar el squad
+    };
+  });
+
+  this.teams.set(newTeams);
+}
+
+  
+
 }

@@ -1,44 +1,94 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { GameStateService } from '../../game-state-service';
-import { simulateFullMatch } from '../../../utils/simulation';
+import { Teams } from '../../../models/teams';
 import { MatchEvent } from '../../../models/match-event';
+import { simulateFullMatch } from '../../../utils/simulation';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-simular-partido-rapido',
   templateUrl: './simular-partido-rapido.html',
 })
 export class SimularPartidoRapido {
-  private gameState = inject(GameStateService);
 
-  protected readonly fixture = computed(() => this.gameState.getState()?.fixture ?? []);
-  protected readonly teams = computed(() => this.gameState.getState()?.teams ?? []);
+  events = signal<MatchEvent[]>([]);
+  score = signal({ home: 0, away: 0 });
+  protected readonly route = inject(ActivatedRoute);
+  protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
 
-  protected currentMatchIndex = signal(0);
-  protected homeGoals = signal(0);
-  protected awayGoals = signal(0);
-  protected events = signal<MatchEvent[]>([]);
+  match: any;
+  homeTeam!: Teams;
+  awayTeam!: Teams;
 
-  protected readonly currentMatch = computed(() => this.fixture()[this.currentMatchIndex()] ?? null);
-  protected readonly homeTeam = computed(() => this.teams().find(t => t.id === this.currentMatch()?.homeTeamId));
-  protected readonly awayTeam = computed(() => this.teams().find(t => t.id === this.currentMatch()?.awayTeamId));
+  constructor(private gameState: GameStateService) {
+    
+    const selectedTeamId = this.gameState.selectedTeamId()!;
+    
+    // 1. Obtener el partido del usuario
+    this.match = this.getNextMatch(selectedTeamId);
 
-  // 🔹 Computed para mostrar eventos como texto
-  protected readonly eventsText = computed(() =>
-    this.events().map(e => `${e.minute}' ${e.type} (Jugador ${e.playerId})`).join(', ')
-  );
+    // Si no hay partido, cortamos
+    if (!this.match) {
+      console.warn("No hay próximo partido para este equipo.");
+      return;
+    }
 
-  protected simulateFast() {
-    if (!this.currentMatch() || !this.homeTeam() || !this.awayTeam()) return;
-    const result = simulateFullMatch(this.currentMatch()!, this.homeTeam()!, this.awayTeam()!);
-    this.homeGoals.set(result.homeGoals);
-    this.awayGoals.set(result.awayGoals);
-    this.events.set(result.events);
+    // 2. Simular toda la fecha (matchday)
+    this.simulateMatchday(this.match.matchday);
+
+    // 3. Obtener los equipos SOLO de tu partido
+    this.homeTeam = this.gameState.getTeamById(this.match.homeTeamId)!;
+    this.awayTeam = this.gameState.getTeamById(this.match.awayTeamId)!;
+
+    // 4. Obtener el resultado que ya fue simulado en el paso anterior
+    const updatedMatch = this.gameState.fixture().find(m => m.id === this.match.id)!;
+
+    this.events.set(updatedMatch.events);
+    this.score.set({
+      home: updatedMatch.homeGoals,
+      away: updatedMatch.awayGoals,
+    });
   }
 
-  protected nextMatch() {
-    this.currentMatchIndex.set(this.currentMatchIndex() + 1);
-    this.homeGoals.set(0);
-    this.awayGoals.set(0);
-    this.events.set([]);
+  // 🔥 SIMULAR TODOS LOS PARTIDOS DE UNA JORNADA
+  private simulateMatchday(matchday: number) {
+
+    const matches = this.gameState
+      .fixture()
+      .filter(m => m.matchday === matchday && !m.played);
+
+    console.log("Simulando fecha:", matchday, matches);
+
+    for (const match of matches) {
+
+      const homeTeam = this.gameState.getTeamById(match.homeTeamId)!;
+      const awayTeam = this.gameState.getTeamById(match.awayTeamId)!;
+
+      const result = simulateFullMatch(match, homeTeam, awayTeam);
+
+      this.gameState.updateMatchResult(match.id, result);
+    }
+  }
+
+  getTeamById(teamId: number): Teams | undefined {
+    return this.gameState.getTeamById(teamId);
+  }
+
+  getPlayerName(team: Teams | undefined, playerId: number): string {
+    return (
+      team?.squad.find((p) => p.id === playerId)?.name ?? 'Desconocido'
+    );
+  }
+
+  private getNextMatch(teamId: number) {
+    return (
+      this.gameState
+        .fixture()
+        .find(
+          (m) =>
+            !m.played &&
+            (m.homeTeamId === teamId || m.awayTeamId === teamId)
+        )!
+    );
   }
 }

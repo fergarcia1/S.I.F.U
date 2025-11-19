@@ -204,7 +204,7 @@ export function simulateFullMatchRealTime(
 
     minute++;
 
-  }, 600);
+  }, 300);
 }
 
 /* ==========================================================
@@ -219,32 +219,28 @@ export function simulateFullMatch(
   let homeGoals = 0;
   let awayGoals = 0;
 
-  const homeStrength = getTeamStrength(homeTeam);
-  const awayStrength = getTeamStrength(awayTeam);
-
   for (let minute = 1; minute <= 90; minute++) {
-
-    if (randomChance(homeStrength * 0.02)) {
+    // Goles
+    if (randomChance(getTeamStrength(homeTeam) * 0.02)) {
       const g = tryGenerateGoal(homeTeam, minute);
       if (g) {
         homeGoals++;
         events.push({
           minute,
-          type: "goal",
+          type: 'goal',
           playerId: g.scorer.id,
           assistId: g.assist?.id ?? null,
           teamId: homeTeam.id
         });
       }
     }
-
-    if (randomChance(awayStrength * 0.02)) {
+    if (randomChance(getTeamStrength(awayTeam) * 0.02)) {
       const g = tryGenerateGoal(awayTeam, minute);
       if (g) {
         awayGoals++;
         events.push({
           minute,
-          type: "goal",
+          type: 'goal',
           playerId: g.scorer.id,
           assistId: g.assist?.id ?? null,
           teamId: awayTeam.id
@@ -252,28 +248,24 @@ export function simulateFullMatch(
       }
     }
 
-    if (randomChance(0.02)) {
-      const card = tryGenerateCard(homeTeam);
-      if (card) {
-        events.push({
-          minute,
-          type: card.type,
-          playerId: card.player.id,
-          teamId: homeTeam.id
-        });
-      }
+    // Tarjetas
+    const cardHome = tryGenerateCard(homeTeam);
+    if (cardHome) {
+      events.push({
+        minute,
+        type: cardHome.type,
+        playerId: cardHome.player.id,
+        teamId: homeTeam.id
+      });
     }
-
-    if (randomChance(0.02)) {
-      const card = tryGenerateCard(awayTeam);
-      if (card) {
-        events.push({
-          minute,
-          type: card.type,
-          playerId: card.player.id,
-          teamId: awayTeam.id
-        });
-      }
+    const cardAway = tryGenerateCard(awayTeam);
+    if (cardAway) {
+      events.push({
+        minute,
+        type: cardAway.type,
+        playerId: cardAway.player.id,
+        teamId: awayTeam.id
+      });
     }
   }
 
