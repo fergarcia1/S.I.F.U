@@ -1,20 +1,24 @@
 import { Component, inject, signal } from '@angular/core';
 import { GameStateService } from '../game-state-service';
 import { Teams } from '../../models/teams';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-estadisticas-mi-equipo',
+  imports: [RouterLink],
   templateUrl: './estadisticas-equipo.html',
+  styleUrls: ['./estadisticas-equipo.css']
 })
 export class EstadisticasEquipo {
 
   private readonly router = inject(Router)
   private readonly route = inject(ActivatedRoute);
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
-
-  goBack(id : number) {
-    this.router.navigateByUrl(`/inicio/${id}`);
+  private readonly location = inject(Location);
+  
+   goBack() {
+    this.location.back();
   }
 
   private readonly gameState = inject(GameStateService);

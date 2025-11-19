@@ -3,19 +3,24 @@ import { GameStateService } from '../../game-state-service';
 import { Teams } from '../../../models/teams';
 import { MatchEvent } from '../../../models/match-event';
 import { simulateFullMatch } from '../../../utils/simulation';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-simular-partido-rapido',
+  imports: [UpperCasePipe],
   templateUrl: './simular-partido-rapido.html',
+  styleUrl: './simular-partido-rapido.css'
 })
 export class SimularPartidoRapido {
 
   events = signal<MatchEvent[]>([]);
   score = signal({ home: 0, away: 0 });
   protected readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
-
+  private readonly location = inject(Location);
   match: any;
   homeTeam!: Teams;
   awayTeam!: Teams;
@@ -90,5 +95,11 @@ export class SimularPartidoRapido {
             (m.homeTeamId === teamId || m.awayTeamId === teamId)
         )!
     );
+  }
+  goBack() {
+    this.location.back();
+  }
+  navigateToMenuInicio(id : number) {
+    this.router.navigateByUrl(`/inicio/${id}`);
   }
 }
