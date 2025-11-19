@@ -4,7 +4,6 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
 import { Teams } from '../../models/teams';
 import { Player } from '../../models/player';
-import { GameStateService } from '../game-state-service';
 
 const VALID_FORMATIONS = [
   '3-4-3', '3-5-2',
@@ -22,8 +21,7 @@ export class PlantillaComponent {
   //servicios y rutas
   private readonly service = inject(TeamsService);
   private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute); 
-  private readonly gameState = inject(GameStateService);
+  private readonly route = inject(ActivatedRoute);
 
   //id del equipo seleccionado
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
@@ -70,37 +68,44 @@ export class PlantillaComponent {
 
   jugadorSeleccionado: Player | null = null;
 
-cambiarJugador(titular: Player, suplente: Player) {
+  cambiarJugador(titular: Player, suplente: Player) {
+    this.errorMessage.set(null);
+    // Validamos solo si cambian de posición
+    if (titular.position !== suplente.position) {
+      if (!this.esFormacionValida(titular, suplente)) {
+        return; 
+      }
+    }
+    //actualizacion al nuevo equipo
+    let equipoActualizado: Teams | undefined; //variable para que se guarden los cambios
+    this.teamSource.update(team => {
+      if (!team) return team;
 
-  // 1️⃣ Actualizar el equipo local en el signal
-  this.teamSource.update(team => {
-    if (!team) return team;
-
-    const newSquad = team.squad.map(p => {
-      if (p.id === titular.id) return { ...p, isStarter: false };
-      if (p.id === suplente.id) return { ...p, isStarter: true };
-      return p;
+      const newSquad = team.squad.map(p => {
+        if (p.id === titular.id) return { ...p, isStarter: false };
+        if (p.id === suplente.id) return { ...p, isStarter: true };
+        return p;
+      });
+      equipoActualizado = { ...team, squad: newSquad };
+      return equipoActualizado;
     });
+    
+    this.jugadorSeleccionado = null;
 
-    return { ...team, squad: newSquad };
-  });
+    if (equipoActualizado) {
+      this.service.updateTeam(equipoActualizado).subscribe({
+        next: () => {
+          console.log('Cambio guardado exitosamente en BDD');
+        },
+        error: (err) => {
+          console.error('Error al guardar cambios', err);
+          this.errorMessage.set("Error de conexión: No se pudo guardar el cambio.");
+        }
+      });
+    }
+  }
 
-  const updatedTeam = this.teamSource()!;
-
-  // 2️⃣ Guardar en el backend
-  this.service.updateTeam(updatedTeam).subscribe(() => {
-
-    // 3️⃣ Muy importante: actualizar GameState
-    this.gameState.updateTeam(updatedTeam);
-
-    console.log("Titulares actualizados en GameState");
-  });
-
-  this.jugadorSeleccionado = null;
-}
-
-
-private esFormacionValida(titularSaliente: Player, suplenteEntrante: Player): boolean {
+  private esFormacionValida(titularSaliente: Player, suplenteEntrante: Player): boolean {
     // Creamos una lista hipotética de cómo quedarían los titulares
     const nuevosTitulares: Player[] = this.titulares()
       .filter((p: Player) => p.id !== titularSaliente.id) // Sacamos al titular
@@ -147,9 +152,7 @@ private esFormacionValida(titularSaliente: Player, suplenteEntrante: Player): bo
     return true;
   }
 
-
-
-   goBack() {
+  goBack() {
     this.location.back();
   }
 
