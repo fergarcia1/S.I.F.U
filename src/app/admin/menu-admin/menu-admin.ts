@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../auth/auth-service';
 
 @Component({
   selector: 'app-menu-admin',
@@ -8,7 +9,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './menu-admin.css',
 })
 export class MenuAdmin {
+  private auth = inject(AuthService);
+  private router = inject(Router);
+
   alertaFutura() {
     alert("Funcionalidad 'Resetear Temporada' próximamente...");
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

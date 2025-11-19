@@ -6,13 +6,9 @@ export const LoginGuard: CanActivateFn = (route, state) => {
   const auth = inject(AuthService);
   const router = inject(Router);
 
-  // Si el usuario YA ESTÁ logueado...
   if (auth.isLogged()) {
-    // ... lo mandamos directo al menú (o lista de equipos)
     router.navigate(['/menu']); 
-    return false; // Bloqueamos el acceso al login
+    return false; 
   }
-
-  // Si NO está logueado, lo dejamos pasar al login
   return true;
 };

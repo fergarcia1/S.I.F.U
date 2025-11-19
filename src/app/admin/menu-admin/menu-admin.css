@@ -83,19 +83,19 @@
 
 /* Colores específicos al pasar el mouse (Bordes inferiores) */
 .card-create:hover {
-  border-bottom: 4px solid #2ecc71; /* Verde */
+  border-bottom: 4px solid #2ecc71; 
 }
 
 .card-edit:hover {
-  border-bottom: 4px solid #3498db; /* Azul */
+  border-bottom: 4px solid #3498db;
 }
 
 .card-delete:hover {
-  border-bottom: 4px solid #e74c3c; /* Rojo */
+  border-bottom: 4px solid #e74c3c;
 }
 
-.card-team:hover {
-  border-bottom: 4px solid #f1c40f; /* Amarillo */
+.card-logout:hover {
+   border-bottom: 4px solid #cbee05;
 }
 
 /* Estilo para la tarjeta de Gestión (Violeta / Database) */
