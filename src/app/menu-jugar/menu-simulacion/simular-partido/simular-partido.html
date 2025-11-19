@@ -43,10 +43,6 @@
   <!-- RELATO MINUTO A MINUTO -->
   <div class="match-log-container">
     
-    @if (events().length === 0) {
-      <p style="text-align:center; color:#999; margin-top:20px;">El partido está por comenzar...</p>
-    }
-
     @for (e of events().slice().reverse(); track e.minute + '-' + e.playerId) {
       
       <div class="event-row" 

@@ -32,11 +32,24 @@
 
     <div class="game-menu">
 
-      @if (nextMatch() && nextMatchStandingInfo()) {
+      <!-- ⬆ SI LA TEMPORADA TERMINÓ: MOSTRAR CAMPEÓN -->
+      @if (isSeasonFinished() && champion()) {
+
+      <div class="champion-box">
+        <h2>🏆 CAMPEÓN 🏆</h2>
+
+        <div class="champion-content">
+          <img [src]="getTeamLogo(champion()?.id!)" (error)="handleMissingImage($event)">
+          <h3>{{ champion()?.name }}</h3>
+        </div>
+      </div>
+
+      }
+      <!-- ⬇ SI NO TERMINÓ: MOSTRAR LAS POSICIONES -->
+      @else if (nextMatch() && nextMatchStandingInfo()) {
 
       <div class="standings-box-container">
 
-        <!-- TU EQUIPO -->
         <div class="stand-box my-team">
           <h3>Tu Equipo</h3>
           <p class="team-name">{{ myTeamName() }}</p>
@@ -47,7 +60,6 @@
           </div>
         </div>
 
-        <!-- RIVAL -->
         <div class="stand-box rival-team">
           <h3>Rival</h3>
           <p class="team-name">{{ nextMatch()?.rivalTeamName }}</p>
@@ -63,7 +75,8 @@
       }
 
 
-      <div class="menu-option highlight" (click)="navigateToMenuSimulacion(teamId!)">
+
+      <div class="menu-option highlight" [class.disabled]="isSeasonFinished()" (click)="!isSeasonFinished() && navigateToMenuSimulacion(teamId!)">
         <div class="option-content">
           <h2>CONTINUAR</h2>
 

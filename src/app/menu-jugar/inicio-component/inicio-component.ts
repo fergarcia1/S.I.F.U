@@ -131,4 +131,45 @@ export class InicioComponent {
     return this.teams().find(t => t.id === this.teamId)?.name ?? '';
   });
 
+  protected readonly isSeasonFinished = computed(() => {
+    const fixture = this.gameState.fixture();
+    // verificar si existe un partido con matchday 38 y está jugado
+    return fixture.some(m => m.matchday === 38 && m.played);
+  });
+
+  protected readonly champion = computed(() => {
+  if (!this.isSeasonFinished()) return null;
+
+  const standings = [...this.gameState.standings()];
+  const teams = this.gameState.teams();
+
+  // ORDEN REAL DE TABLA (exacto al que usás en TablaComponent)
+  standings.sort((a, b) => {
+    if (b.points !== a.points) return b.points - a.points;
+
+    const dgA = a.goalsFor - a.goalsAgainst;
+    const dgB = b.goalsFor - b.goalsAgainst;
+    if (dgB !== dgA) return dgB - dgA;
+
+    if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
+
+    const nameA = teams.find(t => t.id === a.teamId)?.name ?? '';
+    const nameB = teams.find(t => t.id === b.teamId)?.name ?? '';
+    return nameA.localeCompare(nameB);
+  });
+
+  const championTeamId = standings[0].teamId;
+
+  return teams.find(t => t.id === championTeamId);
+});
+
+
+  getTeamLogo(teamId: number): string {
+    return `/logos/${teamId}.png`;
+  }
+
+  handleMissingImage(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = '/logos/default.png'; 
+  }
 }
