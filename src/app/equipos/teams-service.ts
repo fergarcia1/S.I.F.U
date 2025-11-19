@@ -49,10 +49,8 @@ addPlayerToTeam(teamId: number, newPlayer: Player): Observable<Teams> {
       })
     );
   }
+  updateTeam(team: Teams) {
+    // Enviamos el equipo modificado a la URL: localhost:3000/teams/ID
+    return this.http.put<Teams>(`${this.url}/${team.id}`, team);
+  }
 }
-
-
-
-// .pipe(
-//         map(team => team.squad ?? [])
-//       )

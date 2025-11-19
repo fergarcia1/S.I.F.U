@@ -1,13 +1,11 @@
 .game-navbar {
-  background-color: #15291f;
-  padding: 0.8rem 2rem;
+  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  border-bottom: 2px solid #cddc39;
-  position: sticky; /* Fija la barra arriba */
-  top: 0;
-  z-index: 100;
+  gap: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
 }
 
 .nav-brand span {
@@ -19,7 +17,7 @@
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
@@ -37,6 +35,11 @@
   color: #cddc39;
 }
 
+.nav-links a.active {
+  background-color: #cddc39;
+  color: #15291f;
+  font-weight: bold;
+}
 /* CLASE ACTIVE (Ahora funciona automática) */
 .nav-links a.active {
   background-color: #cddc39;

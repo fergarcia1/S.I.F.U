@@ -20,6 +20,12 @@
         @for (equipo of filteredTeams(); track equipo.id) {
             <div class="team-card">
                 <div class="team-info">
+                    <img 
+                      class="team-logo" 
+                      [src]="getTeamLogo(equipo.id)" 
+                      (error)="handleMissingImage($event)"
+                      alt="Logo de {{ equipo.name }}" 
+                    />
                     <span class="team-name">{{ equipo.name }}</span>
                     <span class="team-short">/ {{ equipo.shortName }}</span>
                 </div>

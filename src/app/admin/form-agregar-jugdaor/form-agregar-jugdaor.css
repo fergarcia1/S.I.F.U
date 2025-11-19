@@ -1,18 +1,17 @@
-/* Contenedor principal (la tarjeta) */
 .form-admin {
   background-color: #ffffff;
-  border: none; /* Quitamos el borde por defecto del fieldset */
-  border-radius: 12px; /* Bordes redondeados */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Sombra suave para dar profundidad */
+  border: none; 
+  border-radius: 12px; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); 
   max-width: 480px;
-  margin: 2rem auto; /* Centrado horizontalmente */
+  margin: 2rem auto; 
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título del formulario */
+/* titulo del formulario */
 .form-admin h1 {
-  color: #1a1a2e; /* Azul oscuro casi negro */
+  color: #1a1a2e; 
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -53,14 +52,14 @@
 /* Efecto al hacer click en un input (Focus) */
 .form-field input:focus,
 .form-field select:focus {
-  border-color: #3498db; /* Azul profesional */
+  border-color: #3498db; 
   background-color: #fff;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
 }
 
 /* Mensajes de Error */
 .form-field span {
-  color: #e74c3c; /* Rojo alerta */
+  color: #e74c3c; 
   font-size: 0.8rem;
   margin-top: 5px;
   font-weight: 500;
@@ -72,7 +71,7 @@ button[type="submit"] {
   width: 100%;
   padding: 14px;
   margin-top: 1rem;
-  background-color: #27ae60; /* Verde fútbol */
+  background-color: #27ae60; 
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -88,7 +87,7 @@ button[type="submit"]:hover {
 }
 
 button[type="submit"]:active {
-  transform: scale(0.98); /* Pequeño efecto de presión */
+  transform: scale(0.98); 
 }
 
 button[type="submit"]:disabled {

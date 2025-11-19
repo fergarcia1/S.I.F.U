@@ -68,76 +68,141 @@
 }
 
 /* --- CONTENEDOR DEL DASHBOARD --- */
+/* Contenedor general */
 .dashboard-container {
-  max-width: 1200px;
+  max-width: 800px; /* Más angosto para centrar la atención */
   margin: 0 auto;
   padding: 2rem;
-  color: #fff;
-  animation: fadeIn 0.5s ease-out;
+  color: white;
+  display: flex;
+  justify-content: center;
+  animation: slideIn 0.5s ease-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.content-wrapper {
+  width: 100%;
 }
 
+/* Encabezado */
 .dashboard-header {
+  text-align: left; /* Alineado con el menú */
   margin-bottom: 2rem;
-  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 1rem;
 }
 
 .dashboard-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
 }
 
 .dashboard-header p {
-  color: rgba(255,255,255,0.7);
+  margin: 5px 0 0 0;
+  color: #cddc39; /* Verde Lima */
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-/* --- GRILLA DE ACCIONES --- */
-.actions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
-  gap: 1.5rem;
-}
-
-.action-card {
-  background-color: #f0f7f4; /* Fondo claro */
-  color: #1e392a; /* Texto oscuro */
-  padding: 1.5rem;
-  border-radius: 12px;
-  border-left: 5px solid #1e392a;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s;
+/* --- LISTA DEL MENÚ --- */
+.game-menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
+  gap: 15px; /* Espacio entre opciones */
 }
 
-.action-card:hover {
-  transform: translateY(-5px);
-}
-
-.action-card h3 {
-  margin-top: 0;
-  font-size: 1.4rem;
-}
-
-.btn-action {
-  background-color: #1e392a;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
+/* Estilo de cada Opción */
+.menu-option {
+  background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+  border-left: 5px solid rgba(255,255,255,0.3); /* Borde gris inicial */
+  padding: 1.5rem 2rem;
   cursor: pointer;
-  font-weight: bold;
-  width: 100%;
-  margin-top: 1rem;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.btn-action:hover {
-  background-color: #2f5e42;
+.option-content h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.option-content span {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  transition: color 0.3s;
+}
+
+/* --- EFECTOS HOVER (Al pasar el mouse) --- */
+.menu-option:hover {
+  background: rgba(205, 220, 57, 0.1); /* Fondo verde muy suave */
+  border-left: 10px solid #cddc39; /* El borde crece y se pone verde */
+  padding-left: 2.5rem; /* Efecto de desplazamiento a la derecha */
+  transform: translateX(5px);
+}
+
+.menu-option:hover h2 {
+  color: #cddc39; /* Título se pone verde */
+}
+
+.menu-option:hover span {
+  color: white; /* Descripción se ilumina */
+}
+
+/* --- OPCIÓN DESTACADA (CONTINUAR) --- */
+.menu-option.highlight {
+  background: rgba(205, 220, 57, 0.15);
+  border-left: 5px solid #cddc39;
+}
+
+.menu-option.highlight h2 {
+  color: #cddc39;
+}
+
+.menu-option.highlight:hover {
+  background: #cddc39; /* Fondo sólido al hacer hover */
+}
+
+.menu-option.highlight:hover h2 {
+  color: #15291f; /* Texto oscuro */
+}
+
+.menu-option.highlight:hover span {
+  color: #15291f;
+}
+
+/* Icono decorativo */
+.icon {
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+/* Animación de entrada */
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header h1 { font-size: 1.8rem; }
+  .menu-option { padding: 1rem; }
+  .menu-option h2 { font-size: 1.1rem; }
 }

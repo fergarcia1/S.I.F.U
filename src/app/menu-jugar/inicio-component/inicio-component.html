@@ -1,54 +1,41 @@
 <nav class="game-navbar">
-    <div class="nav-brand">
-        <span>S.I.F.U.</span>
-    </div>
+  <div class="nav-brand">
+    <span>S.I.F.U.</span>
+  </div>
 
-    <div class="nav-links">
-        <a [routerLink]="['/inicio', teamId]" class="active">Inicio</a>
-
-        <a [routerLink]="['/plantilla', teamId]">Plantilla</a>
-
+  <div class="nav-links">
+    <a [routerLink]="['/inicio', teamId]" class="active">Inicio</a>
+    <a [routerLink]="['/plantilla', teamId]">Plantilla</a>
     <a [routerLink]="['/fixture', teamId]">Fixture</a>
-
     <a [routerLink]="['/tabla', teamId]">Tabla</a>
   </div>
 
-    <div class="nav-spacer"></div>
+  <div class="nav-spacer"></div>
 
-    <button class="nav-btn logout-btn" (click)="logout()">
+  <button class="nav-btn logout-btn" (click)="logout()">
     Cerrar Sesión
   </button>
 </nav>
 
-
 <div class="dashboard-container">
 
+  <div class="content-wrapper">
+    
     <header class="dashboard-header">
-        <h1>Centro de Gestión</h1>
-        <p>Gestiona todos los aspectos de tu club desde aquí.</p>
+      <h1>Centro de Gestión</h1>
+      <p>Temporada 2024/2025</p>
     </header>
 
-    <div class="actions-grid">
-
-        <div class="action-card">
-            <h3>Próximo Partido</h3>
-            <p>Ver análisis del rival</p>
-            <button class="btn-action">Analizar</button>
+    <div class="game-menu">
+      
+      <div class="menu-option highlight" >
+        <div class="option-content">
+          <h2>CONTINUAR</h2>
+          <span>Próximo partido vs. </span>
         </div>
-
-        <div class="action-card">
-            <h3>Entrenamiento</h3>
-            <p>Gestionar sesiones</p>
-            <button class="btn-action">Ir al Campo</button>
-        </div>
-
-        <div class="action-card">
-            <h3>Mercado</h3>
-            <p>Buscar jugadores</p>
-            <button class="btn-action">Negociar</button>
-        </div>
-
-
-
+        <div class="icon">⚽</div>
+      </div>
     </div>
+
+  </div>
 </div>

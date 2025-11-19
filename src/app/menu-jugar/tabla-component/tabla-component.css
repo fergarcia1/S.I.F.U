@@ -78,20 +78,114 @@
   transition: transform 0.3s ease;
 }
 
+.logo {
+  width: 30px;       /* Un poco más grande para que se luzca */
+  height: 30px;
+  object-fit: contain; /* Evita que el escudo se estire o aplaste */
+  vertical-align: middle;
+  margin-right: 12px; /* Separación con el nombre */
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); /* Sombrita para efecto 3D */
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* --- TABLA ESTILO CHAMPIONS --- */
 .tabla-liga {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Necesario para bordes redondeados */
+  border-spacing: 0;
+  background-color: #1e392a; /* Fondo base oscuro */
+  border-radius: 12px;
+  overflow: hidden; /* Corta las esquinas */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  font-size: 0.95rem;
+}
+
+/* CABECERA */
+.tabla-liga thead {
+  background-color: #15291f;
+  color: #cddc39; /* Texto Verde Lima */
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.tabla-liga th {
+  padding: 16px 12px;
+  font-weight: 800;
+  text-align: center;
+  border-bottom: 2px solid #cddc39;
+}
+
+/* COLUMNA EQUIPO (Alineada a la izquierda) */
+.tabla-liga th:nth-child(2),
+.tabla-liga td:nth-child(2) {
+  text-align: left;
+  min-width: 200px;
+  font-weight: 600;
+}
+
+/* FILAS DE DATOS */
+.tabla-liga td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
   text-align: center;
 }
 
-.tabla-liga th,
-.tabla-liga td {
-  padding: 6px 8px;
-  border-bottom: 1px solid #ccc;
+/* Filas alternadas (Zebra) */
+.tabla-liga tbody tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.03);
 }
 
+/* Efecto Hover al pasar el mouse */
+.tabla-liga tbody tr:hover {
+  background-color: rgba(205, 220, 57, 0.1); /* Brillo lima suave */
+  transform: scale(1.01); /* Pequeño zoom */
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+/* LOGO DEL EQUIPO */
 .logo {
-  width: 20px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
   vertical-align: middle;
-  margin-right: 6px;
+  margin-right: 10px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+}
+
+/* DESTACAR PUNTOS (PTS) */
+.tabla-liga td:nth-child(3),
+.tabla-liga th:nth-child(3) {
+  font-weight: 900;
+  color: #fff;
+  background-color: rgba(255,255,255,0.05); /* Fondo sutil para la columna */
+  font-size: 1.1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tabla-liga th, .tabla-liga td {
+    padding: 10px 4px;
+    font-size: 0.85rem;
+  }
+  .tabla-liga th:nth-child(n+6), /* Ocultar stats detalladas en móvil */
+  .tabla-liga td:nth-child(n+6) {
+    display: none; 
+  }
+  /* Mostrar solo #, Equipo, PTS, PJ, G */
+}
+
+/* --- ANIMACIÓN --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

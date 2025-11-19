@@ -55,11 +55,16 @@ export class TablaComponent {
     return this.teams().find(t => t.id === id)?.shortName ?? '';
   }
 
-  getTeamLogo(id: number): string {
-    return this.teams().find(t => t.id === id)?.logo ?? '';
+  getTeamLogo(teamId: number): string {
+    return `/logos/${teamId}.png`;
+  }
+  handleMissingImage(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    // Si falla, pone el escudo por defecto
+    imgElement.src = '/logos/default.png';
   }
 
-     goBack() {
+  goBack() {
     this.location.back();
   }
 }

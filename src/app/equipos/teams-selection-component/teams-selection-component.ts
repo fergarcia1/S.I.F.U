@@ -27,8 +27,10 @@ export class TeamsSelectionComponent {
   //obtencion de datos 
   protected readonly teamsSource = toSignal(this.service.getAllTeams())
   protected readonly teams = linkedSignal(() => this.teamsSource() ?? [])
+
   ///validaciones
   protected readonly isLoading = computed(() => this.teams() === undefined)
+
   //filtrado
   protected searchTerm = signal<string>('');
 
@@ -58,6 +60,15 @@ export class TeamsSelectionComponent {
 
   navigateToPlantel(id: number) {
     this.router.navigateByUrl(`/listaTeams/${id}`);
+  }
+
+  getTeamLogo(teamId: number): string {
+    return `/logos/${teamId}.png`;
+  }
+
+  handleMissingImage(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = '/logos/default.png'; 
   }
 }
 
