@@ -31,7 +31,7 @@
       "role": "player"
     },
     {
-      "id": 1763520394126,
+      "id": "1763520394126",
       "username": "Asub",
       "password": "!Nico2003!",
       "role": "player"
@@ -67,7 +67,7 @@
           "position": "DF",
           "rating": 85,
           "shirtNumber": 2,
-          "isStarter": false,
+          "isStarter": true,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -195,7 +195,7 @@
           "position": "FW",
           "rating": 84,
           "shirtNumber": 10,
-          "isStarter": false,
+          "isStarter": true,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -227,7 +227,7 @@
           "position": "FW",
           "rating": 85,
           "shirtNumber": 19,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -259,7 +259,7 @@
           "position": "MF",
           "rating": 80,
           "shirtNumber": 27,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
