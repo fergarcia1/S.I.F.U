@@ -1,6 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="handleSubmit()">
     <fieldset class="form-admin">
-        <h1>Agregar Jugadores:</h1>
+        @if(!this.esModoEdicion()){
+        <h1>Agregar Jugador:</h1>
+        }@else{
+        <h1>Editar Jugador:</h1>
+        }
 
         <div class="form-field">
             <label for="teamId">Equipo Del Jugador:</label>
@@ -32,27 +36,27 @@
         </div>
 
         <div class="form-row">
-    
+
             <div class="form-field half-width">
                 <label for="rating">Rating Jugador: </label>
                 <input type="number" id="rating" formControlName="rating">
                 @if(rating.dirty || rating.touched){
-                    @if(name.hasError('required')){
-                        <span>El rating requerido</span>
-                    }
+                @if(name.hasError('required')){
+                <span>El rating requerido</span>
+                }
                 }
             </div>
-            
+
             <div class="form-field half-width">
                 <label for="shirtNumber">Nro De Camiseta: </label>
                 <input type="number" id="shirtNumber" formControlName="shirtNumber">
                 @if(shirtNumber.dirty || shirtNumber.touched){
-                    @if(name.hasError('required')){
-                        <span>El Nro de camiseta es requerido</span>
-                    }
+                @if(name.hasError('required')){
+                <span>El Nro de camiseta es requerido</span>
+                }
                 }
             </div>
-            
+
         </div>
 
 
