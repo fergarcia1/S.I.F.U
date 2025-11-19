@@ -1,0 +1,231 @@
+/* --- CONTENEDOR PRINCIPAL (Centrado) --- */
+.simulacion-rapida-container {
+  max-width: 1000px; /* Ancho máximo para que no se estire demasiado */
+  margin: 0 auto; /* Centra el bloque horizontalmente */
+  padding: 2rem;
+  color: #ecf0f1;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* --- TOOLBAR (Botón Volver) --- */
+.toolbar {
+  margin: 2rem;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #cddc39;
+  color: #cddc39;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+button:hover {
+  background: rgba(205, 220, 57, 0.1);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(205, 220, 57, 0.3);
+}
+
+button.arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+button:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* --- HEADER Y MARCADOR --- */
+.match-header {
+  background: linear-gradient(180deg, #1e392a 0%, #15291f 100%);
+  border-bottom: 3px solid #cddc39;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.marcador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.team-name {
+  flex: 1;
+  text-align: center; /* Nombres centrados */
+  color: #fff;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.score-box {
+  background-color: #000;
+  color: #cddc39; /* Números en verde lima */
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 2.5rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 900;
+  letter-spacing: 5px;
+  border: 2px solid #3a5f4a;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* --- CONTENEDOR DE EVENTOS (Dos Columnas) --- */
+.contenedor-eventos {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 2rem; /* Espacio entre columnas */
+}
+
+/* COLUMNA INDIVIDUAL */
+.columna {
+  background: rgba(255, 255, 255, 0.95); /* Fondo claro casi blanco */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  min-height: 300px; /* Altura mínima para que se vean parejas */
+  border-top: 5px solid transparent; /* Preparado para el color del borde */
+}
+
+/* Títulos de columnas */
+.titulo-equipo {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* --- EVENTOS (Filas) --- */
+.evento {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.evento:hover {
+  transform: translateX(5px);
+  border-color: #ccc;
+}
+
+/* Minuto */
+.minuto {
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #555;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* Texto del evento */
+.texto {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.asist {
+  color: #777;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* --- COLORES ESPECÍFICOS POR EQUIPO --- */
+
+/* LOCAL (Izquierda) - Azul/Verde */
+.col-home {
+  border-top-color: #2e7d32; /* Borde superior verde oscuro */
+}
+.evento.home {
+  border-left: 4px solid #2e7d32;
+}
+.evento.home .minuto { color: #2e7d32; }
+
+
+/* VISITANTE (Derecha) - Rojo/Naranja */
+.col-away {
+  border-top-color: #d32f2f; /* Borde superior rojo */
+}
+.evento.away {
+  border-left: 4px solid #d32f2f;
+}
+.evento.away .minuto { color: #d32f2f; }
+
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 768px) {
+  .contenedor-eventos {
+    grid-template-columns: 1fr; /* Una sola columna en celular */
+    gap: 1.5rem;
+  }
+  
+  .marcador {
+    flex-direction: column; /* Nombre - Score - Nombre en vertical */
+    gap: 10px;
+  }
+  
+  .score-box {
+    order: 2; /* Pone el marcador en el medio */
+    font-size: 2rem;
+    padding: 5px 20px;
+  }
+  
+  .team-name { font-size: 1.2rem; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ... tus otros estilos ... */
+
+/* Estilo para el icono del evento */
+.event-icon {
+  font-size: 1.2rem; /* Tamaño del emoji */
+  min-width: 30px;   /* Espacio reservado */
+  text-align: center;
+  margin-right: 8px;
+}
+
+/* Ajuste para que el texto no se pegue */
+.texto {
+  flex: 1; /* Ocupa el resto del espacio */
+}
+
+/* Estilos visuales para resaltar eventos importantes */
+.evento.goal {
+  background-color: rgba(205, 220, 57, 0.2); /* Verde suave para goles */
+  border-color: #cddc39;
+}
+
+.evento.red-card {
+  background-color: rgba(244, 67, 54, 0.1); /* Rojo suave para expulsiones */
+  border-color: #f44336;
+}

@@ -3,11 +3,13 @@ import { GameStateService } from '../../game-state-service';
 import { Teams } from '../../../models/teams';
 import { MatchEvent } from '../../../models/match-event';
 import { simulateFullMatch } from '../../../utils/simulation';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-simular-partido',
   templateUrl: './simular-partido.html',
+  styleUrl: './simular-partido.css'
 })
 export class SimularPartido {
 
@@ -18,6 +20,10 @@ export class SimularPartido {
 
   protected readonly route = inject(ActivatedRoute);
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
+  
+  private readonly router = inject(Router);
+  private readonly location = inject(Location);
+  isFinished = signal(false);
 
   match: any;
   homeTeam!: Teams;
@@ -81,6 +87,7 @@ export class SimularPartido {
       // Terminar en 90
       if (minute >= 90) {
         clearInterval(this.intervalId);
+        this.isFinished.set(true);
       }
 
     }, 300); // velocidad (300ms por minuto)
@@ -114,5 +121,8 @@ export class SimularPartido {
     return this.gameState
       .fixture()
       .find(m => !m.played && (m.homeTeamId === teamId || m.awayTeamId === teamId))!;
+  }
+  navigateToMenuInicio(id : number) {
+    this.router.navigateByUrl(`/inicio/${id}`);
   }
 }
