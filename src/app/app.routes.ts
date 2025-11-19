@@ -11,6 +11,9 @@ import { PlantillaComponent } from './menu-jugar/plantilla-component/plantilla-c
 import { FormAgregarJugdaor } from './admin/form-agregar-jugdaor/form-agregar-jugdaor';
 import { MenuAdmin } from './admin/menu-admin/menu-admin';
 import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
+import { MenuSimulacion } from './menu-jugar/menu-simulacion/menu-simulacion';
+import { SimularPartido } from './menu-jugar/menu-simulacion/simular-partido/simular-partido';
+import { SimularPartidoRapido } from './menu-jugar/menu-simulacion/simular-partido-rapido/simular-partido-rapido';
 
 
 export const routes: Routes = [
@@ -57,6 +60,21 @@ export const routes: Routes = [
     path: 'tabla/:id',
     canActivate: [AuthGuard],
     component: TablaComponent
+  },
+  {
+    path: 'menuSimulacion/:id',
+    canActivate: [AuthGuard],
+    component: MenuSimulacion
+  },
+  {
+    path: 'simulacionPartido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartido
+  },
+  {
+    path: 'simulacionPartidoRapido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartidoRapido
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }

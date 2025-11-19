@@ -1,0 +1,20 @@
+<div>
+  <h2>Partido Actual (Rápido)</h2>
+  <div>
+    <span>{{ homeTeam()?.name }}</span> vs <span>{{ awayTeam()?.name }}</span>
+  </div>
+
+  <div>
+    <span>Marcador: {{ homeGoals() }} - {{ awayGoals() }}</span>
+  </div>
+
+  <div>
+    <h3>Eventos:</h3>
+    <div>{{ eventsText() }}</div>
+  </div>
+
+  <button (click)="simulateFast()">Simular Rápido</button>
+  <button (click)="nextMatch()">Siguiente Partido</button>
+</div>
+
+

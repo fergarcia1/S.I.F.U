@@ -24,4 +24,7 @@ export class InicioComponent {
     this.router.navigate(['/login']);
   }
  
+  navigateToMenuSimulacion(id : number) {
+    this.router.navigateByUrl(`/menuSimulacion/${id}`);
+  }
 }
