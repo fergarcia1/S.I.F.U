@@ -574,22 +574,6 @@
             "yellowCards": 0,
             "redCards": 0
           }
-        },
-        {
-          "id": 1763525950178,
-          "name": "anachei",
-          "position": "MF",
-          "rating": 60,
-          "shirtNumber": 10,
-          "isStarter": false,
-          "stats": {
-            "goals": 0,
-            "assists": 0,
-            "matches": 0,
-            "starts": 0,
-            "yellowCards": 0,
-            "redCards": 0
-          }
         }
       ]
     },

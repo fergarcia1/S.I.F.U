@@ -13,7 +13,7 @@ interface PlayerRow extends Player {
 
 @Component({
   selector: 'app-manage-db',
-  imports: [CommonModule, FormsModule, RouterLink,FormAgregarJugador],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './manage-db.html',
   styleUrl: './manage-db.css',
 })
