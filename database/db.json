@@ -29,12 +29,6 @@
       "username": "toca",
       "password": "!12345",
       "role": "player"
-    },
-    {
-      "id": "1763520394126",
-      "username": "Asub",
-      "password": "!Nico2003!",
-      "role": "player"
     }
   ],
   "saves": [],
@@ -115,7 +109,7 @@
           "position": "DF",
           "rating": 84,
           "shirtNumber": 6,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -195,7 +189,7 @@
           "position": "FW",
           "rating": 84,
           "shirtNumber": 10,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -211,7 +205,7 @@
           "position": "FW",
           "rating": 92,
           "shirtNumber": 9,
-          "isStarter": true,
+          "isStarter": false,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -227,7 +221,7 @@
           "position": "FW",
           "rating": 85,
           "shirtNumber": 19,
-          "isStarter": false,
+          "isStarter": true,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -259,7 +253,7 @@
           "position": "MF",
           "rating": 80,
           "shirtNumber": 27,
-          "isStarter": false,
+          "isStarter": true,
           "stats": {
             "goals": 0,
             "assists": 0,
@@ -291,7 +285,7 @@
           "position": "FW",
           "rating": 84,
           "shirtNumber": 11,
-          "isStarter": false,
+          "isStarter": true,
           "stats": {
             "goals": 0,
             "assists": 0,
