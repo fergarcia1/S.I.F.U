@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { Teams } from '../models/teams';
 import { Player } from '../models/player';
@@ -13,6 +13,7 @@ import { Observable, throwError } from 'rxjs';
 export class TeamsService {
   private readonly url = 'http://localhost:3000/teams'
   private readonly http = inject(HttpClient)
+  private readonly teams = signal<Teams[]>([]);
 
   getAllTeams(): Observable<Teams[]> {
     return this.http.get<Teams[]>(this.url).pipe(
@@ -49,8 +50,30 @@ export class TeamsService {
       })
     );
   }
+  
+  updateTeam(updatedTeam: Teams): Observable<Teams> {
+  const teamUrl = `${this.url}/${updatedTeam.id}`;
 
-  deletePlayerFromTeam(teamId: number, playerId: number): Observable<Teams> {
+  return this.http.put<Teams>(teamUrl, updatedTeam).pipe(
+    map(savedTeam => {
+
+      // Actualizamos el listado local de equipos (signal)
+      const newTeams = this.teams().map(t =>
+        t.id === savedTeam.id ? savedTeam : t
+      );
+
+      this.teams.set(newTeams);
+
+      return savedTeam;
+    }),
+    catchError(error => {
+      console.error('Error al actualizar equipo:', error);
+      return throwError(() => new Error('No se pudo actualizar el equipo.'));
+    })
+  );
+}
+
+deletePlayerFromTeam(teamId: number, playerId: number): Observable<Teams> {
     const teamUrl = `${this.url}/${teamId}`;
 
     return this.http.get<Teams>(teamUrl).pipe(
@@ -96,13 +119,14 @@ export class TeamsService {
     );
   }
 
-
-
-  updateTeam(team: Teams) {
-    // Enviamos el equipo modificado a la URL: localhost:3000/teams/ID
-    return this.http.put<Teams>(`${this.url}/${team.id}`, team);
-  }
 }
+
+
+  
+
+
+
+ 
 
 
 

@@ -11,6 +11,11 @@ import { PlantillaComponent } from './menu-jugar/plantilla-component/plantilla-c
 import { FormAgregarJugador } from './admin/form-agregar-jugdaor/form-agregar-jugador';
 import { MenuAdmin } from './admin/menu-admin/menu-admin';
 import { TablaComponent } from './menu-jugar/tabla-component/tabla-component';
+import { MenuSimulacion } from './menu-jugar/menu-simulacion/menu-simulacion';
+import { SimularPartido } from './menu-jugar/menu-simulacion/simular-partido/simular-partido';
+import { SimularPartidoRapido } from './menu-jugar/menu-simulacion/simular-partido-rapido/simular-partido-rapido';
+import { EstadisticasEquipo } from './menu-jugar/estadisticas-equipo/estadisticas-equipo';
+import { EstadisticasTorneo } from './menu-jugar/estadisticas-torneo/estadisticas-torneo';
 import { LoginGuard } from './guards/login-guard';
 import { ManageDB } from './admin/manage-db/manage-db';
 import { PlayerGuard } from './guards/player-guard';
@@ -80,6 +85,31 @@ export const routes: Routes = [
     path: 'tabla/:id',
     canActivate: [AuthGuard, PlayerGuard],
     component: TablaComponent
+  },
+  {
+    path: 'menuSimulacion/:id',
+    canActivate: [AuthGuard],
+    component: MenuSimulacion
+  },
+  {
+    path: 'simulacionPartido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartido
+  },
+  {
+    path: 'simulacionPartidoRapido/:id',
+    canActivate: [AuthGuard],
+    component: SimularPartidoRapido
+  },
+  {
+    path: 'estadisticasEquipo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasEquipo
+  },
+  {
+    path: 'estadisticasTorneo/:id',
+    canActivate: [AuthGuard],
+    component: EstadisticasTorneo
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
