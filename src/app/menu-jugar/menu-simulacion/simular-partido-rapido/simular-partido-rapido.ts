@@ -26,23 +26,21 @@ export class SimularPartidoRapido {
   constructor(private gameState: GameStateService) {
     const selectedTeamId = this.gameState.selectedTeamId()!;
 
-    // 1. Obtener el partido del usuario
+    // obtenemos el partido del usuario
     this.match = this.getNextMatch(selectedTeamId);
 
-    // Si no hay partido, cortamos
     if (!this.match) {
       console.warn('No hay próximo partido para este equipo.');
       return;
     }
 
-    // 2. Simular toda la fecha (matchday)
-    this.simulateMatchday(this.match.matchday);
-
-    // 3. Obtener los equipos SOLO de tu partido
+    //simular toda la fecha 
+    this.simulateMatchday(this.match.matchday)
+    // obtener los equipos solo de tu partido
     this.homeTeam = this.gameState.getTeamById(this.match.homeTeamId)!;
     this.awayTeam = this.gameState.getTeamById(this.match.awayTeamId)!;
 
-    // 4. Obtener el resultado que ya fue simulado en el paso anterior
+    // obtener el resultado que ya fue simulado en el paso anterior
     const updatedMatch = this.gameState.fixture().find((m) => m.id === this.match.id)!;
 
     this.events.set(updatedMatch.events);
@@ -56,7 +54,7 @@ export class SimularPartidoRapido {
 
   
 
-  // 🔥 SIMULAR TODOS LOS PARTIDOS DE UNA JORNADA
+  // simular todos los partidos de una jornada
   private simulateMatchday(matchday: number) {
     const matches = this.gameState.fixture().filter((m) => m.matchday === matchday && !m.played);
 

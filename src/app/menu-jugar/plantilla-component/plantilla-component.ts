@@ -112,36 +112,32 @@ export class PlantillaComponent {
   }
 
   private esFormacionValida(titularSaliente: Player, suplenteEntrante: Player): boolean {
-    // Creamos una lista hipotética de cómo quedarían los titulares
+    // Creamos una lista hipotetica de como quedarian los titulares
     const nuevosTitulares: Player[] = this.titulares()
       .filter((p: Player) => p.id !== titularSaliente.id) // Sacamos al titular
       .concat(suplenteEntrante);                // Agregamos al suplente
 
-    // Contamos cuántos hay de cada posición en esa nueva lista
+    // Contamos cuantos hay de cada posición en esa nueva lista
     const gk = nuevosTitulares.filter(p => p.position === 'GK').length;
     const df = nuevosTitulares.filter(p => p.position === 'DF').length;
     const mf = nuevosTitulares.filter(p => p.position === 'MF').length;
     const fw = nuevosTitulares.filter(p => p.position === 'FW').length;
 
-    // REGLA 1: Arquero (Exactamente 1)
     if (gk !== 1) {
       this.errorMessage.set("El equipo debe tener exactamente 1 Arquero.");
       return false;
     }
 
-    // REGLA 2: Defensores (Min 3, Max 5)
     if (df < 3 || df > 5) {
       this.errorMessage.set(`Formación inválida: Defensores permitidos entre 3 y 5 (Tendrias ${df}).`);
       return false;
     }
 
-    // REGLA 3: Mediocampistas (Min 2, Max 5)
     if (mf < 2 || mf > 5) {
       this.errorMessage.set(`Formación inválida: Mediocampistas permitidos entre 2 y 5 (Tendrias ${mf}).`);
       return false;
     }
 
-    // REGLA 4: Delanteros (Min 1, Max 4)
     if (fw < 1 || fw > 4) {
       this.errorMessage.set(`Formación inválida: Delanteros permitidos entre 1 y 4 (Tendrias ${fw}).`);
       return false;
@@ -149,7 +145,6 @@ export class PlantillaComponent {
 
     const formacionResultante = `${df}-${mf}-${fw}`;
 
-    // Verificamos si existe en la lista permitida
     if (!VALID_FORMATIONS.includes(formacionResultante)) {
       this.errorMessage.set(`⚠️ Formación inválida (${formacionResultante}). Solo se permiten: ${VALID_FORMATIONS.join(', ')}`);
       return false;

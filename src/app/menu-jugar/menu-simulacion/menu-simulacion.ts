@@ -1,7 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
-import { PlantillaComponent } from '../plantilla-component/plantilla-component';
 import { GameStateService } from '../game-state-service';
 import { Teams } from '../../models/teams';
 
@@ -23,18 +22,16 @@ export class MenuSimulacion {
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id') ?? 0);
   private readonly location = inject(Location);
 
-
-
-  // Obtenemos el equipo seleccionado del estado del juego
+  // obtenemos el equipo seleccionado del estado del juego
   protected team = signal<Teams | undefined>(undefined);
 
-  // Computeds para separar jugadores por línea (Igual que en Plantilla)
+  // Computeds para separar jugadores por línea 
   viewGK = computed(() => this.team()?.squad.filter(p => p.isStarter && p.position === 'GK') ?? []);
   viewDF = computed(() => this.team()?.squad.filter(p => p.isStarter && p.position === 'DF') ?? []);
   viewMF = computed(() => this.team()?.squad.filter(p => p.isStarter && p.position === 'MF') ?? []);
   viewFW = computed(() => this.team()?.squad.filter(p => p.isStarter && p.position === 'FW') ?? []);
 
-  // Computed para mostrar el esquema (ej: "4-3-3")
+  // Computed para mostrar el esquema 
   currentFormation = computed(() => {
     if (!this.team()) return '...';
     const df = this.viewDF().length;

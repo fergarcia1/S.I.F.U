@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { GameStateService } from '../game-state-service';
 import { Teams } from '../../models/teams';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -12,7 +12,6 @@ import { Location } from '@angular/common';
 })
 export class EstadisticasEquipo {
 
-  private readonly router = inject(Router)
   private readonly route = inject(ActivatedRoute);
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
   private readonly location = inject(Location);

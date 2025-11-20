@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrl: './simular-partido.css'
 })
 export class SimularPartido {
-  // 🔥 Estados reactivos
+  // estados reactivos
   events = signal<MatchEvent[]>([]);
   score = signal({ home: 0, away: 0 });
   currentMinute = signal(0);
@@ -34,31 +34,31 @@ export class SimularPartido {
   constructor(private gameState: GameStateService) {
     const selectedTeamId = this.gameState.selectedTeamId()!;
 
-    // 1. Próximo partido del jugador
+    // próximo partido del jugador
     this.match = this.getNextMatch(selectedTeamId);
 
     if (!this.match) return;
 
-    // 2. Simular la fecha completa
+    // simular la fecha completa
     this.simulateMatchday(this.match.matchday);
 
-    // 3. Extraer los equipos
+    // extraer los equipos
     this.homeTeam = this.gameState.getTeamById(this.match.homeTeamId)!;
     this.awayTeam = this.gameState.getTeamById(this.match.awayTeamId)!;
 
-    // 4. Obtener resultado simulado offline
+    // obtener resultado simulado offline
     const updatedMatch = this.gameState.fixture().find((m) => m.id === this.match.id)!;
 
-    // 5. Guardar eventos completos
+    // guardar eventos completos
     this.fullEvents = [...updatedMatch.events];
 
-    // 6. Iniciar animación del partido
+    // iniciar animación del partido
     this.startRealTimeSimulation();
 
 
   }
 
-  // 🎬 Simula minuto a minuto
+  // simula minuto a minuto
   private startRealTimeSimulation() {
     let minute = 0;
 
@@ -66,7 +66,7 @@ export class SimularPartido {
       minute++;
       this.currentMinute.set(minute);
 
-      // Agregar eventos que ocurren en este minuto
+      // agregar eventos que ocurren en este minuto
       const eventsNow = this.fullEvents.filter((e) => e.minute === minute);
 
       if (eventsNow.length > 0) {
@@ -89,10 +89,10 @@ export class SimularPartido {
         clearInterval(this.intervalId);
         this.isFinished.set(true);
       }
-    }, 300); // velocidad (300ms por minuto)
+    }, 300); // velocidad 
   }
 
-  // 🔥 Simula toda la jornada
+  // simula toda la jornada
   private simulateMatchday(matchday: number) {
     const matches = this.gameState.fixture().filter((m) => m.matchday === matchday && !m.played);
 

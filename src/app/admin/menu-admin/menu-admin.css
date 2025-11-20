@@ -1,13 +1,13 @@
-/* Contenedor Principal */
+
 .admin-dashboard {
-  background-color: #1e1e2f; /* Fondo oscuro azulado tipo FM */
+  background-color: #1e1e2f; 
   min-height: 100vh;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
 }
 
-/* Cabecera */
+
 .admin-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -28,16 +28,16 @@
   font-size: 1.1rem;
 }
 
-/* La Grilla de Botones */
+
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Estilo base de las Tarjetas/Botones */
+
 .menu-card {
   background: linear-gradient(145deg, #2a2a40, #252538);
   border: 1px solid #3e3e5e;
@@ -50,24 +50,24 @@
   align-items: center;
   text-align: center;
   color: white;
-  text-decoration: none; /* Por si usas <a> en vez de <button> */
+  text-decoration: none; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-/* Efecto Hover: Levantar y brillar */
+
 .menu-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.4);
   border-color: #5e5e7e;
 }
 
-/* Iconos */
+
 .icon {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-/* Textos dentro de la tarjeta */
+
 .content h3 {
   margin: 0;
   font-size: 1.2rem;
@@ -81,7 +81,7 @@
   color: #8888aa;
 }
 
-/* Colores específicos al pasar el mouse (Bordes inferiores) */
+
 .card-create:hover {
   border-bottom: 4px solid #2ecc71; 
 }
@@ -98,12 +98,12 @@
    border-bottom: 4px solid #cbee05;
 }
 
-/* Estilo para la tarjeta de Gestión (Violeta / Database) */
+
 .card-manage:hover {
-  border-bottom: 4px solid #9b59b6; /* Violeta */
+  border-bottom: 4px solid #9b59b6; 
 }
 
-/* Estilo para la tarjeta de Reset (Naranja / Alerta) */
+
 .card-reset:hover {
-  border-bottom: 4px solid #e67e22; /* Naranja */
+  border-bottom: 4px solid #e67e22; 
 }

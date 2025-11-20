@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GENERAL --- */
+
 .container {
   padding: 2rem;
   max-width: 1200px;
@@ -15,15 +15,15 @@ h2 {
   color: #cddc39;
 }
 
-/* --- NAVBAR & TOOLBAR --- */
+
 .game-navbar {
-  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  background-color: #15291f;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+  border-bottom: 2px solid #cddc39; 
 }
 
 .nav-brand span {
@@ -59,40 +59,35 @@ h2 {
   font-weight: bold;
 }
 
-/* --- TOOLBAR --- */
 .toolbar {
   margin: 2rem; 
   display: flex;
   align-items: center;
 }
 
-/* --- BOTÓN VOLVER ESTILIZADO --- */
+
 .btn-volver {
-  /* 1. Reseteo y Estructura */
   background-color: transparent; 
-  border: 2px solid rgba(205, 220, 57, 0.3); /* Borde sutil color lima */
-  border-radius: 50px; /* Bordes totalmente redondos (píldora) */
+  border: 2px solid rgba(205, 220, 57, 0.3);
+  border-radius: 50px;
   padding: 8px 20px;
   
-  /* 2. Tipografía y Color */
-  color: #cddc39; /* Tu color principal */
+  color: #cddc39; 
   font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   
-  /* 3. Alineación del icono */
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   
-  /* 4. Transiciones suaves */
   transition: all 0.3s ease;
 }
 
 .arrow {
-  font-size: 1.2rem; /* Flecha un poco más grande */
+  font-size: 1.2rem; 
   line-height: 1;
   transition: transform 0.3s ease;
 }
@@ -114,7 +109,6 @@ h2 {
   transform: scale(0.95);
 }
 
-/* --- GRID DEL PLANTEL --- */
 .plantel-container {
   display: grid;
   grid-template-columns: 1fr 360px 1fr; 
@@ -135,7 +129,6 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* --- CARTA DE JUGADOR --- */
 .player-card {
   background: linear-gradient(145deg, #254132, #1a2e24);
   border: 1px solid #3a5f4a;
@@ -155,15 +148,13 @@ h2 {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* ESTADO: Titular Seleccionado */
 .player-card.selected {
-  background: #cddc39; /* Fondo amarillo/verde */
+  background: #cddc39; 
   border-color: white;
   transform: scale(1.02);
   box-shadow: 0 0 20px rgba(205, 220, 57, 0.4);
 }
 
-/* ESTADO: Suplentes en Modo Cambio (Animación) */
 .player-card.swap-mode {
   border: 2px dashed #cddc39;
   background: rgba(205, 220, 57, 0.05);
@@ -177,7 +168,6 @@ h2 {
   100% { box-shadow: 0 0 0 0 rgba(205, 220, 57, 0); }
 }
 
-/* --- INFO DEL JUGADOR --- */
 .card-info {
   display: flex;
   align-items: center;
@@ -199,14 +189,12 @@ h2 {
   box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Invertir colores del badge si la carta está seleccionada */
 .player-card.selected .rating-badge {
   background-color: #15291f;
   color: white;
   border-color: #15291f;
 }
 
-/* Texto invertido si está seleccionado */
 .player-card.selected .details h4,
 .player-card.selected .details span {
   color: #15291f; 
@@ -218,7 +206,7 @@ h2 {
   color: white;
   white-space: nowrap; 
   overflow: hidden;
-  text-overflow: ellipsis; /* Pone "..." si es muy largo */
+  text-overflow: ellipsis;
   max-width: 120px; 
 }
 
@@ -230,7 +218,6 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-/* --- BOTONES DENTRO DE LA CARTA --- */
 .btn-action {
   border: none;
   border-radius: 6px;
@@ -243,11 +230,10 @@ h2 {
   height: 36px;
 }
 
-/* Botón de Selección (Icono cuadrado) */
 .btn-select {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 36px; /* Cuadrado */
+  width: 36px;
   font-size: 1.2rem;
   color: white;
 }
@@ -263,7 +249,6 @@ h2 {
   cursor: default;
 }
 
-/* Botón Cancelar */
 .btn-cancel {
   background-color: #e53e3e;
   color: white;
@@ -276,7 +261,6 @@ h2 {
   background-color: #c53030;
 }
 
-/* Botón Intercambiar (Suplente) */
 .btn-swap {
   background-color: #cddc39;
   color: #15291f;
@@ -298,7 +282,6 @@ h2 {
   box-shadow: none;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .plantel-container {
     grid-template-columns: 1fr;
@@ -315,7 +298,6 @@ h2 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- DASHBOARD TÁCTICO (En el medio) --- */
 .tactical-dashboard {
   display: flex;
   flex-direction: column;
@@ -340,7 +322,6 @@ h2 {
   width: 100%;
   height: 500px; 
   background-color: #2e7d32; 
-  /* Patrón de césped a rayas usando gradientes */
   background-image: repeating-linear-gradient(
     0deg,
     transparent,
@@ -353,7 +334,7 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; /* Distribuye las líneas (gk, df, mf, fw) */
+  justify-content: space-around; 
   padding: 20px 5px;
   box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
   overflow: hidden;
@@ -387,32 +368,31 @@ h2 {
 .penalty-area-top { top: -2px; border-top: none; }
 .penalty-area-bottom { bottom: -2px; border-bottom: none; }
 
-/* --- LÍNEAS DE JUGADORES --- */
 .line {
   display: flex;
-  justify-content: space-around; /* Separa los jugadores equitativamente */
+  justify-content: space-around; 
   align-items: center;
-  z-index: 2; /* Por encima de las líneas de la cancha */
+  z-index: 2;
   width: 100%;
 }
-/* --- EL JUGADOR (Token) --- */
+
 .player-token {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 40px;
 }
-/* CAMISETA (Dibujada con CSS) */
+
 .jersey-icon {
   width: 26px;
   height: 26px;
-  background-color: #0044ff; /* AZUL (Jugadores) */
-  border-radius: 5px 5px 0 0; /* Forma de hombros */
+  background-color: #0044ff; 
+  border-radius: 5px 5px 0 0; 
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
   position: relative;
   border: 1px solid #fff;
 }
-/* Mangas de la camiseta */
+
 .jersey-icon::before, .jersey-icon::after {
   content: '';
   position: absolute;
@@ -424,14 +404,13 @@ h2 {
 }
 .jersey-icon::before { left: -6px; border-radius: 3px 0 0 3px; }
 .jersey-icon::after { right: -6px; border-radius: 0 3px 3px 0; }
-/* ARQUERO (Amarillo) */
 .gk .jersey-icon, 
 .gk .jersey-icon::before, 
 .gk .jersey-icon::after {
   background-color: #ffeb3b;
   color: #333;
 }
-/* NOMBRE DEL JUGADOR */
+
 .player-name {
   font-size: 0.65rem;
   color: white;
@@ -446,7 +425,7 @@ h2 {
   text-overflow: ellipsis;
 }
 .formation-display {
-  font-size: 2.8rem; /* Un poco más grande */
+  font-size: 2.8rem; 
   font-weight: 900;
   color: #cddc39;
   letter-spacing: 3px;
@@ -454,28 +433,28 @@ h2 {
   font-family: 'Courier New', Courier, monospace;
   line-height: 1;
 }
-/* Ajuste responsive para que no se vea gigante en móviles */
+
 @media (max-width: 900px) {
   .plantel-container {
     grid-template-columns: 1fr;
   }
-  /* En móvil, el dashboard queda mejor entre medio sin ser sticky */
+ 
   .tactical-dashboard {
     position: static; 
     margin: 2rem 0;
     width: 100%;
   }
-  /* Ordenamos para que en móvil se vea: Titulares -> Táctica -> Suplentes */
+  
   .tactical-dashboard { order: 2; }
-  .columna:first-child { order: 1; } /* Titulares */
-  .columna:last-child { order: 3; }  /* Suplentes */
+  .columna:first-child { order: 1; } 
+  .columna:last-child { order: 3; }  
 }
 
 .team-logo {
-  width: 50px; /* Tamaño del logo */
+  width: 50px; 
   height: 50px;
-  object-fit: contain; /* Asegura que no se deforme */
-  margin-right: 12px; /* Espacio entre el logo y el nombre */
-  vertical-align: middle; /* Alinea el logo con el texto */
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); /* Sombra sutil para que resalte */
+  object-fit: contain; 
+  margin-right: 12px; 
+  vertical-align: middle; 
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); 
 }

@@ -29,7 +29,6 @@ header a:hover {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/*Animacion de entrada*/
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -41,7 +40,6 @@ header a:hover {
   }
 }
 
-/* Títulos */
 .welcome-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -53,34 +51,32 @@ header a:hover {
 .welcome-subtitle {
   font-size: 1.25rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.7); /* Blanco semitransparente */
+  color: rgba(255, 255, 255, 0.7); 
   margin-bottom: 2.5rem;
 }
 
-/* Contenedor de las tarjetas */
 .menu-options {
   display: grid;
-  grid-template-columns: 1fr; /* <-- ASÍ */
+  grid-template-columns: 1fr; 
   gap: 1.5rem; 
 }
 
-/* Estilo de cada tarjeta */
 .menu-card {
   display: block;
-  background: #f0f7f4; /* Fondo verde muy claro (del login) */
-  color: #1e392a; /* Texto verde oscuro (del fondo) */
+  background: #f0f7f4; 
+  color: #1e392a; 
   padding: 1.5rem 2rem;
   border-radius: 12px;
   text-decoration: none;
-  border: 2px solid #cddc39; /* Borde lima */
+  border: 2px solid #cddc39; 
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
 }
 
 .menu-card:hover {
-  transform: translateY(-5px); /* Efecto "lift" */
+  transform: translateY(-5px); 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border-color: #38a169; /* Verde más oscuro al pasar */
+  border-color: #38a169; 
 }
 
 .menu-card h2 {
@@ -93,15 +89,15 @@ header a:hover {
 .menu-card p {
   margin: 0;
   font-size: 1rem;
-  color: #555; /* Texto secundario más oscuro */
+  color: #555;
 }
 
-/* Estilo para la tarjeta deshabilitada */
+
 .menu-card-disabled {
-  background-color: #e0e0e0; /* Fondo gris */
+  background-color: #e0e0e0; 
   border-color: #ccc;
   color: #999;
-  pointer-events: none; /* Evita que se pueda hacer clic */
+  pointer-events: none; 
   opacity: 0.7;
 }
 
@@ -110,10 +106,10 @@ header a:hover {
   font-style: italic;
 }
 
-/* ---- Responsividad para Móviles ---- */
+
 @media (max-width: 768px) {
   .menu-options {
-    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-columns: 1fr; 
   }
 
   .welcome-title {
@@ -125,16 +121,13 @@ header a:hover {
   cursor: pointer;
 }
 
-/* ============================
-   ESTILOS DEL MODAL (Tema Verde/Lima)
-   ============================ */
 .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro para resaltar el modal */
+  background-color: rgba(0, 0, 0, 0.6); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,14 +137,12 @@ header a:hover {
 }
 
 .modal-content {
-  /* Usamos los mismos colores que tu .menu-card */
   background-color: #f0f7f4; 
   color: #1e392a; 
   padding: 2rem;
   border-radius: 12px;
   width: 90%;
   max-width: 450px;
-  /* El mismo borde lima que tus tarjetas */
   border: 2px solid #cddc39; 
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   text-align: center;
@@ -159,8 +150,8 @@ header a:hover {
 
 .modal-content h2 {
   margin-top: 0;
-  color: #1e392a; /* Verde oscuro */
-  border-bottom: 2px solid #cddc39; /* Subrayado lima */
+  color: #1e392a; 
+  border-bottom: 2px solid #cddc39; 
   padding-bottom: 10px;
   display: inline-block;
   margin-bottom: 1rem;
@@ -172,7 +163,6 @@ header a:hover {
   margin-bottom: 1.5rem;
 }
 
-/* Input dentro del modal */
 .input-group {
   margin: 1.5rem 0;
   text-align: left;
@@ -182,7 +172,7 @@ header a:hover {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #1e392a; /* Verde oscuro */
+  color: #1e392a; 
 }
 
 .input-group input {
@@ -190,7 +180,7 @@ header a:hover {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  background-color: #ffffff; /* Fondo blanco limpio */
+  background-color: #ffffff; 
   color: #333;
   font-size: 1rem;
   outline: none;
@@ -199,11 +189,10 @@ header a:hover {
 }
 
 .input-group input:focus {
-  border-color: #38a169; /* Verde intenso al hacer foco */
+  border-color: #38a169; 
   box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.2);
 }
 
-/* Botones */
 .modal-actions {
   display: flex;
   gap: 1rem;
@@ -225,22 +214,21 @@ button:active {
   transform: scale(0.95);
 }
 
-/* Botón Continuar (Estilo similar al hover de tus cards) */
 .btn-confirm {
-  background-color: #38a169; /* Verde fuerte */
+  background-color: #38a169; 
   color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn-confirm:hover {
-  background-color: #2f855a; /* Verde más oscuro */
+  background-color: #2f855a; 
   transform: translateY(-2px);
 }
 
-/* Botón Cancelar */
+
 .btn-cancel {
   background-color: transparent;
-  border: 2px solid #e74c3c; /* Rojo para cancelar */
+  border: 2px solid #e74c3c; 
   color: #e74c3c;
 }
 

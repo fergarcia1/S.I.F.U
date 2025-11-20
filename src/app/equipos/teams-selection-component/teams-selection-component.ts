@@ -35,7 +35,7 @@ export class TeamsSelectionComponent {
 
   constructor() {
    this.saveName = this.route.snapshot.queryParamMap.get('saveName');
-    // Guardalo en una variable temporal o signal para usarlo cuando el usuario elija el equipo
+    // guardamos en una variable temporal o signal para usarlo cuando el usuario elija el equipo
   }
 
   //obtencion de datos 
@@ -60,9 +60,8 @@ export class TeamsSelectionComponent {
 
 private inicializarPartida(equipoSeleccionado: Teams) {
     const currentUser = this.auth.getUser();
-    const todosLosEquipos = this.teamsSource(); // Obtenemos la raw data
+    const todosLosEquipos = this.teamsSource(); 
 
-    // Validaciones básicas
     if (!currentUser) {
       alert('Error: Debes iniciar sesión para crear una partida.');
       this.router.navigate(['/login']);
@@ -73,45 +72,41 @@ private inicializarPartida(equipoSeleccionado: Teams) {
       return;
     }
 
-    // 1. Generamos el Fixture usando tu utilidad
-    // Nota: Usamos una copia para generar el fixture para no mutar el original todavía
+    // generamos el Fixture usando tu utilidad
+    // usamos una copia para generar el fixture para no mutar el original todavía
     const equiposParaFixture = JSON.parse(JSON.stringify(todosLosEquipos));
     const nuevoFixture = generateFixture(equiposParaFixture);
 
-    // 2. Construimos el objeto Save
+    // construimos el objeto Save
     const nuevaPartida: Saves = {
       id: Date.now(),
       userId: currentUser.id,
       teamId: equipoSeleccionado.id,
-      nameSave: this.saveName!, // El nombre que trajimos del menú
+      nameSave: this.saveName!, 
       
       currentMatchday: 1,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       
-      standings: [], // Se inicializa vacía (o crea una función generateStandings si la tienes)
+      standings: [], 
       
-      // IMPORTANTE: Guardamos el fixture generado
+      
       fixture: nuevoFixture, 
       
-      // IMPORTANTE: Clonamos los equipos para que esta partida tenga sus propios jugadores
+      // clonamos los equipos para que esta partida tenga sus propios jugadores
       modifiedTeams: JSON.parse(JSON.stringify(todosLosEquipos)) 
     };
 
-    // 3. Enviamos al Backend (json-server)
     this.savesService.createSave(nuevaPartida).subscribe({
       next: (saveCreado) => {
         console.log('Partida guardada en DB:', saveCreado);
         
-        // Opcional: Si usas GameStateService para manejar el estado en memoria
         this.gameState.startNewGame({
           selectedTeamId: equipoSeleccionado.id,
           teams: saveCreado.modifiedTeams,
           fixture: saveCreado.fixture
         });
 
-        // 4. Navegamos al Dashboard de la partida (pasando el ID del Save)
-        // Asumiendo que crearás la ruta /game/dashboard/:saveId
         this.router.navigate(['/inicio',saveCreado.teamId]);
       },
       error: (err) => {
@@ -124,9 +119,7 @@ private inicializarPartida(equipoSeleccionado: Teams) {
   onTeamClick(equipo: Teams) {
     if (this.saveName) {
       // MODO CREAR PARTIDA
-      if(confirm(`¿Confirmar inicio de partida "${this.saveName}" con ${equipo.name}?`)) {
         this.inicializarPartida(equipo);
-      }
     } else {
       // MODO VER PLANTEL (Solo ver)
       this.navigateToPlantel(equipo.id);

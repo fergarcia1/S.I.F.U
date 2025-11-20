@@ -12,20 +12,19 @@
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #cddc39; /* Verde Lima */
+  color: #cddc39;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- NAVBAR Y TOOLBAR --- */
-/* (Copia los estilos de navbar y btn-volver de PlantillaComponent aquí) */
+
 .game-navbar {
-  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  background-color: #15291f; 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+  border-bottom: 2px solid #cddc39; 
 }
 
 .nav-brand span {
@@ -60,10 +59,10 @@
   color: #15291f;
   font-weight: bold;
 }
-/* CLASE ACTIVE (Ahora funciona automática) */
+
 .nav-links a.active {
   background-color: #cddc39;
-  color: #15291f; /* Texto oscuro sobre fondo amarillo */
+  color: #15291f; 
   font-weight: bold;
 }
 
@@ -72,12 +71,12 @@
 }
 
 .toolbar {
-  margin: 2rem; /* Espacio para separar del título */
+  margin: 2rem; 
   display: flex;
   align-items: center;
 }
 
-/* --- BOTÓN VOLVER ESTILIZADO --- */
+
 .btn-volver {
   background-color: transparent; 
   border: 2px solid rgba(205, 220, 57, 0.3); 
@@ -102,15 +101,13 @@
 }
 
 
-/* --- GRID DE ESTADÍSTICAS --- */
+
 .stats-grid {
   display: grid;
-  /* Tarjetas responsivas: mínimo 300px de ancho */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
-/* --- TARJETA DE JUGADOR --- */
 .player-stat-card {
   background: linear-gradient(145deg, #234232, #1a3326);
   border: 1px solid #365e47;
@@ -126,7 +123,6 @@
   border-color: #cddc39;
 }
 
-/* Cabecera de la tarjeta */
 .card-header {
   display: flex;
   align-items: center;
@@ -156,15 +152,13 @@
   text-overflow: ellipsis;
 }
 
-/* Cuerpo de la tarjeta (Números) */
 .stats-body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas para los datos */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 10px;
   align-items: center;
 }
 
-/* Item individual (Dato) */
 .stat-item {
   display: flex;
   flex-direction: column;
@@ -185,16 +179,16 @@
   color: white;
 }
 
-/* Destacar Goles en Verde */
+
 .stat-item.highlight-green .value {
   color: #cddc39;
-  font-size: 1.4rem; /* Un poco más grande */
+  font-size: 1.4rem; 
 }
 
-/* Grupo de Tarjetas (Amarilla/Roja) */
+
 .cards-group {
   display: flex;
-  flex-direction: row; /* En fila */
+  flex-direction: row; 
   gap: 5px;
 }
 
@@ -207,14 +201,14 @@
   justify-content: center;
   font-size: 0.8rem;
   font-weight: bold;
-  color: #15291f; /* Texto oscuro */
+  color: #15291f; 
   box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .card-indicator.yellow { background-color: #ffeb3b; }
 .card-indicator.red { background-color: #f44336; color: white; }
 
-/* Empty State */
+
 .empty-msg {
   grid-column: 1 / -1;
   text-align: center;
@@ -223,7 +217,7 @@
   padding: 2rem;
 }
 
-/* Animación */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

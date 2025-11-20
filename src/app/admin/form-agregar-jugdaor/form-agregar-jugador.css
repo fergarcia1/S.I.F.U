@@ -1,29 +1,23 @@
-/* =========================================
-   CONFIGURACIÓN DEL CONTENEDOR PRINCIPAL
-   ========================================= */
 :host {
   display: block;
   min-height: 100vh;
-  background-color: #1e1e2f; /* Mismo fondo que el Admin Menu */
+  background-color: #1e1e2f; 
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ecf0f1;
 }
 
-/* =========================================
-   TARJETA DEL FORMULARIO
-   ========================================= */
 .form-admin {
-  background-color: #2a2a40; /* Fondo de la tarjeta */
-  border: 1px solid #3e3e5e; /* Borde sutil */
+  background-color: #2a2a40; 
+  border: 1px solid #3e3e5e; 
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra profunda */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
   max-width: 500px;
-  margin: 0 auto; /* Centrado */
+  margin: 0 auto; 
   padding: 2.5rem;
 }
 
-/* Título */
+
 .form-admin h1 {
   color: #ffffff;
   font-size: 1.8rem;
@@ -32,15 +26,13 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-bottom: 3px solid #9b59b6; /* Línea decorativa VIOLETA */
+  border-bottom: 3px solid #9b59b6; 
   padding-bottom: 10px;
   display: inline-block;
   width: 100%;
 }
 
-/* =========================================
-   CAMPOS (INPUTS Y LABELS)
-   ========================================= */
+
 .form-field {
   display: flex;
   flex-direction: column;
@@ -50,58 +42,54 @@
 .form-field label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #a0a0b0; /* Gris azulado claro */
+  color: #a0a0b0; 
   margin-bottom: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-/* Estilo de los Inputs y Selects en Modo Oscuro */
+
 .form-field input,
 .form-field select {
-  background-color: #151525; /* Fondo muy oscuro para el input */
+  background-color: #151525; 
   border: 1px solid #3e3e5e;
   border-radius: 8px;
   padding: 12px 15px;
   font-size: 1rem;
-  color: #ffffff; /* Texto blanco */
+  color: #ffffff; 
   outline: none;
   transition: all 0.3s ease;
 }
 
-/* Efecto Focus (Cuando escribes) */
+
 .form-field input:focus,
 .form-field select:focus {
-  border-color: #9b59b6; /* Borde VIOLETA */
-  box-shadow: 0 0 0 4px rgba(155, 89, 182, 0.15); /* Resplandor suave */
+  border-color: #9b59b6; 
+  box-shadow: 0 0 0 4px rgba(155, 89, 182, 0.15); 
   background-color: #1a1a2e;
 }
 
-/* Placeholder (Texto de ayuda) */
+
 ::placeholder {
   color: #555;
 }
 
-/* =========================================
-   FILA DE DOS COLUMNAS (Rating y Camiseta)
-   ========================================= */
+
 .form-row {
   display: flex;
   gap: 20px;
 }
 
 .half-width {
-  flex: 1; /* Ocupan 50% cada uno */
+  flex: 1; 
 }
 
-/* =========================================
-   BOTÓN DE ENVIAR
-   ========================================= */
+
 button[type="submit"] {
   width: 100%;
   padding: 15px;
   margin-top: 1.5rem;
-  background: linear-gradient(135deg, #9b59b6, #8e44ad); /* Gradiente Violeta */
+  background: linear-gradient(135deg, #9b59b6, #8e44ad); 
   color: white;
   font-size: 1.1rem;
   font-weight: bold;
@@ -131,11 +119,9 @@ button[type="submit"]:disabled {
   color: #aaa;
 }
 
-/* =========================================
-   MENSAJES DE ERROR
-   ========================================= */
+
 .form-field span {
-  color: #e74c3c; /* Rojo brillante */
+  color: #e74c3c; 
   font-size: 0.85rem;
   margin-top: 6px;
   font-weight: 500;
@@ -143,9 +129,37 @@ button[type="submit"]:disabled {
   align-items: center;
 }
 
-/* Pequeño detalle: icono de advertencia antes del error */
+
 .form-field span::before {
   content: "⚠️ ";
   margin-right: 5px;
   font-size: 0.8rem;
+}
+
+.btn-back {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 12px 15px;
+  background: #3e3e5e; 
+  color: #ecf0f1;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-back:hover {
+  background: #9b59b6; 
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
+}
+
+.btn-back:active {
+  transform: translateY(1px);
 }

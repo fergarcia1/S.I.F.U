@@ -1,7 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { GameStateService } from '../../menu-jugar/game-state-service';
 import { CommonModule } from '@angular/common';
-import { Teams } from '../../models/teams';
 import { Location } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
@@ -28,18 +27,18 @@ export class TablaComponent {
   // Tabla ordenada con reglas reales
   readonly sortedStandings = computed(() => {
     return [...this.standings()].sort((a, b) => {
-      // 1) Puntos
+      // Puntos
       if (b.points !== a.points) return b.points - a.points;
 
-      // 2) Diferencia de gol
+      //  Diferencia de gol
       const dgA = a.goalsFor - a.goalsAgainst;
       const dgB = b.goalsFor - b.goalsAgainst;
       if (dgB !== dgA) return dgB - dgA;
 
-      // 3) Goles a favor
+      // Goles a favor
       if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
 
-      // 4) Nombre del equipo alfabéticamente
+      // Nombre del equipo alfabéticamente
       const teamA = this.teams().find(t => t.id === a.teamId)?.name ?? '';
       const teamB = this.teams().find(t => t.id === b.teamId)?.name ?? '';
 
@@ -60,7 +59,7 @@ export class TablaComponent {
   }
   handleMissingImage(event: Event) {
     const imgElement = event.target as HTMLImageElement;
-    // Si falla, pone el escudo por defecto
+    // Si falla pone el escudo por defecto
     imgElement.src = '/logos/default.png';
   }
 

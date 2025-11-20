@@ -1,30 +1,30 @@
-/* Contenedor Principal */
+
 .saves-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #f0f7f4; /* Texto claro por si el fondo body es oscuro */
+  color: #f0f7f4; 
 }
 
-/* Encabezado */
+
 .saves-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #cddc39; /* Línea Lima */
+  border-bottom: 2px solid #cddc39; 
   padding-bottom: 1rem;
 }
 
 .saves-header h1 {
-  color: #f0f7f4; /* Blanco/Claro */
+  color: #f0f7f4; 
   margin: 0;
   font-size: 2rem;
 }
 
 .btn-back {
-  color: #cddc39; /* Lima */
+  color: #cddc39; 
   text-decoration: none;
   font-weight: bold;
   border: 1px solid #cddc39;
@@ -35,21 +35,21 @@
 
 .btn-back:hover {
   background-color: #cddc39;
-  color: #1e392a; /* Verde oscuro */
+  color: #1e392a; 
 }
 
-/* Grilla de Partidas */
+
 .saves-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
 
-/* TARJETA DE PARTIDA (Estilo Menú Principal) */
+
 .save-card {
-  background-color: #f0f7f4; /* Fondo Verde muy claro */
-  color: #1e392a; /* Texto Verde Oscuro */
-  border: 2px solid #cddc39; /* Borde Lima */
+  background-color: #f0f7f4; 
+  color: #1e392a; 
+  border: 2px solid #cddc39; 
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -61,11 +61,11 @@
 
 .save-card:hover {
   transform: translateY(-5px);
-  border-color: #38a169; /* Verde más fuerte al hover */
+  border-color: #38a169; 
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Cabecera de la tarjeta */
+
 .card-header {
   display: flex;
   align-items: center;
@@ -92,9 +92,9 @@
   color: #555;
 }
 
-/* Fechas */
+
 .card-dates {
-  background-color: rgba(205, 220, 57, 0.2); /* Fondo lima muy suave */
+  background-color: rgba(205, 220, 57, 0.2); 
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 1.5rem;
@@ -106,11 +106,11 @@
   color: #444;
 }
 
-/* Botón Continuar */
+
 .btn-continue {
   width: 100%;
   padding: 12px;
-  background-color: #38a169; /* Verde botón */
+  background-color: #38a169; 
   color: white;
   border: none;
   border-radius: 6px;
@@ -121,10 +121,10 @@
 }
 
 .btn-continue:hover {
-  background-color: #2f855a; /* Verde más oscuro */
+  background-color: #2f855a; 
 }
 
-/* Estado vacío */
+
 .empty-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -145,7 +145,7 @@
   font-weight: bold;
 }
 
-/* BOTÓN ELIMINAR PARTIDA */
+
 .btn-delete {
   width: 100%;
   margin-top: 10px;

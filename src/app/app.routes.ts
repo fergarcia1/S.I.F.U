@@ -97,32 +97,32 @@ export const routes: Routes = [
   },
   {
     path: 'menuSimulacion/:id',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: MenuSimulacion
   },
   {
     path: 'simulacionPartido/:id',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: SimularPartido
   },
   {
     path: 'simulacionPartidoRapido/:id',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: SimularPartidoRapido
   },
   {
     path: 'estadisticasEquipo/:id',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: EstadisticasEquipo
   },
   {
     path: 'estadisticasTorneo/:id',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: EstadisticasTorneo
   },
   {
     path: 'listaPartidasGuardadas',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PlayerGuard],
     component: ListaPartidasGuardadas
   },
 

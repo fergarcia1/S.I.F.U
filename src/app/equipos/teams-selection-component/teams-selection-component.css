@@ -1,4 +1,4 @@
-/*busqueda*/
+
 .search-container {
     width: 100%;
     max-width: 800px;
@@ -10,14 +10,14 @@
     padding: 15px;
     border-radius: 8px;
 }
-/*equipos*/
+
 .team-logo {
-  width: 30px; /* Tamaño del logo */
+  width: 30px; 
   height: 30px;
-  object-fit: contain; /* Asegura que no se deforme */
-  margin-right: 12px; /* Espacio entre el logo y el nombre */
-  vertical-align: middle; /* Alinea el logo con el texto */
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); /* Sombra sutil para que resalte */
+  object-fit: contain;
+  margin-right: 12px; 
+  vertical-align: middle; 
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2)); 
 }
 .teams-list {
     max-width: 900px;
@@ -38,9 +38,8 @@
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 .team-card:hover {
-  transform: translateX(8px); /*desplazamiento*/
+  transform: translateX(8px); 
   background-color: #cddc39; 
-  /* Ajustes de texto para el hover */
 }
 .team-name {
     font-weight: bold;
@@ -57,7 +56,7 @@
 }
 
 
-/*botones*/
+
 
 .team-actions {
     display: flex;
@@ -82,7 +81,6 @@ button:hover {
     opacity: 0.9;
 }
 
-/* Mensajes */
 .loading-msg, .no-results {
     text-align: center;
     color: #fff;

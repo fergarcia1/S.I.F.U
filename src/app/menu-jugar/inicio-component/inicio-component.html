@@ -32,7 +32,6 @@
 
     <div class="game-menu">
 
-      <!-- ⬆ SI LA TEMPORADA TERMINÓ: MOSTRAR CAMPEÓN -->
       @if (isSeasonFinished() && champion()) {
 
       <div class="champion-box">
@@ -45,7 +44,6 @@
       </div>
 
       }
-      <!-- ⬇ SI NO TERMINÓ: MOSTRAR LAS POSICIONES -->
       @else if (nextMatch() && nextMatchStandingInfo()) {
 
       <div class="standings-box-container">
@@ -96,7 +94,6 @@
         <div class="icon">⚽</div>
       </div>
 
-      <!-- BOTÓN: SIMULAR TODA LA TEMPORADA -->
       <div class="menu-option auto-sim" (click)="simulateFullSeason()" [class.disabled]="isSeasonFinished()">
         <div class="option-content">
           <h2>SIMULAR TODA LA TEMPORADA</h2>

@@ -1,12 +1,11 @@
-/* --- NAVBAR SUPERIOR --- */
 .game-navbar {
-  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  background-color: #15291f; 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+  border-bottom: 2px solid #cddc39; 
 }
 
 .logout-btn:hover {
@@ -23,9 +22,7 @@
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease; /* transcision suave */
-  
-  /* Para alinear si decides ponerle un ícono después */
+  transition: all 0.3s ease; 
   display: flex;
   align-items: center; 
 }
@@ -67,10 +64,9 @@
   font-weight: bold;
 }
 
-/* --- CONTENEDOR DEL DASHBOARD --- */
-/* Contenedor general */
+
 .dashboard-container {
-  max-width: 800px; /* Más angosto para centrar la atención */
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   color: white;
@@ -83,9 +79,9 @@
   width: 100%;
 }
 
-/* Encabezado */
+
 .dashboard-header {
-  text-align: left; /* Alineado con el menú */
+  text-align: left; 
   margin-bottom: 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.2);
   padding-bottom: 1rem;
@@ -101,22 +97,20 @@
 
 .dashboard-header p {
   margin: 5px 0 0 0;
-  color: #cddc39; /* Verde Lima */
+  color: #cddc39; 
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-/* --- LISTA DEL MENÚ --- */
 .game-menu {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espacio entre opciones */
+  gap: 15px; 
 }
 
-/* Estilo de cada Opción */
 .menu-option {
   background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
-  border-left: 5px solid rgba(255,255,255,0.3); /* Borde gris inicial */
+  border-left: 5px solid rgba(255,255,255,0.3); 
   padding: 1.5rem 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -144,23 +138,22 @@
   transition: color 0.3s;
 }
 
-/* --- EFECTOS HOVER (Al pasar el mouse) --- */
+
 .menu-option:hover {
-  background: rgba(205, 220, 57, 0.1); /* Fondo verde muy suave */
-  border-left: 10px solid #cddc39; /* El borde crece y se pone verde */
-  padding-left: 2.5rem; /* Efecto de desplazamiento a la derecha */
+  background: rgba(205, 220, 57, 0.1); 
+  border-left: 10px solid #cddc39; 
+  padding-left: 2.5rem; 
   transform: translateX(5px);
 }
 
 .menu-option:hover h2 {
-  color: #cddc39; /* Título se pone verde */
+  color: #cddc39; 
 }
 
 .menu-option:hover span {
-  color: white; /* Descripción se ilumina */
+  color: white;
 }
 
-/* --- OPCIÓN DESTACADA (CONTINUAR) --- */
 .menu-option.highlight {
   background: rgba(205, 220, 57, 0.15);
   border-left: 5px solid #cddc39;
@@ -171,24 +164,24 @@
 }
 
 .menu-option.highlight:hover {
-  background: #cddc39; /* Fondo sólido al hacer hover */
+  background: #cddc39; 
 }
 
 .menu-option.highlight:hover h2 {
-  color: #15291f; /* Texto oscuro */
+  color: #15291f; 
 }
 
 .menu-option.highlight:hover span {
   color: #15291f;
 }
 
-/* Icono decorativo */
+
 .icon {
   font-size: 1.5rem;
   opacity: 0.5;
 }
 
-/* Animación de entrada */
+
 @keyframes slideIn {
   from { 
     opacity: 0;
@@ -200,14 +193,14 @@
   }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .dashboard-header h1 { font-size: 1.8rem; }
   .menu-option { padding: 1rem; }
   .menu-option h2 { font-size: 1.1rem; }
 }
 
-/* --- CONTENEDOR DE LAS CAJAS DE POSICIÓN --- */
+
 .standings-box-container {
   display: flex;
   justify-content: space-between;
@@ -216,7 +209,7 @@
   animation: slideIn 0.4s ease-out;
 }
 
-/* --- CAJAS DE POSICIÓN --- */
+
 .stand-box {
   flex: 1;
   background: rgba(0, 0, 0, 0.35);
@@ -233,7 +226,7 @@
   transform: translateY(-3px);
 }
 
-/* TÍTULO DE CAJA */
+
 .stand-box h3 {
   margin: 0;
   font-size: 1.1rem;
@@ -243,7 +236,7 @@
   margin-bottom: 8px;
 }
 
-/* NOMBRE DEL EQUIPO */
+
 .stand-box .team-name {
   font-size: 1rem;
   color: white;
@@ -252,7 +245,7 @@
   margin-bottom: 10px;
 }
 
-/* ETIQUETA DE POSICIÓN */
+
 .position-tag {
   display: inline-block;
   background: #cddc39;
@@ -318,26 +311,26 @@
   letter-spacing: 1px;
 }
 
-/* === OPCIÓN DESTACADA (SIMULAR TODA LA TEMPORADA) === */
+
 .menu-option.auto-sim {
-  background: rgba(205, 220, 57, 0.15); /* igual a highlight */
-  border-left: 5px solid #cddc39;       /* igual a highlight */
+  background: rgba(205, 220, 57, 0.15); 
+  border-left: 5px solid #cddc39;
 }
 
 .menu-option.auto-sim h2 {
-  color: #cddc39; /* igual a highlight */
+  color: #cddc39;
 }
 
 .menu-option.auto-sim:hover {
-  background: #cddc39; /* igual a highlight */
+  background: #cddc39;
 }
 
 .menu-option.auto-sim:hover h2 {
-  color: #15291f; /* igual a highlight */
+  color: #15291f;
 }
 
 .menu-option.auto-sim:hover span {
-  color: #15291f; /* igual a highlight */
+  color: #15291f;
 }
 
 .menu-option.auto-sim.disabled {

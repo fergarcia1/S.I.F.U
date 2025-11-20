@@ -19,12 +19,11 @@ private savesService = inject(SavesService);
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  // Signals para el estado
+  // signals para el estado
   saves = signal<Saves[]>([]);
   isLoading = signal<boolean>(true);
   
-  // Mapa para traducir ID -> Nombre de Equipo rápidamente
-  // Ej: teamsMap.get(1) -> "Manchester City"
+  // mapa para traducir ID al nombre de equipo 
   teamsMap = signal<Map<number, string>>(new Map());
 
   constructor() {
@@ -35,14 +34,14 @@ private savesService = inject(SavesService);
       return;
     }
 
-    // 1. Cargamos los Equipos primero (para tener los nombres)
+    // cargamos los Equipos primero 
     this.teamsService.getAllTeams().subscribe(teams => {
-      // Creamos el mapa de nombres
+      // creamos el mapa de nombres
       const mapa = new Map<number, string>();
       teams.forEach(t => mapa.set(t.id, t.name));
       this.teamsMap.set(mapa);
 
-      // 2. Ahora cargamos las partidas del usuario
+      //ahora cargamos las partidas del usuario
       this.cargarPartidas(userId);
     });
   }
@@ -50,7 +49,7 @@ private savesService = inject(SavesService);
   private cargarPartidas(userId: number) {
     this.savesService.getSavesByUserId(userId).subscribe({
       next: (data) => {
-        // Ordenamos para que la última modificada salga primero
+        // ordenamos para que la ultima modificada salga primero
         const ordenadas = data.sort((a, b) => 
           new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
         );
@@ -64,14 +63,14 @@ private savesService = inject(SavesService);
     });
   }
 
-  // Helper para obtener el nombre en el HTML
+  
   getTeamName(teamId: number): string {
     return this.teamsMap().get(teamId) || 'Equipo Desconocido';
   }
   
-  // Helper para el logo
+ 
   getTeamLogo(teamId: number): string {
-    return `/logos/${teamId}.png`; // Ajusta tu ruta de logos
+    return `/logos/${teamId}.png`; 
   }
 
   continuarPartida(save: Saves) {

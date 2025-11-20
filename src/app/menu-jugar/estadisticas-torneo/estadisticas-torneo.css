@@ -1,11 +1,11 @@
 .game-navbar {
-  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  background-color: #15291f; 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+  border-bottom: 2px solid #cddc39; 
 }
 
 .nav-brand span {
@@ -40,10 +40,10 @@
   color: #15291f;
   font-weight: bold;
 }
-/* CLASE ACTIVE (Ahora funciona automática) */
+
 .nav-links a.active {
   background-color: #cddc39;
-  color: #15291f; /* Texto oscuro sobre fondo amarillo */
+  color: #15291f; 
   font-weight: bold;
 }
 
@@ -52,12 +52,12 @@
 }
 
 .toolbar {
-  margin: 2rem; /* Espacio para separar del título */
+  margin: 2rem; 
   display: flex;
   align-items: center;
 }
 
-/* --- BOTÓN VOLVER ESTILIZADO --- */
+
 .btn-volver {
   background-color: transparent; 
   border: 2px solid rgba(205, 220, 57, 0.3); 
@@ -98,14 +98,14 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* GRID 4 COLUMNAS */
+
 .torneo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-/* TARJETA PRINCIPAL */
+
 .stat-card {
   background: linear-gradient(145deg, #234232, #1a3326);
   border: 1px solid #365e47;
@@ -129,7 +129,7 @@
   letter-spacing: 1px;
 }
 
-/* LISTA INTERNA */
+
 .list {
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@
   color: #f44336;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 1100px) {
   .torneo-grid {
     grid-template-columns: repeat(2, 1fr);

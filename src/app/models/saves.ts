@@ -4,12 +4,12 @@ import { Teams } from "./teams";
 
 export interface Saves {
   id: number;
-  userId: number; // a quién pertenece la partida
-  teamId: number; // el equipo que el usuario dirige
+  userId: number; 
+  teamId: number;
   currentMatchday: number;
   standings: LeagueStanding[]; // tabla completa
-  modifiedTeams: Teams[]; // planteles con stats actualizados por temporada
-  fixture: Match[]; // ACÁ SE GUARDAN TODOS LOS PARTIDOS
+  modifiedTeams: Teams[]; // planteles con stats actualizados 
+  fixture: Match[]; // aca se guardan los partidos
   createdAt: string;
   updatedAt: string;
   nameSave: string;

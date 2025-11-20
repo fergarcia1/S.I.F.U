@@ -1,6 +1,4 @@
 <div class="simulacion-container">
-
-  <!-- Botón Volver -->
   <div class="toolbar">
     <button class="btn-volver" (click)="navigateToMenuInicio(teamId)" [disabled]="!isFinished()">
       <span class="arrow">&larr;</span> 
@@ -8,10 +6,8 @@
     </button>
   </div>
 
-  <!-- MARCADOR EN VIVO -->
   <div class="live-scoreboard">
     
-    <!-- Reloj -->
     <div class="timer-box">
       @if (!isFinished()) {
         <div class="live-dot"></div> VIVO
@@ -21,26 +17,22 @@
       <span>{{ currentMinute() }}'</span>
     </div>
 
-    <!-- Local -->
     <div class="team-box">
       <span class="team-name">{{ homeTeam.name }}</span>
     </div>
 
-    <!-- Resultado -->
     <div class="score-display">
       <span>{{ score().home }}</span>
       <span>-</span>
       <span>{{ score().away }}</span>
     </div>
 
-    <!-- Visitante -->
     <div class="team-box">
       <span class="team-name">{{ awayTeam.name }}</span>
     </div>
 
   </div>
 
-  <!-- RELATO MINUTO A MINUTO -->
   <div class="match-log-container">
     
     @for (e of events().slice().reverse(); track e.minute + '-' + e.playerId) {

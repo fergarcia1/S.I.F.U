@@ -14,18 +14,15 @@ export class GameService {
     this.loadFromStorage();
   }
 
-  /**
-   * Crea y guarda un fixture nuevo.
-   * teamIds: array de ids numéricos de los equipos del torneo.
-   * includeReturnLeg: true => ida y vuelta
-   */
+  // Crea y guarda un fixture nuevo.
+  
   createFixture(teamIds: number[], includeReturnLeg = true) {
     const fixture = generateRoundRobinMatches(teamIds, includeReturnLeg);
     this.matches.set(fixture);
     this.saveToStorage();
   }
 
-  /** Recupera fixture guardado (si existe) */
+  // Recupera fixture guardado (si existe) 
   loadFromStorage() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
@@ -37,7 +34,6 @@ export class GameService {
     }
   }
 
-  /** Guarda fixture actual en localStorage */
   private saveToStorage() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.matches()));
@@ -46,7 +42,6 @@ export class GameService {
     }
   }
 
-  /** Actualiza un partido (ej: resultado y played) y guarda */
   updateMatchResult(matchId: number, homeGoals: number, awayGoals: number) {
     this.matches.update(list =>
       list.map(m =>
@@ -56,7 +51,6 @@ export class GameService {
     this.saveToStorage();
   }
 
-  /** Añade un evento en un partido */
   addMatchEvent(matchId: number, event: { minute: number; type: 'goal' | 'assist' | 'yellow' | 'red'; playerId: number; teamId: number }) {
     this.matches.update(list =>
       list.map(m =>
@@ -66,18 +60,15 @@ export class GameService {
     this.saveToStorage();
   }
 
-  /** Obtener todos los matchdays únicos (ordenados) */
   getMatchdays(): number[] {
     const set = new Set<number>(this.matches().map(m => m.matchday));
     return Array.from(set).sort((a, b) => a - b);
   }
 
-  /** Obtener partidos de una jornada (matchday) */
   getMatchesByMatchday(matchday: number): Match[] {
     return this.matches().filter(m => m.matchday === matchday).sort((a, b) => a.id - b.id);
   }
 
-  /** Borrar fixture guardado (reset) */
   clearFixture() {
     this.matches.set([]);
     localStorage.removeItem(STORAGE_KEY);

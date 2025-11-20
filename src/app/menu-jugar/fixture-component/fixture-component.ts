@@ -1,7 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameStateService } from '../../menu-jugar/game-state-service';
-import { Teams } from '../../models/teams';
 import { Match } from '../../models/match';
 import { Location } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -24,13 +23,13 @@ export class FixtureComponent {
   }
   private readonly gameState = inject(GameStateService);
 
-  // 🔹 Acceso directo al fixture
+  // acceso directo al fixture
   protected readonly fixture = computed(() => this.gameState.getState()?.fixture ?? []);
 
-  // 🔹 Equipos (para mostrar nombres y escudos)
+  // equipos (para mostrar nombres y escudos)
   protected readonly teams = computed(() => this.gameState.getState()?.teams ?? []);
 
-  // 🔹 Agrupamos partidos por fecha (matchday)
+  // agrupamos partidos por fecha (matchday)
   protected readonly fixtureByMatchday = computed(() => {
     const matches = this.fixture();
     const map = new Map<number, Match[]>();
@@ -51,7 +50,6 @@ export class FixtureComponent {
       }));
   });
 
-  // 🔹 Helper para obtener nombres de equipos
   getTeamName(id: number): string {
     return this.teams().find(t => t.id == id)?.name ?? '???';
   }

@@ -6,7 +6,6 @@
   color: #ecf0f1;
 }
 
-/* Header del Equipo */
 .team-header h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -22,7 +21,6 @@
   color: #bdc3c7;
 }
 
-/* Grid de dos columnas */
 .plantel-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,7 +37,7 @@
   text-transform: uppercase;
 }
 
-/*TARJETA DE JUGADOR*/
+
 .player-card {
   display: flex;
   align-items: center;
@@ -58,18 +56,17 @@
   background: #34495e;
 }
 
-/* Estilo titulares */
+
 .player-card.starter {
   border-left-color: #cddc39; 
 }
 
-/* Estilo Suplentes */
 .player-card.bench {
   border-left-color: #7f8c8d; 
   opacity: 0.9;
 }
 
-/* Caja de Valoración */
+
 .rating-box {
   background-color: #cddc39;
   color: #2c3e50;
@@ -90,7 +87,7 @@
   color: #fff;
 }
 
-/* Info del Jugador */
+
 .player-info {
   display: flex;
   flex-direction: column;
@@ -108,7 +105,7 @@
   font-weight: 500;
 }
 
-/* Boton Volver */
+
 .toolbar {
   margin-bottom: 20px;
 }
@@ -132,9 +129,9 @@
   color: #1e392a;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .plantel-grid {
-    grid-template-columns: 1fr; /* Una columna en celular */
+    grid-template-columns: 1fr; 
   }
 }

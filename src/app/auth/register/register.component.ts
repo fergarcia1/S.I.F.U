@@ -12,8 +12,6 @@ import { map } from 'rxjs';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
-  // 1. Inyectamos las dependencias
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
   private router = inject(Router);
@@ -21,7 +19,6 @@ export class RegisterComponent {
   form: FormGroup;
   msg = '';
 
-  // 2. Inicializacion
   constructor() {
     this.form = this.fb.group({
       username: ['', {

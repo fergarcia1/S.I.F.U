@@ -7,10 +7,9 @@ export const PlayerGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   
   const user = auth.getUser();
-
-  // Si es ADMIN, no tiene nada que hacer en el menú de jugadores
+  
   if (user && user.role === 'admin') {
-    router.navigate(['/menuAdmin']); // Lo mandamos a su sitio
+    router.navigate(['/menuAdmin']); 
     return false;
   }
 

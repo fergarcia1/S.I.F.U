@@ -1,14 +1,12 @@
-/* --- CONTENEDOR PRINCIPAL (Centrado) --- */
 .simulacion-rapida-container {
-  max-width: 1000px; /* Ancho máximo para que no se estire demasiado */
-  margin: 0 auto; /* Centra el bloque horizontalmente */
+  max-width: 1000px; 
+  margin: 0 auto; 
   padding: 2rem;
   color: #ecf0f1;
   font-family: 'Roboto', sans-serif;
   animation: fadeIn 0.5s ease-out;
 }
 
-/* --- TOOLBAR (Botón Volver) --- */
 .toolbar {
   margin: 2rem;
 }
@@ -45,7 +43,6 @@ button:hover .arrow {
   transform: translateX(-3px);
 }
 
-/* --- HEADER Y MARCADOR --- */
 .match-header {
   background: linear-gradient(180deg, #1e392a 0%, #15291f 100%);
   border-bottom: 3px solid #cddc39;
@@ -67,7 +64,7 @@ button:hover .arrow {
 
 .team-name {
   flex: 1;
-  text-align: center; /* Nombres centrados */
+  text-align: center;
   color: #fff;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -76,7 +73,7 @@ button:hover .arrow {
 
 .score-box {
   background-color: #000;
-  color: #cddc39; /* Números en verde lima */
+  color: #cddc39; 
   padding: 10px 25px;
   border-radius: 8px;
   font-size: 2.5rem;
@@ -88,24 +85,22 @@ button:hover .arrow {
   text-align: center;
 }
 
-/* --- CONTENEDOR DE EVENTOS (Dos Columnas) --- */
 .contenedor-eventos {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-  gap: 2rem; /* Espacio entre columnas */
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem; 
 }
 
-/* COLUMNA INDIVIDUAL */
+
 .columna {
-  background: rgba(255, 255, 255, 0.95); /* Fondo claro casi blanco */
+  background: rgba(255, 255, 255, 0.95); 
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  min-height: 300px; /* Altura mínima para que se vean parejas */
-  border-top: 5px solid transparent; /* Preparado para el color del borde */
+  min-height: 300px; 
+  border-top: 5px solid transparent; 
 }
 
-/* Títulos de columnas */
 .titulo-equipo {
   text-align: center;
   margin-top: 0;
@@ -118,7 +113,6 @@ button:hover .arrow {
   padding-bottom: 10px;
 }
 
-/* --- EVENTOS (Filas) --- */
 .evento {
   display: flex;
   align-items: center;
@@ -137,7 +131,7 @@ button:hover .arrow {
   border-color: #ccc;
 }
 
-/* Minuto */
+
 .minuto {
   font-weight: 900;
   font-size: 0.9rem;
@@ -146,7 +140,6 @@ button:hover .arrow {
   text-align: right;
 }
 
-/* Texto del evento */
 .texto {
   font-size: 0.95rem;
   color: #333;
@@ -159,11 +152,9 @@ button:hover .arrow {
   font-style: italic;
 }
 
-/* --- COLORES ESPECÍFICOS POR EQUIPO --- */
 
-/* LOCAL (Izquierda) - Azul/Verde */
 .col-home {
-  border-top-color: #2e7d32; /* Borde superior verde oscuro */
+  border-top-color: #2e7d32; 
 }
 .evento.home {
   border-left: 4px solid #2e7d32;
@@ -171,9 +162,8 @@ button:hover .arrow {
 .evento.home .minuto { color: #2e7d32; }
 
 
-/* VISITANTE (Derecha) - Rojo/Naranja */
 .col-away {
-  border-top-color: #d32f2f; /* Borde superior rojo */
+  border-top-color: #d32f2f; 
 }
 .evento.away {
   border-left: 4px solid #d32f2f;
@@ -181,20 +171,19 @@ button:hover .arrow {
 .evento.away .minuto { color: #d32f2f; }
 
 
-/* --- RESPONSIVE (Móvil) --- */
 @media (max-width: 768px) {
   .contenedor-eventos {
-    grid-template-columns: 1fr; /* Una sola columna en celular */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
   }
   
   .marcador {
-    flex-direction: column; /* Nombre - Score - Nombre en vertical */
+    flex-direction: column; 
     gap: 10px;
   }
   
   .score-box {
-    order: 2; /* Pone el marcador en el medio */
+    order: 2; 
     font-size: 2rem;
     padding: 5px 20px;
   }
@@ -204,28 +193,26 @@ button:hover .arrow {
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* ... tus otros estilos ... */
 
-/* Estilo para el icono del evento */
 .event-icon {
-  font-size: 1.2rem; /* Tamaño del emoji */
-  min-width: 30px;   /* Espacio reservado */
+  font-size: 1.2rem; 
+  min-width: 30px;   
   text-align: center;
   margin-right: 8px;
 }
 
-/* Ajuste para que el texto no se pegue */
+
 .texto {
-  flex: 1; /* Ocupa el resto del espacio */
+  flex: 1; 
 }
 
-/* Estilos visuales para resaltar eventos importantes */
+
 .evento.goal {
-  background-color: rgba(205, 220, 57, 0.2); /* Verde suave para goles */
+  background-color: rgba(205, 220, 57, 0.2); 
   border-color: #cddc39;
 }
 
 .evento.red-card {
-  background-color: rgba(244, 67, 54, 0.1); /* Rojo suave para expulsiones */
+  background-color: rgba(244, 67, 54, 0.1); 
   border-color: #f44336;
 }

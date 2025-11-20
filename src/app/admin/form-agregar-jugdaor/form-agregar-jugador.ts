@@ -2,9 +2,9 @@ import { Component, computed, inject, input, output, signal } from '@angular/cor
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeamsService } from '../../equipos/teams-service';
-import { Teams } from '../../models/teams';
 import { Player } from '../../models/player';
-import { PlayerStats } from '../../models/player-stats';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-form-agregar-jugdaor',
@@ -17,15 +17,19 @@ export class FormAgregarJugador {
   private readonly service = inject(TeamsService);
   private readonly router = inject(Router)
   private readonly route = inject(ActivatedRoute)
+  private location = inject(Location);
+
 
   public readonly jugadorAgregadoOModificado = output<Player>();
   public readonly editando = input(false);
 
 
-
-
-
   protected readonly esModoEdicion = computed(() => this.editando() || this.idUrl !== null);
+
+  goBack() {
+    this.location.back();
+  }
+
 
   protected readonly playerStats = {
     goals: 0,
@@ -123,7 +127,7 @@ export class FormAgregarJugador {
   private idUrl: number | null = null;
 
   constructor() {
-    // 1. Detectamos parámetros de URL al instanciar la clase
+    //  Detectamos parametros de URL al instanciar la clase
     const params = this.route.snapshot.paramMap;
     const pTeamId = params.get('teamId');
     const pPlayerId = params.get('playerId');
@@ -131,18 +135,16 @@ export class FormAgregarJugador {
 
 
     if (pTeamId && pPlayerId) {
-      // Estamos en modo edición por URL
+      // Estamos en modo edicion por URL
       this.idUrl = Number(pPlayerId);
       const teamIdNum = Number(pTeamId);
 
-      // Llamamos al servicio
       this.service.getTeamById(teamIdNum).subscribe(team => {
         const playerFound = team.squad.find(p => p.id === this.idUrl);
 
         if (playerFound) {
-          this.currentStats = playerFound.stats; // Guardamos stats
+          this.currentStats = playerFound.stats;
 
-          // Llenamos el form
           this.form.patchValue({
             teamId: team.id,
             name: playerFound.name,
@@ -152,7 +154,6 @@ export class FormAgregarJugador {
             isStarter: playerFound.isStarter
           });
 
-          // Bloqueamos el cambio de equipo en edición
           this.form.controls.teamId.disable();
         }
       });
@@ -161,12 +162,12 @@ export class FormAgregarJugador {
   }
 
   protected readonly form = this.fb.nonNullable.group({
-    teamId: [0, [Validators.required]], // El equipo al que pertenece
+    teamId: [0, [Validators.required]],
     name: ['', [Validators.required, Validators.minLength(3)]],
-    position: ['', [Validators.required]], // Valor por defecto GK
+    position: ['', [Validators.required]],
     rating: [60, [Validators.required, Validators.min(1), Validators.max(99)]],
     shirtNumber: [0, [Validators.required, Validators.min(1), Validators.max(99)]],
-    isStarter: [false, [Validators.required]], // Lo manejamos como string en el select, luego convertimos
+    isStarter: [false, [Validators.required]],
     stats: [this.playerStats]
   });
 
@@ -199,21 +200,16 @@ export class FormAgregarJugador {
 
   handleSubmit() {
     if (this.form.invalid) {
-      this.form.markAllAsTouched(); // Recomendado: marca los errores en rojo
+      this.form.markAllAsTouched();
       alert(`FORMULARIO INVALIDO!!!!`);
       return;
     }
 
-    // 1. Obtenemos valores crudos
     const rawValues = this.form.getRawValue();
 
-    // 2. DETERMINAMOS EL ID:
-    // Si estamos editando (esModoEdicion es true), usamos el ID de la URL (this.idUrl).
-    // Si es nuevo, usamos Date.now().
+
     const idFinal = this.esModoEdicion() ? this.idUrl! : Date.now();
 
-    // 3. Construimos el objeto.
-    // NOTA: Usamos 'this.currentStats' para no perder goles/asistencias al editar
     const nuevoJugador: Player = {
       id: idFinal,
       name: rawValues.name,
@@ -228,27 +224,23 @@ export class FormAgregarJugador {
 
     if (confirm(`¿Desea ${accion} los datos?`)) {
 
-      const idEquipo = Number(this.teamId.value); // Recuerda usar .value
+      const idEquipo = Number(this.teamId.value);
 
       if (!this.esModoEdicion()) {
-        // --- MODO CREAR ---
         this.service.addPlayerToTeam(idEquipo, nuevoJugador).subscribe({
           next: (team) => {
             this.jugadorAgregadoOModificado.emit(nuevoJugador);
             alert('Jugador Creado!');
             this.form.reset();
-            // Reiniciar stats por si agregan otro seguido
+            // Reiniciar stats por si se agrega otro seguido
             this.currentStats = { goals: 0, assists: 0, matches: 0, starts: 0, yellowCards: 0, redCards: 0 };
           }
         });
 
       } else {
-        // --- CASO 2: EDITAR (Lo que faltaba) ---
-        // Llamamos al método updatePlayer del servicio
         this.service.updatePlayer(idEquipo, nuevoJugador).subscribe({
           next: () => {
             alert('Jugador Editado Correctamente!');
-            // Redirigimos a la tabla de base de datos automáticamente
             this.router.navigate(['/menuAdmin/db']);
           },
           error: (err) => console.error('Error al editar', err)

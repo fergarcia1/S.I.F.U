@@ -78,7 +78,7 @@ button {
 .error-messages small {
   color: #e53e3e; 
   font-weight: 500;
-  display: block; /*1 por linea*/
+  display: block; 
   margin-top: 4px;
 }
 

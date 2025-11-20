@@ -35,19 +35,16 @@ export class MenuComponent {
     this.isModalOpen.set(true);
   }
 
-  // 2. Cierra el modal
   closeModal() {
     this.isModalOpen.set(false);
   }
 
-  // 3. Confirma y navega a la selección de equipo
   continueToTeamSelection() {
     if (!this.newSaveName().trim()) {
       alert('Por favor escribe un nombre para la partida');
       return;
     }
 
-    // Navegamos a la lista de equipos, pero pasamos el nombre como parámetro
     this.router.navigate(['/listaTeams'], {
       queryParams: { saveName: this.newSaveName() }
     });

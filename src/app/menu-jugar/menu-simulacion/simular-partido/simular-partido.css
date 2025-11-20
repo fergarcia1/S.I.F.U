@@ -1,4 +1,3 @@
-/* --- CONTENEDOR PRINCIPAL --- */
 .simulacion-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -8,7 +7,6 @@
   animation: fadeIn 0.5s ease-out;
 }
 
-/* --- TOOLBAR --- */
 .toolbar { margin-bottom: 2rem; }
 .btn-volver {
   background: transparent; border: 2px solid #cddc39; color: #cddc39;
@@ -19,7 +17,6 @@
 .btn-volver .arrow { font-size: 1.2rem; line-height: 1; }
 
 
-/* --- MARCADOR EN VIVO --- */
 .live-scoreboard {
   background: linear-gradient(180deg, #1e392a 0%, #15291f 100%);
   border-bottom: 4px solid #cddc39;
@@ -34,7 +31,6 @@
   overflow: hidden;
 }
 
-/* Indicador de tiempo */
 .timer-box {
   position: absolute;
   top: 10px;
@@ -73,7 +69,6 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Marcador numérico */
 .score-display {
   font-size: 4rem;
   font-weight: 900;
@@ -90,17 +85,16 @@
   border: 2px solid rgba(255,255,255,0.1);
 }
 
-/* --- LOG DEL PARTIDO (Relato) --- */
+
 .match-log-container {
   background-color: rgba(255,255,255,0.95);
   border-radius: 12px;
-  height: 400px; /* Altura fija */
-  overflow-y: auto; /* Scroll automático */
+  height: 400px; 
+  overflow-y: auto; 
   padding: 1.5rem;
   box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
   display: flex;
-  flex-direction: column-reverse; /* Lo nuevo aparece abajo pero el scroll queda abajo */
-  /* Nota: usaremos flex-direction column normal y scrollearemos con JS o CSS anchor */
+  flex-direction: column-reverse;
 }
 
 .log-header {
@@ -114,7 +108,7 @@
   padding-bottom: 5px;
 }
 
-/* Evento individual */
+
 .event-row {
   display: flex;
   align-items: center;
@@ -141,9 +135,8 @@
   font-size: 1rem;
 }
 
-/* Estilos específicos por tipo de evento */
 .event-row.goal {
-  background-color: rgba(205, 220, 57, 0.2); /* Fondo verde suave */
+  background-color: rgba(205, 220, 57, 0.2); 
   border-left: 4px solid #cddc39;
 }
 .event-row.goal .event-text { font-weight: bold; color: #1e392a; }
@@ -157,7 +150,6 @@
   border-left: 4px solid #ffeb3b;
 }
 
-/* Animaciones */
 @keyframes blink { 50% { opacity: 0.4; } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideInRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }

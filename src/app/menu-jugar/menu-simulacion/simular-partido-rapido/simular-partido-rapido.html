@@ -6,7 +6,6 @@
 
 <div class="simulacion-rapida-container">
 
-  <!-- Header del Partido -->
   <div class="match-header">
     <div class="marcador">
       <span class="team-name">{{ homeTeam.name }}</span>
@@ -15,10 +14,9 @@
     </div>
   </div>
 
-  <!-- Eventos -->
+
   <div class="contenedor-eventos">
-    
-    <!-- 🟦 COLUMNA IZQUIERDA (LOCAL) -->
+
     <div class="columna col-home">
       <h3 class="titulo-equipo">{{ homeTeam.name }}</h3>
 
@@ -31,7 +29,6 @@
             
             <span class="minuto">{{ e.minute }}'</span>
             
-            <!-- AQUÍ ESTÁ EL CAMBIO DE ICONOS -->
             <div class="event-icon">
               @switch (e.type) {
                 @case ('goal') { ⚽ }
@@ -43,7 +40,6 @@
             </div>
 
             <div class="texto">
-              <!-- Texto dinámico según tipo -->
               @if (e.type === 'goal') {
                 <strong>¡GOL!</strong> {{ getPlayerName(homeTeam, e.playerId) }}
               } 
@@ -66,7 +62,6 @@
       }
     </div>
 
-    <!-- 🟥 COLUMNA DERECHA (VISITANTE) -->
     <div class="columna col-away">
       <h3 class="titulo-equipo">{{ awayTeam.name }}</h3>
 
@@ -79,7 +74,6 @@
             
             <span class="minuto">{{ e.minute }}'</span>
 
-            <!-- ICONOS VISITANTE -->
             <div class="event-icon">
               @switch (e.type) {
                 @case ('goal') { ⚽ }

@@ -11,7 +11,7 @@ import { TeamsService } from '../equipos/teams-service';
 })
 export class GameStateService {
 
-  // --- STATE BASE ---
+
   readonly selectedTeamId = signal<number | null>(null);
   readonly teams = signal<Teams[]>([]);
   readonly fixture = signal<Match[]>([]);
@@ -19,14 +19,13 @@ export class GameStateService {
   private readonly teamsService = inject(TeamsService);
 
 
-  // --- Helper: equipo seleccionado ---
+  // equipo seleccionado
   readonly selectedTeam = computed(() =>
     this.teams().find(t => t.id === this.selectedTeamId())
   );
 
-  // -----------------------------------------------------
+ 
   // NUEVA PARTIDA
-  // -----------------------------------------------------
   startNewGame(data: {
     selectedTeamId: number;
     teams: Teams[];
@@ -38,9 +37,8 @@ export class GameStateService {
     this.standings.set(this.createInitialStandings(data.teams));
   }
 
-  // -----------------------------------------------------
+
   // TABLA INICIAL
-  // -----------------------------------------------------
   createInitialStandings(teams: Teams[]): LeagueStanding[] {
     return teams.map(t => ({
       teamId: t.id,
@@ -70,12 +68,8 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
       case 'goal':
         player.stats.goals++;
         break;
-      // 🔴 IMPORTANTE: NO tocamos yellow ni red acá
-      // case 'yellow': player.stats.yellowCards++; break;
-      // case 'red': player.stats.redCards++; break;
     }
 
-    // Asistencias desde assistId del evento de gol
     if (ev.assistId) {
       const assistPlayer = players.find(p => p.id === ev.assistId);
       if (assistPlayer) assistPlayer.stats.assists++;
@@ -84,9 +78,8 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
 }
 
 
-  // -----------------------------------------------------
+
   // RESULTADOS
-  // -----------------------------------------------------
   updateMatchResult(
   matchId: number, 
   result: { homeGoals: number; awayGoals: number; events: MatchEvent[] }
@@ -106,7 +99,7 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
   this.fixture.set(updatedFixture);
   this.recalculateStandings();
 
-  // Actualizar estadísticas de los jugadores de ambos equipos
+  // Actualizar estadisticas de los jugadores de ambos equipos
   const match = this.fixture().find(m => m.id === matchId);
   if (!match) return;
 
@@ -119,9 +112,8 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
 
 
 
-  // -----------------------------------------------------
+
   // RECONSTRUIR TABLA DESDE CERO
-  // -----------------------------------------------------
   private recalculateStandings() {
     const table = this.standings().map(row => ({
       ...row,
@@ -171,9 +163,7 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
     this.standings.set(table);
   }
 
-  // -----------------------------------------------------
-  // OBTENER ESTADO COMPLETO (OPCIONAL)
-  // -----------------------------------------------------
+  // OBTENER ESTADO COMPLETO 
   getState() {
     return {
       selectedTeamId: this.selectedTeamId(),
@@ -197,8 +187,8 @@ updatePlayerStats(players: Player[], events: MatchEvent[]) {
       if (!updatedPlayer) return originalPlayer;
 
       return {
-        ...originalPlayer,          // ← conserva stats acumulados
-        isStarter: updatedPlayer.isStarter  // ← solo cambia el titular
+        ...originalPlayer,          // conserva stats acumulados
+        isStarter: updatedPlayer.isStarter  // solo cambia el titular
       };
     });
 

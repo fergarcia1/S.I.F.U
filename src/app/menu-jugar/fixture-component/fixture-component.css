@@ -1,11 +1,11 @@
 .game-navbar {
-  background-color: #15291f; /* Un verde aun mas oscuro para la barra */
+  background-color: #15291f; 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  border-bottom: 2px solid #cddc39; /* Línea lima decorativa */
+  border-bottom: 2px solid #cddc39; 
 }
 
 .nav-brand span {
@@ -40,10 +40,10 @@
   color: #15291f;
   font-weight: bold;
 }
-/* CLASE ACTIVE (Ahora funciona automática) */
+
 .nav-links a.active {
   background-color: #cddc39;
-  color: #15291f; /* Texto oscuro sobre fondo amarillo */
+  color: #15291f; 
   font-weight: bold;
 }
 
@@ -52,12 +52,12 @@
 }
 
 .toolbar {
-  margin: 2rem; /* Espacio para separar del título */
+  margin: 2rem; 
   display: flex;
   align-items: center;
 }
 
-/* --- BOTÓN VOLVER ESTILIZADO --- */
+
 .btn-volver {
   background-color: transparent; 
   border: 2px solid rgba(205, 220, 57, 0.3); 
@@ -81,7 +81,6 @@
   transition: transform 0.3s ease;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .fixture-container {
   max-width: 900px;
   margin: 0 auto;
@@ -98,18 +97,18 @@
   margin-bottom: 2rem;
 }
 
-/* --- TARJETA DE JORNADA --- */
+
 .matchday-card {
-  background-color: #f0f7f4; /* Fondo claro */
+  background-color: #f0f7f4;
   border-radius: 12px;
-  overflow: hidden; /* Para que la cabecera no se salga */
+  overflow: hidden; 
   margin-bottom: 2rem;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  color: #1e392a; /* Texto oscuro dentro de la tarjeta */
+  color: #1e392a; 
 }
 
 .matchday-header {
-  background-color: #1e392a; /* Verde oscuro */
+  background-color: #1e392a; 
   color: white;
   padding: 10px 20px;
   border-bottom: 3px solid #cddc39;
@@ -120,14 +119,12 @@
   font-size: 1.1rem;
 }
 
-/* --- FILA DEL PARTIDO (GRID SYSTEM) --- */
 .matches-list {
   padding: 10px 0;
 }
 
 .match-row {
   display: grid;
-  /* 3 Columnas: Equipo Local (espacio libre) - Resultado (fijo) - Visitante (espacio libre) */
   grid-template-columns: 1fr 100px 1fr; 
   align-items: center;
   padding: 12px 20px;
@@ -143,23 +140,21 @@
   background-color: rgba(0,0,0,0.03);
 }
 
-/* Estilos de Equipos */
 .team {
   font-weight: 600;
   font-size: 1rem;
 }
 
 .team.home {
-  text-align: right; /* Local alineado a la derecha (cerca del resultado) */
+  text-align: right; 
   padding-right: 10px;
 }
 
 .team.away {
-  text-align: left; /* Visitante alineado a la izquierda */
+  text-align: left; 
   padding-left: 10px;
 }
 
-/* Estilos del Marcador/VS */
 .score-box {
   display: flex;
   justify-content: center;
@@ -168,7 +163,6 @@
   font-size: 1.2rem;
 }
 
-/* Badge para partidos no jugados */
 .vs-badge {
   background-color: #e0e0e0;
   color: #777;
@@ -177,7 +171,6 @@
   border-radius: 4px;
 }
 
-/* Estilo si el partido ya se jugó */
 .match-row.played .score-number {
   color: #1e392a;
 }
@@ -186,7 +179,6 @@
   color: #999;
 }
 
-/* Mensaje vacío */
 .no-matches {
   text-align: center;
   padding: 20px;
@@ -194,13 +186,13 @@
   color: #777;
 }
 
-/* Animación */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Móvil */
+
 @media (max-width: 600px) {
   .match-row {
     grid-template-columns: 1fr 60px 1fr; /* Reducir espacio central */

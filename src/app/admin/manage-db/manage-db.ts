@@ -1,10 +1,10 @@
 import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Para el input de búsqueda
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
+import { Router, RouterLink } from '@angular/router';
 import { TeamsService } from '../../equipos/teams-service';
 import { Player } from '../../models/player';
-import { FormAgregarJugador } from '../form-agregar-jugdaor/form-agregar-jugador';
+
 
 interface PlayerRow extends Player {
   teamName: string;
@@ -22,13 +22,12 @@ export class ManageDB {
   private readonly service = inject(TeamsService)
   private readonly router = inject(Router)
 
-  // Signal para el término de búsqueda
   searchTerm = signal('');
 
   // Signal que guarda TODOS los jugadores de la DB aplanados
   allPlayers = signal<PlayerRow[]>([]);
 
-  // Signal computada: Filtra la lista según lo que escribas en el buscador
+  // Signal computada filtra la lista segun lo que escribas en el buscador
   filteredPlayers = computed(() => {
     const term = this.searchTerm().toLowerCase();
     return this.allPlayers().filter(p =>
@@ -47,11 +46,8 @@ export class ManageDB {
     this.service.getAllTeams().subscribe(teams => {
       const flatList: PlayerRow[] = [];
       
-      // Recorremos cada equipo
       teams.forEach(team => {
-        // Recorremos cada jugador del equipo
         team.squad.forEach(player => {
-          // Agregamos a la lista plana con los datos extra
           flatList.push({
             ...player,
             teamName: team.name,

@@ -8,7 +8,6 @@
     <a [routerLink]="['/plantilla', teamId]">Plantilla</a>
     <a [routerLink]="['/fixture', teamId]">Fixture</a>
     <a [routerLink]="['/tabla', teamId]">Tabla</a>
-    <!-- Usamos routerLinkActive para marcar la pestaña actual -->
     <a [routerLink]="['/estadisticasEquipo', teamId]" class="active">Estadísticas Equipo</a>
     <a [routerLink]="['/estadisticasTorneo', teamId]">Estadísticas Torneo</a>
   </div>
@@ -16,33 +15,28 @@
   <div class="nav-spacer"></div>
 </nav>
 
-<!-- TOOLBAR -->
 <div class="toolbar">
   <button class="btn-volver" (click)="goBack()">
     <span class="arrow">&larr;</span> Volver
   </button>
 </div>
 
-<!-- CONTENIDO PRINCIPAL -->
 <div class="container">
   
   <header class="page-header">
     <h2>Rendimiento del Plantel</h2>
   </header>
 
-  <!-- GRID DE TARJETAS DE ESTADÍSTICAS -->
   <div class="stats-grid">
     
     @for (p of team()?.squad ?? []; track p.id) {
       <div class="player-stat-card">
         
-        <!-- Encabezado de la tarjeta (Nombre y Posición) -->
         <div class="card-header">
           <span class="player-pos">{{ p.position }}</span>
           <h3 class="player-name">{{ p.name }}</h3>
         </div>
 
-        <!-- Cuerpo de estadísticas (Grid interno) -->
         <div class="stats-body">
           
           <div class="stat-item">
@@ -60,7 +54,6 @@
             <span class="value">{{ p.stats.assists }}</span>
           </div>
 
-          <!-- Tarjetas (Amarillas / Rojas) -->
           <div class="stat-item cards-group">
             <div class="card-indicator yellow" title="Amarillas">
               {{ p.stats.yellowCards }}
