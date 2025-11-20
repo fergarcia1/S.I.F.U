@@ -338,3 +338,78 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+/* ---------- CONTENEDOR GENERAL ---------- */
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* No bloquea clics */
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* ---------- FUEGOS ARTIFICIALES ---------- */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border-radius: 50%;
+  animation: explode 1.8s ease-out infinite;
+  opacity: 0;
+}
+
+/* Posiciones aleatorias a los costados */
+.firework:nth-child(odd) {
+  left: 5vw;
+}
+
+.firework:nth-child(even) {
+  right: 5vw;
+}
+
+/* Alturas aleatorias */
+.firework:nth-child(1) { top: 15vh; animation-delay: 0s; }
+.firework:nth-child(2) { top: 25vh; animation-delay: 0.2s; }
+.firework:nth-child(3) { top: 35vh; animation-delay: 0.4s; }
+.firework:nth-child(4) { top: 45vh; animation-delay: 0.6s; }
+.firework:nth-child(5) { top: 55vh; animation-delay: 0.8s; }
+.firework:nth-child(6) { top: 20vh; animation-delay: 1s; }
+.firework:nth-child(7) { top: 40vh; animation-delay: 1.2s; }
+.firework:nth-child(8) { top: 60vh; animation-delay: 1.4s; }
+.firework:nth-child(9) { top: 30vh; animation-delay: 1.6s; }
+.firework:nth-child(10) { top: 50vh; animation-delay: 1.8s; }
+
+/* ---------- ANIMACIÓN ---------- */
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow:
+      0 0 8px #fff,
+      0 0 20px #ff0,
+      0 0 40px #ff4500,
+      0 0 60px #ff1493;
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow:
+      -20px -10px 4px #ff0,
+      20px -15px 4px #0ff,
+      -25px 20px 4px #f0f,
+      25px 15px 4px #fff,
+      0 0 6px #fff;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    box-shadow: none;
+  }
+}

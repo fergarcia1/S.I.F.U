@@ -43,6 +43,12 @@
         </div>
       </div>
 
+      <div class="fireworks-container">
+        @for (f of fireworks; track f) {
+        <div class="firework"></div>
+        }
+      </div>
+
       }
       @else if (nextMatch() && nextMatchStandingInfo()) {
 

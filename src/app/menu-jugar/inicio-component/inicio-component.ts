@@ -25,6 +25,9 @@ export class InicioComponent {
   protected readonly teamId = this.gameState.selectedTeamId();
   protected readonly teams = computed(() => this.gameState.getState()?.teams ?? []);
 
+  protected fireworks = Array.from({ length: 10 }, (_, i) => i);
+
+
   constructor() {
   }
 
