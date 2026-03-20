@@ -44,7 +44,7 @@ export class RegisterComponent {
   usernameExisteValidator(control: any) { //VALIDACION CREADA POR NOSOTROS PARA NO REPETIR USUARIOS
     return this.auth.checkUserExists(control.value).pipe(
       map(users => {
-        return users.length > 0 ? { usuarioExistente: true } : null;
+        return users ? { usuarioExistente: true } : null;
       })
     );
   }

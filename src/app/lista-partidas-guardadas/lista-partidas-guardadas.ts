@@ -24,7 +24,7 @@ private savesService = inject(SavesService);
   isLoading = signal<boolean>(true);
   
   // mapa para traducir ID al nombre de equipo 
-  teamsMap = signal<Map<number, string>>(new Map());
+  teamsMap = signal<Map<string, string>>(new Map());
 
   constructor() {
     const userId = this.authService.getUser()?.id;
@@ -37,8 +37,8 @@ private savesService = inject(SavesService);
     // cargamos los Equipos primero 
     this.teamsService.getAllTeams().subscribe(teams => {
       // creamos el mapa de nombres
-      const mapa = new Map<number, string>();
-      teams.forEach(t => mapa.set(t.id, t.name));
+      const mapa = new Map<string, string>();
+      teams.forEach(t => mapa.set(String(t.id), t.name));
       this.teamsMap.set(mapa);
 
       //ahora cargamos las partidas del usuario
@@ -46,7 +46,7 @@ private savesService = inject(SavesService);
     });
   }
 
-  private cargarPartidas(userId: number) {
+  private cargarPartidas(userId: string) {
     this.savesService.getSavesByUserId(userId).subscribe({
       next: (data) => {
         // ordenamos para que la ultima modificada salga primero
@@ -64,12 +64,12 @@ private savesService = inject(SavesService);
   }
 
   
-  getTeamName(teamId: number): string {
+  getTeamName(teamId: string): string {
     return this.teamsMap().get(teamId) || 'Equipo Desconocido';
   }
   
  
-  getTeamLogo(teamId: number): string {
+  getTeamLogo(teamId: string): string {
     return `/logos/${teamId}.png`; 
   }
 

@@ -81,7 +81,7 @@ private inicializarPartida(equipoSeleccionado: Teams) {
     const nuevaPartida: Saves = {
       id: Date.now(),
       userId: currentUser.id,
-      teamId: equipoSeleccionado.id,
+      teamId: String(equipoSeleccionado.id),
       nameSave: this.saveName!, 
       
       currentMatchday: 1,

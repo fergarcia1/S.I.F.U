@@ -4,8 +4,8 @@ import { Teams } from "./teams";
 
 export interface Saves {
   id: number;
-  userId: number; 
-  teamId: number;
+  userId: string; 
+  teamId: string;
   currentMatchday: number;
   standings: LeagueStanding[]; // tabla completa
   modifiedTeams: Teams[]; // planteles con stats actualizados 

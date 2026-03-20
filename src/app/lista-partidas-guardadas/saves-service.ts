@@ -1,36 +1,55 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Saves } from '../models/saves'; 
+import { Injectable } from '@angular/core';
+import { 
+  collection, 
+  doc, 
+  getDoc, 
+  getDocs, 
+  addDoc, 
+  updateDoc, 
+  deleteDoc,
+  query,
+  where
+} from 'firebase/firestore';
+import { db } from '../firebase.config';
+import { Observable, from, map } from 'rxjs';
+import { Saves } from '../models/saves';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SavesService {
-  private readonly url = 'http://localhost:3000/saves'; 
-  private readonly http = inject(HttpClient);
 
-  
+  private col = collection(db, 'saves');
+
   createSave(newSave: Saves): Observable<Saves> {
-    return this.http.post<Saves>(this.url, newSave);
+    return from(addDoc(this.col, { ...newSave })).pipe(
+      map(ref => ({ ...newSave, id: ref.id as any }))
+    );
   }
 
- 
   updateSave(save: Saves): Observable<Saves> {
-    return this.http.put<Saves>(`${this.url}/${save.id}`, save);
+    const ref = doc(db, 'saves', String(save.id));
+    return from(updateDoc(ref, { ...save })).pipe(
+      map(() => save)
+    );
   }
 
-  
   getSaveById(id: number): Observable<Saves> {
-    return this.http.get<Saves>(`${this.url}/${id}`);
+    const ref = doc(db, 'saves', String(id));
+    return from(getDoc(ref)).pipe(
+      map(snap => ({ id: snap.id, ...snap.data() } as any))
+    );
   }
 
-  getSavesByUserId(userId: number): Observable<Saves[]> {
-    return this.http.get<Saves[]>(`${this.url}?userId=${userId}`);
+  getSavesByUserId(userId: string): Observable<Saves[]> {
+    const q = query(this.col, where('userId', '==', String(userId)));
+    return from(getDocs(q)).pipe(
+      map(snapshot => snapshot.docs.map(d => ({ id: d.id, ...d.data() } as any)))
+    );
   }
 
   deleteSave(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${id}`);
+    const ref = doc(db, 'saves', String(id));
+    return from(deleteDoc(ref));
   }
-
 }

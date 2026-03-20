@@ -25,7 +25,8 @@ export class LoginComponent {
       return;
     }
 
-    this.auth.login(this.username, this.password).subscribe(res => {
+  this.auth.login(this.username, this.password).subscribe({
+    next: (res) => {
       if (res) {
         if (this.username === "admin") {
           this.router.navigate(['/menuAdmin']);
@@ -35,8 +36,13 @@ export class LoginComponent {
       } else {
         this.error = true;
       }
-    });
-  }
+    },
+    error: (err) => {
+      console.error('Error de login:', err);
+      this.error = true;
+    }
+  });
+}
   goToRegister() {
     this.router.navigate(['/register']);
   }

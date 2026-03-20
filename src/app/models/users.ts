@@ -1,5 +1,5 @@
 export interface Users {
-  id: number;
+  id: string;
   username: string;
   password: string;
   role?: 'admin' | 'player';
