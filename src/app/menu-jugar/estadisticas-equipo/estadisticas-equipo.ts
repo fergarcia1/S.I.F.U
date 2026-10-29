@@ -1,6 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { GameStateService } from '../game-state-service';
-import { Teams } from '../../models/teams';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -15,20 +14,15 @@ export class EstadisticasEquipo {
   private readonly route = inject(ActivatedRoute);
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
   private readonly location = inject(Location);
-  
-   goBack() {
+  private readonly gameState = inject(GameStateService);
+
+  goBack() {
     this.location.back();
   }
 
-  private readonly gameState = inject(GameStateService);
-
-  team = signal<Teams | null>(null);
-
-  constructor() {
-    const id = this.gameState.selectedTeamId();
-    if (!id) return;
-
-    const t = this.gameState.getTeamById(id);
-    this.team.set(t ?? null);
-  }
+  team = computed(() => {
+    const id = this.gameState.selectedTeamId() ?? this.teamId;
+    if (!id) return null;
+    return this.gameState.getTeamById(id) ?? null;
+  });
 }

@@ -28,11 +28,10 @@ export class PlantillaComponent {
   //id del equipo seleccionado
   protected readonly teamId = Number(this.route.snapshot.paramMap.get('id'));
 
-  //signal del equipo y isLoading
-  protected readonly teamSource = signal<Teams | undefined>(undefined);
-   public readonly team = computed(() => this.teamSource());
-  public readonly squad = computed(() => this.teamSource()?.squad ?? []);
-  public readonly isLoading = computed(() => this.teamSource() === undefined);
+  //signal del equipo y isLoading (leído del estado de la partida actual)
+  public readonly team = computed(() => this.gameState.getTeamById(this.teamId));
+  public readonly squad = computed(() => this.team()?.squad ?? []);
+  public readonly isLoading = computed(() => this.team() === undefined);
 
   //location para el boton de volver
   private readonly location = inject(Location);
@@ -58,9 +57,6 @@ export class PlantillaComponent {
   viewFW = computed(() => this.titulares().filter(p => p.position === 'FW'));
 
   constructor() {
-    this.service.getTeamById(this.teamId).subscribe(team => {
-      this.teamSource.set(team);
-    });
   }
 
   titulares = computed(() =>
@@ -81,34 +77,21 @@ export class PlantillaComponent {
         return; 
       }
     }
-    //actualizacion al nuevo equipo
-    let equipoActualizado: Teams | undefined; //variable para que se guarden los cambios
-    this.teamSource.update(team => {
-      if (!team) return team;
 
-      const newSquad = team.squad.map(p => {
-        if (p.id === titular.id) return { ...p, isStarter: false };
-        if (p.id === suplente.id) return { ...p, isStarter: true };
-        return p;
-      });
-      equipoActualizado = { ...team, squad: newSquad };
-      return equipoActualizado;
+    const currentTeam = this.team();
+    if (!currentTeam) return;
+
+    const newSquad = currentTeam.squad.map(p => {
+      if (Number(p.id) === Number(titular.id)) return { ...p, isStarter: false };
+      if (Number(p.id) === Number(suplente.id)) return { ...p, isStarter: true };
+      return p;
     });
-    
+
+    const equipoActualizado: Teams = { ...currentTeam, squad: newSquad };
     this.jugadorSeleccionado = null;
 
-    if (equipoActualizado) {
-      this.service.updateTeam(equipoActualizado).subscribe({
-        next: () => {
-          console.log('Cambio guardado exitosamente en BDD');
-          this.gameState.updateTeam(equipoActualizado!);
-        },
-        error: (err) => {
-          console.error('Error al guardar cambios', err);
-          this.errorMessage.set("Error de conexión: No se pudo guardar el cambio.");
-        }
-      });
-    }
+    // Actualizamos el equipo en la partida activa y persistimos en el save
+    this.gameState.updateTeam(equipoActualizado);
   }
 
   private esFormacionValida(titularSaliente: Player, suplenteEntrante: Player): boolean {

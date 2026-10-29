@@ -22,7 +22,7 @@ export class InicioComponent {
   private readonly location = inject(Location);
   private readonly gameState = inject(GameStateService);
 
-  protected readonly teamId = this.gameState.selectedTeamId();
+  protected readonly teamId = computed(() => this.gameState.selectedTeamId() ?? Number(this.route.snapshot.paramMap.get('id')));
   protected readonly teams = computed(() => this.gameState.getState()?.teams ?? []);
 
   constructor() {
@@ -44,25 +44,25 @@ export class InicioComponent {
   protected readonly nextMatch = computed(() => {
     const fixture = this.gameState.fixture();
     const teams = this.gameState.teams();
-    const myTeamId = this.teamId;
+    const myTeamId = Number(this.teamId());
 
     if (!fixture.length) return null;
 
     // buscar el siguiente partido NO jugado donde participe este equipo
     const next = fixture
-      .filter(m => !m.played && (m.homeTeamId === myTeamId || m.awayTeamId === myTeamId))
+      .filter(m => !m.played && (Number(m.homeTeamId) === myTeamId || Number(m.awayTeamId) === myTeamId))
       .sort((a, b) => a.matchday - b.matchday)[0]; 
 
     if (!next) return null;
 
-    const rivalTeamId = next.homeTeamId === myTeamId ? next.awayTeamId : next.homeTeamId;
-    const rivalTeam = teams.find(t => t.id === rivalTeamId);
+    const rivalTeamId = Number(next.homeTeamId) === myTeamId ? next.awayTeamId : next.homeTeamId;
+    const rivalTeam = teams.find(t => Number(t.id) === Number(rivalTeamId));
 
     return {
       matchday: next.matchday,
       rivalTeamName: rivalTeam?.name ?? "Rival desconocido",
       rivalTeamId,
-      isHome: next.homeTeamId === myTeamId
+      isHome: Number(next.homeTeamId) === myTeamId
     };
   });
 
@@ -72,6 +72,7 @@ export class InicioComponent {
 
     const standings = [...this.gameState.standings()];
     const teams = this.gameState.teams();
+    const myTeamId = Number(this.teamId());
 
     // orden de tabla 
     standings.sort((a, b) => {
@@ -83,26 +84,26 @@ export class InicioComponent {
 
       if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
 
-      const nameA = teams.find(t => t.id === a.teamId)?.name ?? '';
-      const nameB = teams.find(t => t.id === b.teamId)?.name ?? '';
+      const nameA = teams.find(t => Number(t.id) === Number(a.teamId))?.name ?? '';
+      const nameB = teams.find(t => Number(t.id) === Number(b.teamId))?.name ?? '';
 
       return nameA.localeCompare(nameB);
     });
 
-    const myPos = standings.findIndex(s => s.teamId === this.teamId) + 1;
-    const rivalPos = standings.findIndex(s => s.teamId === next.rivalTeamId) + 1;
+    const myPos = standings.findIndex(s => Number(s.teamId) === myTeamId) + 1;
+    const rivalPos = standings.findIndex(s => Number(s.teamId) === Number(next.rivalTeamId)) + 1;
 
     return { myPos, rivalPos };
   });
 
 
   protected readonly myTeamName = computed(() => {
-    return this.teams().find(t => t.id === this.teamId)?.name ?? '';
+    return this.teams().find(t => Number(t.id) === Number(this.teamId()))?.name ?? '';
   });
 
   protected readonly isSeasonFinished = computed(() => {
     const fixture = this.gameState.fixture();
-    return fixture.some(m => m.matchday === 38 && m.played);
+    return fixture.length > 0 && fixture.every(m => m.played);
   });
 
   protected readonly champion = computed(() => {
@@ -120,14 +121,14 @@ export class InicioComponent {
 
     if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
 
-    const nameA = teams.find(t => t.id === a.teamId)?.name ?? '';
-    const nameB = teams.find(t => t.id === b.teamId)?.name ?? '';
+    const nameA = teams.find(t => Number(t.id) === Number(a.teamId))?.name ?? '';
+    const nameB = teams.find(t => Number(t.id) === Number(b.teamId))?.name ?? '';
     return nameA.localeCompare(nameB);
   });
 
   const championTeamId = standings[0].teamId;
 
-  return teams.find(t => t.id === championTeamId);
+  return teams.find(t => Number(t.id) === Number(championTeamId));
 });
 
 
@@ -157,6 +158,8 @@ export class InicioComponent {
       this.gameState.updateMatchResult(match.id, result);
     }
   }
+
+  this.gameState.persistCurrentSave();
 }
 
 }

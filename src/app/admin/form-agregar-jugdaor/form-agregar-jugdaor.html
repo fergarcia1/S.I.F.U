@@ -10,7 +10,7 @@
         <div class="form-field">
             <label for="teamId">Equipo Del Jugador:</label>
             <select id="teamId" formControlName="teamId">
-                <option [ngValue]="null" disabled selected>Seleccione un Equipo</option>
+                <option value="" disabled>Seleccione un Equipo</option>
                 @for (equipo of equiposDisponibles; track equipo.id ){
                 <option [value]="equipo.id">{{equipo.name}}</option>
                 }
@@ -41,6 +41,7 @@
         <div class="form-field">
             <label for="position">Posicion: </label>
             <select id="position" formControlName="position">
+                <option value="" disabled>Seleccione una Posición</option>
                 @for(posicion of tipoDePosiciones;track $index){
                 <option [value]="posicion">{{posicion}}</option>
                 }
@@ -51,6 +52,14 @@
             <span>Debe seleccionar una posición</span>
             }
             }
+        </div>
+
+        <div class="form-field">
+            <label for="isStarter">Rol en el Equipo: </label>
+            <select id="isStarter" formControlName="isStarter">
+                <option [ngValue]="false">Suplente</option>
+                <option [ngValue]="true">Titular</option>
+            </select>
         </div>
 
 

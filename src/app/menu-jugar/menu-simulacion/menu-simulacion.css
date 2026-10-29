@@ -161,11 +161,46 @@
 
 
 @media (max-width: 900px) {
-  .simulation-controls {
-    flex-direction: column; 
+  .toolbar {
+    position: static;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
   }
-  .tactical-preview { order: -1; margin-bottom: 20px; } 
-  .sim-btn { width: 100%; height: 100px; flex-direction: row; gap: 20px; }
+
+  .simulacion-container {
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .page-title {
+    font-size: clamp(1.5rem, 1.1rem + 2.5vw, 2.2rem);
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .simulation-controls {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    gap: 1.25rem;
+  }
+
+  .tactical-preview {
+    order: -1;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .sim-btn {
+    width: 100%;
+    height: 100px;
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

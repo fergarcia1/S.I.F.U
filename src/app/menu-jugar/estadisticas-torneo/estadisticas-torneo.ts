@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { GameStateService } from '../game-state-service';
 import { Player } from '../../models/player';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -22,30 +22,23 @@ export class EstadisticasTorneo {
     this.location.back();
   }
 
-  topGoals = signal<Player[]>([]);
-  topAssists = signal<Player[]>([]);
-  topYellows = signal<Player[]>([]);
-  topReds = signal<Player[]>([]);
+  private readonly allPlayers = computed<Player[]>(() =>
+    this.gameState.teams().flatMap(t => t.squad)
+  );
 
-  constructor() {
-    const players: Player[] = this.gameState
-      .teams()
-      .flatMap(t => t.squad);
+  topGoals = computed(() =>
+    [...this.allPlayers()].sort((a, b) => b.stats.goals - a.stats.goals).slice(0, 10)
+  );
 
-    this.topGoals.set(
-      [...players].sort((a, b) => b.stats.goals - a.stats.goals).slice(0, 10)
-    );
+  topAssists = computed(() =>
+    [...this.allPlayers()].sort((a, b) => b.stats.assists - a.stats.assists).slice(0, 10)
+  );
 
-    this.topAssists.set(
-      [...players].sort((a, b) => b.stats.assists - a.stats.assists).slice(0, 10)
-    );
+  topYellows = computed(() =>
+    [...this.allPlayers()].sort((a, b) => b.stats.yellowCards - a.stats.yellowCards).slice(0, 10)
+  );
 
-    this.topYellows.set(
-      [...players].sort((a, b) => b.stats.yellowCards - a.stats.yellowCards).slice(0, 10)
-    );
-
-    this.topReds.set(
-      [...players].sort((a, b) => b.stats.redCards - a.stats.redCards).slice(0, 10)
-    );
-  }
+  topReds = computed(() =>
+    [...this.allPlayers()].sort((a, b) => b.stats.redCards - a.stats.redCards).slice(0, 10)
+  );
 }

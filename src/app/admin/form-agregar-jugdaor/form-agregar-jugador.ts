@@ -140,13 +140,13 @@ export class FormAgregarJugador {
       const teamIdNum = Number(pTeamId);
 
       this.service.getTeamById(teamIdNum).subscribe(team => {
-        const playerFound = team.squad.find(p => p.id === this.idUrl);
+        const playerFound = team.squad.find(p => Number(p.id) === this.idUrl);
 
         if (playerFound) {
-          this.currentStats = playerFound.stats;
+          this.currentStats = { ...playerFound.stats };
 
           this.form.patchValue({
-            teamId: team.id,
+            teamId: String(team.id),
             name: playerFound.name,
             position: playerFound.position,
             rating: playerFound.rating,
@@ -162,13 +162,13 @@ export class FormAgregarJugador {
   }
 
   protected readonly form = this.fb.nonNullable.group({
-    teamId: [0, [Validators.required]],
+    teamId: ['', [Validators.required]],
     name: ['', [Validators.required, Validators.minLength(3)]],
     position: ['', [Validators.required]],
     rating: [60, [Validators.required, Validators.min(1), Validators.max(99)]],
     shirtNumber: [0, [Validators.required, Validators.min(1), Validators.max(99)]],
     isStarter: [false, [Validators.required]],
-    stats: [this.playerStats]
+    stats: [{ ...this.playerStats }]
   });
 
 
@@ -217,14 +217,14 @@ export class FormAgregarJugador {
       rating: rawValues.rating,
       shirtNumber: rawValues.shirtNumber,
       isStarter: rawValues.isStarter,
-      stats: this.esModoEdicion() ? this.currentStats : rawValues.stats
+      stats: this.esModoEdicion() ? { ...this.currentStats } : { ...this.playerStats }
     };
 
     const accion = this.esModoEdicion() ? 'editar' : 'crear';
 
     if (confirm(`¿Desea ${accion} los datos?`)) {
 
-      const idEquipo = Number(this.teamId.value);
+      const idEquipo = Number(rawValues.teamId);
 
       if (!this.esModoEdicion()) {
         this.service.addPlayerToTeam(idEquipo, nuevoJugador).subscribe({

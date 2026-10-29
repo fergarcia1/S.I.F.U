@@ -153,3 +153,44 @@
 @keyframes blink { 50% { opacity: 0.4; } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideInRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+@media (max-width: 768px) {
+  .simulacion-container {
+    padding: 1rem;
+  }
+
+  .toolbar {
+    margin-bottom: 1rem;
+  }
+
+  .live-scoreboard {
+    flex-direction: column;
+    gap: 12px;
+    padding: 2.5rem 1rem 1.25rem 1rem;
+  }
+
+  .team-name {
+    font-size: clamp(1.1rem, 0.9rem + 1.5vw, 1.4rem);
+  }
+
+  .score-display {
+    font-size: 2.25rem;
+    padding: 8px 20px;
+    min-width: 130px;
+    gap: 12px;
+  }
+
+  .match-log-container {
+    height: 320px;
+    padding: 1rem;
+  }
+
+  .event-row {
+    gap: 10px;
+    padding: 8px;
+  }
+
+  .event-text {
+    font-size: 0.9rem;
+  }
+}

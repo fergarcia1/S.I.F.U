@@ -166,8 +166,41 @@
   }
 }
 
+@media (max-width: 768px) {
+  .game-navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .toolbar {
+    margin: 1rem;
+  }
+
+  .torneo-container {
+    padding: 1rem;
+  }
+
+  .titulo {
+    font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+    margin-bottom: 1.25rem;
+  }
+}
+
 @media (max-width: 650px) {
   .torneo-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }

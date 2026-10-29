@@ -92,6 +92,14 @@
   animation: fadeIn 0.5s ease-out;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  max-inline-size: 100%;
+  container-type: inline-size;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
 .tabla-liga {
   width: 100%;
   border-collapse: separate; 
@@ -99,7 +107,6 @@
   background-color: #1e392a; 
   border-radius: 12px;
   overflow: hidden; 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   font-size: 0.95rem;
 }
 
@@ -109,6 +116,9 @@
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 1px;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
 }
 
 .tabla-liga th {
@@ -161,13 +171,40 @@
 }
 
 @media (max-width: 768px) {
-  .tabla-liga th, .tabla-liga td {
-    padding: 10px 4px;
-    font-size: 0.85rem;
+  .game-navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
   }
-  .tabla-liga th:nth-child(n+6), 
-  .tabla-liga td:nth-child(n+6) {
-    display: none; 
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .toolbar {
+    margin: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .tabla-liga th, .tabla-liga td {
+    padding: 10px 6px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .tabla-liga th:nth-child(2),
+  .tabla-liga td:nth-child(2) {
+    min-width: 150px;
   }
 }
 

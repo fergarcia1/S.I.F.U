@@ -3,8 +3,8 @@ import { Match } from "./match";
 import { Teams } from "./teams";
 
 export interface Saves {
-  id: number;
-  userId: number; 
+  id: string | number;
+  userId: string | number; 
   teamId: number;
   currentMatchday: number;
   standings: LeagueStanding[]; // tabla completa

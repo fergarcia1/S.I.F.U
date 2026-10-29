@@ -1,7 +1,10 @@
 <div class="db-container">
 
     <header class="db-header">
-        <h1>📂 Base de Datos Global</h1>
+        <div class="header-left">
+            <a routerLink="/menuAdmin" class="btn-volver-admin">&larr; Volver al Panel</a>
+            <h1>📂 Base de Datos Global</h1>
+        </div>
         <div class="search-box">
             <input type="text" placeholder="Buscar jugador o equipo..." [ngModel]="searchTerm()"
                 (ngModelChange)="searchTerm.set($event)">
@@ -9,7 +12,7 @@
         </div>
     </header>
 
-    <div class="table-wrapper">
+    <div class="table-wrapper" tabindex="0" role="region" aria-label="Base de datos global de jugadores">
         <table>
             <thead>
                 <tr>

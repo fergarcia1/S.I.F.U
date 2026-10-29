@@ -18,7 +18,7 @@
     </div>
 
     <div class="team-box">
-      <span class="team-name">{{ homeTeam.name }}</span>
+      <span class="team-name">{{ homeTeam?.name }}</span>
     </div>
 
     <div class="score-display">
@@ -28,14 +28,14 @@
     </div>
 
     <div class="team-box">
-      <span class="team-name">{{ awayTeam.name }}</span>
+      <span class="team-name">{{ awayTeam?.name }}</span>
     </div>
 
   </div>
 
   <div class="match-log-container">
     
-    @for (e of events().slice().reverse(); track e.minute + '-' + e.playerId) {
+    @for (e of events().slice().reverse(); track (events().length - 1 - $index)) {
       
       <div class="event-row" 
            [class.goal]="e.type === 'goal'"

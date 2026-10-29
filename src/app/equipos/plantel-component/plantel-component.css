@@ -131,7 +131,21 @@
 
 
 @media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .team-header h2 {
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2.2rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .short-name {
+    font-size: 1.1rem;
+  }
+
   .plantel-grid {
     grid-template-columns: 1fr; 
+    gap: 1.25rem;
   }
 }

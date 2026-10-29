@@ -27,7 +27,7 @@ export class LoginComponent {
 
     this.auth.login(this.username, this.password).subscribe(res => {
       if (res) {
-        if (this.username === "admin") {
+        if (res.role === 'admin') {
           this.router.navigate(['/menuAdmin']);
         } else {
           this.router.navigate(['/menu']);

@@ -1,36 +1,88 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Saves } from '../models/saves'; 
+import { Injectable } from '@angular/core';
+import { Observable, catchError, finalize, from, map, of, shareReplay, switchMap } from 'rxjs';
+import { Saves } from '../models/saves';
+import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { firestoreDb } from '../firebase.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SavesService {
-  private readonly url = 'http://localhost:3000/saves'; 
-  private readonly http = inject(HttpClient);
+  private readonly savesCol = collection(firestoreDb, 'saves');
+  private pendingUpdate$: Observable<Saves | null> | null = null;
 
-  
   createSave(newSave: Saves): Observable<Saves> {
-    return this.http.post<Saves>(this.url, newSave);
+    const cleanSave: Saves = JSON.parse(JSON.stringify({
+      ...newSave,
+      id: String(newSave.id),
+      userId: String(newSave.userId)
+    }));
+    const saveRef = doc(firestoreDb, 'saves', String(cleanSave.id));
+    return from(setDoc(saveRef, cleanSave)).pipe(
+      map(() => cleanSave)
+    );
   }
 
- 
   updateSave(save: Saves): Observable<Saves> {
-    return this.http.put<Saves>(`${this.url}/${save.id}`, save);
+    const cleanSave: Saves = JSON.parse(JSON.stringify({
+      ...save,
+      id: String(save.id),
+      userId: String(save.userId)
+    }));
+    const saveRef = doc(firestoreDb, 'saves', String(cleanSave.id));
+
+    const shared$: Observable<Saves> = from(setDoc(saveRef, cleanSave)).pipe(
+      map(() => cleanSave),
+      finalize(() => {
+        if (this.pendingUpdate$ === shared$) {
+          this.pendingUpdate$ = null;
+        }
+      }),
+      shareReplay(1)
+    );
+
+    this.pendingUpdate$ = shared$;
+    return shared$;
   }
 
-  
-  getSaveById(id: number): Observable<Saves> {
-    return this.http.get<Saves>(`${this.url}/${id}`);
+  getSaveById(id: string | number): Observable<Saves> {
+    const wait$ = this.pendingUpdate$
+      ? this.pendingUpdate$.pipe(catchError(() => of(null)))
+      : of(null);
+
+    return wait$.pipe(
+      switchMap(() => {
+        const saveRef = doc(firestoreDb, 'saves', String(id));
+        return from(getDoc(saveRef)).pipe(
+          map(docSnap => {
+            if (!docSnap.exists()) {
+              throw new Error('Partida no encontrada');
+            }
+            return docSnap.data() as Saves;
+          })
+        );
+      })
+    );
   }
 
-  getSavesByUserId(userId: number): Observable<Saves[]> {
-    return this.http.get<Saves[]>(`${this.url}?userId=${userId}`);
+  getSavesByUserId(userId: string | number): Observable<Saves[]> {
+    const wait$ = this.pendingUpdate$
+      ? this.pendingUpdate$.pipe(catchError(() => of(null)))
+      : of(null);
+
+    return wait$.pipe(
+      switchMap(() => {
+        const q = query(this.savesCol, where('userId', '==', String(userId)));
+        return from(getDocs(q)).pipe(
+          map(snapshot => snapshot.docs.map(d => d.data() as Saves))
+        );
+      })
+    );
   }
 
-  deleteSave(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${id}`);
+  deleteSave(id: string | number): Observable<void> {
+    const saveRef = doc(firestoreDb, 'saves', String(id));
+    return from(deleteDoc(saveRef));
   }
 
 }

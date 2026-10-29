@@ -193,10 +193,42 @@
 }
 
 
+@media (max-width: 768px) {
+  .game-navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .toolbar {
+    margin: 1rem;
+  }
+
+  .fixture-container {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .match-row {
-    grid-template-columns: 1fr 60px 1fr; /* Reducir espacio central */
-    font-size: 0.9rem;
-    padding: 10px;
+    grid-template-columns: 1fr 64px 1fr; /* Reducir espacio central */
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .team {
+    font-size: 0.88rem;
+    word-break: break-word;
   }
 }

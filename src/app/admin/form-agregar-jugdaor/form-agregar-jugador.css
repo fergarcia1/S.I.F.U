@@ -163,3 +163,22 @@ button[type="submit"]:disabled {
 .btn-back:active {
   transform: translateY(1px);
 }
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .form-admin {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .form-admin h1 {
+    font-size: 1.4rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

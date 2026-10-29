@@ -1,7 +1,7 @@
 import { Component, computed, inject, linkedSignal, signal } from '@angular/core';
 import { Teams } from '../../models/teams';
 import { TeamsService } from '../teams-service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { Saves } from '../../models/saves';
 
 @Component({
   selector: 'app-teams-selection-component',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './teams-selection-component.html',
   styleUrl: './teams-selection-component.css',
 })
@@ -43,7 +43,7 @@ export class TeamsSelectionComponent {
   protected readonly teams = computed(() => this.teamsSource() ?? []);
 
   ///validaciones
-  protected readonly isLoading = computed(() => this.teams() === undefined)
+  protected readonly isLoading = computed(() => this.teamsSource() === undefined)
 
   //filtrado
   protected searchTerm = signal<string>('');
@@ -79,8 +79,8 @@ private inicializarPartida(equipoSeleccionado: Teams) {
 
     // construimos el objeto Save
     const nuevaPartida: Saves = {
-      id: Date.now(),
-      userId: currentUser.id,
+      id: String(Date.now()),
+      userId: String(currentUser.id),
       teamId: equipoSeleccionado.id,
       nameSave: this.saveName!, 
       
@@ -88,7 +88,7 @@ private inicializarPartida(equipoSeleccionado: Teams) {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       
-      standings: [], 
+      standings: this.gameState.createInitialStandings(equiposParaFixture), 
       
       
       fixture: nuevoFixture, 
@@ -101,13 +101,9 @@ private inicializarPartida(equipoSeleccionado: Teams) {
       next: (saveCreado) => {
         console.log('Partida guardada en DB:', saveCreado);
         
-        this.gameState.startNewGame({
-          selectedTeamId: equipoSeleccionado.id,
-          teams: saveCreado.modifiedTeams,
-          fixture: saveCreado.fixture
-        });
+        this.gameState.loadSave(saveCreado);
 
-        this.router.navigate(['/inicio',saveCreado.teamId]);
+        this.router.navigate(['/inicio', saveCreado.teamId]);
       },
       error: (err) => {
         console.error('Error al crear partida:', err);

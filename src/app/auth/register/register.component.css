@@ -94,3 +94,9 @@ button {
   margin-top: 1rem;
 }
 
+@media (max-width: 480px) {
+  :host {
+    padding: 1.5rem 1.25rem;
+  }
+}
+

@@ -1,4 +1,7 @@
-<h1>EQUIPOS DISPONIBLES</h1>
+<div class="selection-header">
+    <a routerLink="/menu" class="btn-volver-menu">&larr; Volver al Menú</a>
+    <h1>EQUIPOS DISPONIBLES</h1>
+</div>
 
 <div class="search-container">
     <input 
@@ -32,7 +35,9 @@
                 
                 <div class="team-actions">
                     <button class="btn-secondary" (click)="navigateToPlantel(equipo.id)">Ver Plantel</button>
-                    <button class="btn-primary" (click)="onTeamClick(equipo)">Seleccionar</button>
+                    @if (saveName) {
+                        <button class="btn-primary" (click)="onTeamClick(equipo)">Seleccionar</button>
+                    }
                 </div>
             </div>
         } @empty {

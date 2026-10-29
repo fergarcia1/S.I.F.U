@@ -164,10 +164,30 @@ function tryGenerateCard(team: Teams, minute: number) {
 }
 
 /** Maneja el evento de tarjeta dentro del partido (cardState + eventos) */
-function handleCardEvent(player: Player, teamId: number, minute: number, events: MatchEvent[]) {
+function handleCardEvent(
+  player: Player,
+  cardType: "yellow" | "red",
+  teamId: number,
+  minute: number,
+  events: MatchEvent[]
+) {
   let state = cardState.get(player.id!) ?? { yellow: 0, red: false };
 
   if (state.red) return; // ya expulsado, ignorar
+
+  if (cardType === "red") {
+    // Roja directa
+    state = { yellow: state.yellow, red: true };
+    cardState.set(player.id!, state);
+
+    events.push({
+      minute,
+      type: "red",
+      playerId: player.id!,
+      teamId
+    });
+    return;
+  }
 
   if (state.yellow === 1) {
     // Segunda amarilla → roja en el partido
@@ -217,22 +237,19 @@ function applyCardStateToPlayers(team: Teams) {
     const state = cardState.get(player.id!);
     if (!state) return;
 
-    // Doble amarilla (2 amarillas + roja en el partido) → solo roja en stats
-    if (state.red && state.yellow >= 2) {
+    // Roja (por doble amarilla o roja directa)
+    if (state.red) {
       player.stats.redCards++;
-      return;
-    }
-
-    // Roja directa (sin amarillas en el partido)
-    if (state.red && state.yellow === 0) {
-      player.stats.redCards++;
+      // Si tenía 1 amarilla previa y luego recibió roja directa, también cuenta esa amarilla
+      if (state.yellow === 1) {
+        player.stats.yellowCards++;
+      }
       return;
     }
 
     // Amarilla simple (una sola amarilla y sin roja)
-    if (!state.red && state.yellow === 1) {
+    if (state.yellow === 1) {
       player.stats.yellowCards++;
-      return;
     }
   });
 }
@@ -304,10 +321,10 @@ export function simulateFullMatchRealTime(
 
     // Tarjetas
     const cardHome = tryGenerateCard(homeTeam, minute);
-    if (cardHome) handleCardEvent(cardHome.player, homeTeam.id, minute, events);
+    if (cardHome) handleCardEvent(cardHome.player, cardHome.type, homeTeam.id, minute, events);
 
     const cardAway = tryGenerateCard(awayTeam, minute);
-    if (cardAway) handleCardEvent(cardAway.player, awayTeam.id, minute, events);
+    if (cardAway) handleCardEvent(cardAway.player, cardAway.type, awayTeam.id, minute, events);
 
     // Emitir minuto
     onMinute(events, minute, { home: homeGoals, away: awayGoals });
@@ -385,10 +402,10 @@ export function simulateFullMatch(
 
     // Tarjetas
     const cardHome = tryGenerateCard(homeTeam, minute);
-    if (cardHome) handleCardEvent(cardHome.player, homeTeam.id, minute, events);
+    if (cardHome) handleCardEvent(cardHome.player, cardHome.type, homeTeam.id, minute, events);
 
     const cardAway = tryGenerateCard(awayTeam, minute);
-    if (cardAway) handleCardEvent(cardAway.player, awayTeam.id, minute, events);
+    if (cardAway) handleCardEvent(cardAway.player, cardAway.type, awayTeam.id, minute, events);
   }
 
   // Aplicar estadísticas globales desde cardState

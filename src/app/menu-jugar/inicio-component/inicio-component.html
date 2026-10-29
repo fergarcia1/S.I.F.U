@@ -4,14 +4,14 @@
   </div>
 
   <div class="nav-links">
-    <a [routerLink]="['/inicio', teamId]" class="active">Inicio</a>
-    <a [routerLink]="['/plantilla', teamId]">Plantilla</a>
-    <a [routerLink]="['/fixture', teamId]">Fixture</a>
-    <a [routerLink]="['/tabla', teamId]">Tabla</a>
+    <a [routerLink]="['/inicio', teamId()]" class="active">Inicio</a>
+    <a [routerLink]="['/plantilla', teamId()]">Plantilla</a>
+    <a [routerLink]="['/fixture', teamId()]">Fixture</a>
+    <a [routerLink]="['/tabla', teamId()]">Tabla</a>
 
-    <a [routerLink]="['/estadisticasEquipo', teamId]">Estadísticas Equipo</a>
+    <a [routerLink]="['/estadisticasEquipo', teamId()]">Estadísticas Equipo</a>
 
-    <a [routerLink]="['/estadisticasTorneo', teamId]">Estadísticas Torneo</a>
+    <a [routerLink]="['/estadisticasTorneo', teamId()]">Estadísticas Torneo</a>
   </div>
 
   <div class="nav-spacer"></div>
@@ -75,7 +75,7 @@
 
 
       <div class="menu-option highlight" [class.disabled]="isSeasonFinished()"
-        (click)="!isSeasonFinished() && navigateToMenuSimulacion(teamId!)">
+        (click)="!isSeasonFinished() && navigateToMenuSimulacion(teamId()!)">
         <div class="option-content">
           <h2>CONTINUAR</h2>
 

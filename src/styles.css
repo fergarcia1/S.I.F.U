@@ -6,9 +6,17 @@
 
 html, body {
   margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: #406852; 
+  background-color: #406852;
+  min-height: 100dvh;
+}
+
+img {
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
 }

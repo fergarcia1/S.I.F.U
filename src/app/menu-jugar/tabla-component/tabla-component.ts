@@ -39,19 +39,19 @@ export class TablaComponent {
       if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
 
       // Nombre del equipo alfabéticamente
-      const teamA = this.teams().find(t => t.id === a.teamId)?.name ?? '';
-      const teamB = this.teams().find(t => t.id === b.teamId)?.name ?? '';
+      const teamA = this.teams().find(t => Number(t.id) === Number(a.teamId))?.name ?? '';
+      const teamB = this.teams().find(t => Number(t.id) === Number(b.teamId))?.name ?? '';
 
       return teamA.localeCompare(teamB);
     });
   });
 
   getTeamName(id: number): string {
-    return this.teams().find(t => t.id === id)?.name ?? 'Equipo';
+    return this.teams().find(t => Number(t.id) === Number(id))?.name ?? 'Equipo';
   }
 
   getTeamShortName(id: number): string {
-    return this.teams().find(t => t.id === id)?.shortName ?? '';
+    return this.teams().find(t => Number(t.id) === Number(id))?.shortName ?? '';
   }
 
   getTeamLogo(teamId: number): string {

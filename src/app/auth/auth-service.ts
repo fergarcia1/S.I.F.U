@@ -1,35 +1,41 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/users';
-import { Observable, map, switchMap, throwError } from 'rxjs';
+import { Observable, from, map, switchMap, throwError } from 'rxjs';
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { firestoreDb } from '../firebase.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/users';
+  private readonly usersCol = collection(firestoreDb, 'users');
   private loggedUser?: Users;
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   login(username: string, password: string): Observable<Users | null> {
-    return this.http.get<Users[]>(`${this.apiUrl}?username=${username}&password=${password}`)
-      .pipe(
-        map(users => {
-          if (users.length > 0) {
-            this.loggedUser = users[0];
-            localStorage.setItem('user', JSON.stringify(this.loggedUser));
-            return users[0];
-          }
-          return null;
-        })
-      );
+    const q = query(this.usersCol, where('username', '==', username));
+    return from(getDocs(q)).pipe(
+      map(snapshot => {
+        const users = snapshot.docs
+          .map(d => d.data() as Users)
+          .filter(u => u.password === password);
+
+        if (users.length > 0) {
+          this.loggedUser = users[0];
+          localStorage.setItem('user', JSON.stringify(this.loggedUser));
+          return users[0];
+        }
+        return null;
+      })
+    );
   }
 
   logout() {
     this.loggedUser = undefined;
     localStorage.removeItem('user');
+    localStorage.removeItem('activeSaveId');
   }
 
   isLogged(): boolean {
@@ -39,26 +45,33 @@ export class AuthService {
   getUser(): Users | null {
     return JSON.parse(localStorage.getItem('user') || 'null');
   }
-  checkUserExists(username: string) {
-    return this.http.get<Users[]>(`${this.apiUrl}?username=${username}`);
+
+  checkUserExists(username: string): Observable<Users[]> {
+    const q = query(this.usersCol, where('username', '==', username));
+    return from(getDocs(q)).pipe(
+      map(snapshot => snapshot.docs.map(d => d.data() as Users))
+    );
   }
 
-  register(username: string, password: string) {
-  return this.http.get<Users[]>(`${this.apiUrl}?username=${username}`).pipe(
-    switchMap(users => {
-      if (users.length > 0) {
-        return throwError(() => 'El usuario ya existe');
-      }
+  register(username: string, password: string): Observable<Users> {
+    return this.checkUserExists(username).pipe(
+      switchMap(users => {
+        if (users.length > 0) {
+          return throwError(() => 'El usuario ya existe');
+        }
 
-      const newUser: Users = {
-        id: Date.now(), // genera ID unico
-        username,
-        password,
-        role: 'player'  
-      };
+        const newUser: Users = {
+          id: String(Date.now()),
+          username,
+          password,
+          role: 'player'
+        };
 
-      return this.http.post<Users>(this.apiUrl, newUser);
-    })
-  );
-}
+        const userRef = doc(firestoreDb, 'users', String(newUser.id));
+        return from(setDoc(userRef, newUser)).pipe(
+          map(() => newUser)
+        );
+      })
+    );
+  }
 }

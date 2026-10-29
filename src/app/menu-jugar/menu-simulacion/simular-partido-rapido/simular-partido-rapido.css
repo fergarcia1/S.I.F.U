@@ -172,9 +172,17 @@ button:hover .arrow {
 
 
 @media (max-width: 768px) {
+  .toolbar {
+    margin: 1rem;
+  }
+
+  .simulacion-rapida-container {
+    padding: 1rem;
+  }
+
   .contenedor-eventos {
     grid-template-columns: 1fr; 
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .marcador {
@@ -183,7 +191,6 @@ button:hover .arrow {
   }
   
   .score-box {
-    order: 2; 
     font-size: 2rem;
     padding: 5px 20px;
   }

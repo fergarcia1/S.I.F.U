@@ -23,7 +23,11 @@ export class MenuSimulacion {
   private readonly location = inject(Location);
 
   // obtenemos el equipo seleccionado del estado del juego
-  protected team = signal<Teams | undefined>(undefined);
+  protected team = computed<Teams | undefined>(() => {
+    const id = this.gameState.selectedTeamId() ?? this.teamId;
+    if (!id) return undefined;
+    return this.gameState.getTeamById(id);
+  });
 
   // Computeds para separar jugadores por línea 
   viewGK = computed(() => this.team()?.squad.filter(p => p.isStarter && p.position === 'GK') ?? []);
@@ -41,20 +45,17 @@ export class MenuSimulacion {
   });
 
   constructor() {
-    const teamId = this.gameState.selectedTeamId();
-    if (teamId) {
-      const t = this.gameState.getTeamById(teamId);
-      this.team.set(t);
-    }
   }
 
   goBack() {
     this.location.back();
   }
   navigateToSimulacionPartido(id: number) {
+    this.gameState.authorizeNextMatchSimulation();
     this.router.navigateByUrl(`/simulacionPartido/${id}`);
   }
   navigateToSimulacionPartidoRapido(id: number) {
+    this.gameState.authorizeNextMatchSimulation();
     this.router.navigateByUrl(`/simulacionPartidoRapido/${id}`);
   }
 }

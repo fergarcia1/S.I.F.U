@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
   {
     path: 'listaTeams/:id',
-    canActivate: [AuthGuard, PlayerGuard],
+    canActivate: [AuthGuard],
     component: PlantelComponent
   },
   {

@@ -3,6 +3,7 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto 2rem auto;
+    padding: 0 1rem;
     text-align: center;
 }
 .search-input {
@@ -22,6 +23,7 @@
 .teams-list {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 1rem 2rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -88,10 +90,75 @@ button:hover {
     margin-top: 2rem;
 }
 
+.selection-header {
+    max-width: 900px;
+    margin: 1rem auto 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+}
+
+.selection-header h1 {
+    flex: 1;
+    margin: 0;
+    font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+}
+
+.btn-volver-menu {
+    padding: 8px 16px;
+    background-color: #1e392a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 1px solid #cddc39;
+    transition: opacity 0.2s ease;
+    z-index: 1;
+}
+
+.btn-volver-menu:hover {
+    opacity: 0.85;
+}
+
 h1 {
     text-align: center;
     color: #fff;
     margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .selection-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-volver-menu {
+        text-align: center;
+    }
+
+    .team-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 1rem;
+    }
+
+    .team-card:hover {
+        transform: none;
+    }
+
+    .team-actions {
+        width: 100%;
+    }
+
+    .team-actions button {
+        flex: 1;
+        text-align: center;
+    }
 }
 
 
